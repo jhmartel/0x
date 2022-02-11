@@ -4,9 +4,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Title | JHM Lab.</title>
+<title>Letter To Prof. Assis on Weber, Conservation of Energy. | JHM Lab.</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="Title" />
+<meta property="og:title" content="Letter To Prof. Assis on Weber, Conservation of Energy." />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Optimal Transport, Topology of Singularities, Physics." />
 <meta property="og:description" content="Optimal Transport, Topology of Singularities, Physics." />
@@ -16,9 +16,9 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2022-02-10T00:00:00-06:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Title" />
+<meta property="twitter:title" content="Letter To Prof. Assis on Weber, Conservation of Energy." />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-02-10T00:00:00-06:00","datePublished":"2022-02-10T00:00:00-06:00","description":"Optimal Transport, Topology of Singularities, Physics.","headline":"Title","mainEntityOfPage":{"@type":"WebPage","@id":"https://jhmartel.github.io/fp/2022/02/10/LetterToAssisWeberPotentials.html"},"url":"https://jhmartel.github.io/fp/2022/02/10/LetterToAssisWeberPotentials.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-02-10T00:00:00-06:00","datePublished":"2022-02-10T00:00:00-06:00","description":"Optimal Transport, Topology of Singularities, Physics.","headline":"Letter To Prof. Assis on Weber, Conservation of Energy.","mainEntityOfPage":{"@type":"WebPage","@id":"https://jhmartel.github.io/fp/2022/02/10/LetterToAssisWeberPotentials.html"},"url":"https://jhmartel.github.io/fp/2022/02/10/LetterToAssisWeberPotentials.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/fp/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://jhmartel.github.io/fp/feed.xml" title="JHM Lab." /><link rel="shortcut icon" type="image/x-icon" href="/fp/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -89,13 +89,13 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Title</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-02-10T00:00:00-06:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">Letter To Prof. Assis on Weber, Conservation of Energy.</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-02-10T00:00:00-06:00" itemprop="datePublished">
         Feb 10, 2022
       </time>
        • <span class="read-time" title="Estimated read time">
     
     
-      3 min read
+      2 min read
     
 </span></p>
 
@@ -141,17 +141,6 @@ window.onload = wrap_img;
 
 <div class="container" id="notebook-container">
         
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Dear Professor Assis,</p>
-<p>I am currently studying the Weber potential $U= \frac{e_1 e_2}{r} (1-\frac{r'^2}{2c^2})$ in python, and specifically looking at the equations of motion of an isolated two-body system. Of course I choose one particle to be the origin, and look to solve the equations of motion for the second particle. In computations I take $e_1=e_2=1$ and $c=1$, and the relative mass of the second particle to be $m=0.5$.</p>
-<p>I am fairly confident that I have correctly integrated the equations of motion using python's odeint.</p>
-<p>However I am not able to verify conservation of energy $d(T+U)=0$ along the trajectories, and I am not confident that I have the correct expression for kinetic energy $T$, i use the naive expression $T=mv^2/2$, where $v^2$ is computed in usual way as sum of squares of the velocities of the second particle of mass $m=0.5$. When I use the above expression for $T$ I find the sum $T+U$ is not constant along solutions to the equations of motion $mr''=ma=F$, where $F=-\hat{r} \frac{dU}{dr}$ is Weber's force.</p>
-<p>From your book on "Relational Mechanics" i understand that <em>kinetic energy</em> is more properly defined as the interaction energy of the particle with the stars at infinity. But is the naive kinetic energy the correct expression for the isolated two-body system?</p>
-
-</div>
-</div>
-</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -206,9 +195,8 @@ window.onload = wrap_img;
 <span class="n">t_span</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">40.0</span><span class="p">)</span>
 <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">40.0</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">)</span>
  
+<span class="n">y0</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.4</span><span class="p">,</span> <span class="o">.</span><span class="mi">1</span><span class="p">]</span>  <span class="c1">## initial state of the system y0=[x, y, z, vx, vy, vz]</span>
 
-
-<span class="n">y0</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.4</span><span class="p">,</span> <span class="o">.</span><span class="mi">1</span><span class="p">]</span>  <span class="c1">## initial state of the system y0=[x,y,z,vx,vy,vz]</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">weber</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">tfirst</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
  
 <span class="n">Energy</span><span class="o">=</span><span class="n">T</span><span class="p">(</span><span class="n">y0</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">y0</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">y0</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="p">)</span> <span class="o">+</span> <span class="n">U</span><span class="p">(</span><span class="n">y0</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">y0</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">y0</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="n">y0</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span><span class="n">y0</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span><span class="n">y0</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
@@ -349,7 +337,7 @@ The initial radius r is within the Weber critical distance: True
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The horizontal axis is the radial distance $r$ from the origin, and the vertical axis is the energy value.
 We expect the second figure to be a horizontal straight line. It does appear basically flat except for blow-up behaviour at small distance.</p>
-<p>Is this loss/gain of energy a defect from the odeint routine? In otherwords, is the energy not conserved because of cumulative errors and approximations in the solution?</p>
+<p>Is this loss/gain of energy a defect from the odeint routine? In otherwords, is energy not conserved because of cumulative errors and approximations in the solution?</p>
 
 </div>
 </div>
