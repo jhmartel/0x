@@ -9,8 +9,8 @@
 <meta property="og:title" content="One-Dimensional Ampere Force" />
 <meta name="author" content="JHM" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Ampere force betwen colinear curernt elements, Hilbert transform, force-free distributions." />
-<meta property="og:description" content="Ampere force betwen colinear curernt elements, Hilbert transform, force-free distributions." />
+<meta name="description" content="Ampere force betwen colinear current elements, Hilbert transform, force-free distributions." />
+<meta property="og:description" content="Ampere force betwen colinear current elements, Hilbert transform, force-free distributions." />
 <link rel="canonical" href="https://jhmartel.github.io/fp/fastpages/jupyter/2022/02/18/One_Dimensional_Ampere.html" />
 <meta property="og:url" content="https://jhmartel.github.io/fp/fastpages/jupyter/2022/02/18/One_Dimensional_Ampere.html" />
 <meta property="og:site_name" content="JHM Lab." />
@@ -19,7 +19,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="One-Dimensional Ampere Force" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"JHM"},"dateModified":"2022-02-18T00:00:00-06:00","datePublished":"2022-02-18T00:00:00-06:00","description":"Ampere force betwen colinear curernt elements, Hilbert transform, force-free distributions.","headline":"One-Dimensional Ampere Force","mainEntityOfPage":{"@type":"WebPage","@id":"https://jhmartel.github.io/fp/fastpages/jupyter/2022/02/18/One_Dimensional_Ampere.html"},"url":"https://jhmartel.github.io/fp/fastpages/jupyter/2022/02/18/One_Dimensional_Ampere.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"JHM"},"dateModified":"2022-02-18T00:00:00-06:00","datePublished":"2022-02-18T00:00:00-06:00","description":"Ampere force betwen colinear current elements, Hilbert transform, force-free distributions.","headline":"One-Dimensional Ampere Force","mainEntityOfPage":{"@type":"WebPage","@id":"https://jhmartel.github.io/fp/fastpages/jupyter/2022/02/18/One_Dimensional_Ampere.html"},"url":"https://jhmartel.github.io/fp/fastpages/jupyter/2022/02/18/One_Dimensional_Ampere.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/fp/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://jhmartel.github.io/fp/feed.xml" title="JHM Lab." /><link rel="shortcut icon" type="image/x-icon" href="/fp/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -90,7 +90,7 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">One-Dimensional Ampere Force</h1><p class="page-description">Ampere force betwen colinear curernt elements, Hilbert transform, force-free distributions.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-02-18T00:00:00-06:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">One-Dimensional Ampere Force</h1><p class="page-description">Ampere force betwen colinear current elements, Hilbert transform, force-free distributions.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-02-18T00:00:00-06:00" itemprop="datePublished">
         Feb 18, 2022
       </time>• 
           <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -163,7 +163,7 @@ window.onload = wrap_img;
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="One-Dimensional-Ampere">One-Dimensional Ampere<a class="anchor-link" href="#One-Dimensional-Ampere"> </a></h1><p>We continue with our discussion of Weber's force, and consider the special case where the current elements are all pairwise parallel and colinear. In otherwords we assume the current elements belong the a line $\ell$ in $\bf{R}^3$. For simplicity we consider the current elements belonging to the $z$-axis.</p>
+<h1 id="One-Dimensional-Ampere">One-Dimensional Ampere<a class="anchor-link" href="#One-Dimensional-Ampere"> </a></h1><p>We continue with our discussion of Ampere's force, and consider the special case where the current elements are all pairwise parallel and colinear. In otherwords we assume the current elements belong the a line $\ell$ in $\bf{R}^3$. For simplicity we consider the current elements belonging to the $z$-axis.</p>
 <p>The state of a current element on the $z$-axis is then represented by a real-valued function $v(x)$ representing the <em>velocity</em> of the current element. Likewise we interpret $|v(x)|$ as the <em>intensity</em> of the current element. Ampere's force law in the one-dimensional case then becomes:</p>
 <p>
 $$F_{y ~\text{on}~x} =|v(x)|~|v(y)|~v(x)~v(y) ~\nabla_1 (\frac{1}{r}) .  $$
@@ -177,6 +177,8 @@ $$F_{y ~\text{on}~x} =|v(x)|~|v(y)|~v(x)~v(y) ~\nabla_1 (\frac{1}{r}) .  $$
 <p>Question: How to define Hilbert transform for distributions on the line, i.e. an infinite sum of Dirac masses ?</p>
 <p>Question: Are there any time-independant solutions to the balance equation, i.e. does there exist nonconstant $v\in L^\infty(\bf{R})$ with $H(v)$ constant?</p>
 <p>Question: Can we find time-dependant solutions to the balance equation? I.e. find functions $v_t \in L^\infty$ such that $H(v_t)$ is constant for all time $t$.</p>
+<p>Remark. The Hilbert transform (modulo homothety) is the only singular operator in one-dimensions which commutes with the affine translation and affine dilatation. This corresponds to the Ampere force commuting with the affine change of variables $x\mapsto ax+b$. Since Ampere's force is relational, it seems proper that the corresponding Hilbert transform also possess these same properties.</p>
+<p>Remark. It appears that the only Borel-Radon measures $\mu$ on the real line $\bf{R}$ which have a <em>constant</em> Hilbert transform $H(\mu)=c$ are the uniform measures $\mu=const.dy$. If this remains true, then we identify the kernel of $H\circ H$ with the uniform measures on $\bf{R}$.</p>
 
 </div>
 </div>
