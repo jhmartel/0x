@@ -11,15 +11,15 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Weber potential, positronium, two-body problem." />
 <meta property="og:description" content="Weber potential, positronium, two-body problem." />
-<link rel="canonical" href="https://jhmartel.github.io/fp/fastpages/jupyter/2022/02/22/Positronium_Part1.html" />
-<meta property="og:url" content="https://jhmartel.github.io/fp/fastpages/jupyter/2022/02/22/Positronium_Part1.html" />
+<link rel="canonical" href="https://jhmartel.github.io/fp/weber/positronium/two-body/2022/02/22/Positronium_Part1.html" />
+<meta property="og:url" content="https://jhmartel.github.io/fp/weber/positronium/two-body/2022/02/22/Positronium_Part1.html" />
 <meta property="og:site_name" content="JHM Lab." />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2022-02-22T00:00:00-06:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Positronium Part I." />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"JHM"},"dateModified":"2022-02-22T00:00:00-06:00","datePublished":"2022-02-22T00:00:00-06:00","description":"Weber potential, positronium, two-body problem.","headline":"Positronium Part I.","mainEntityOfPage":{"@type":"WebPage","@id":"https://jhmartel.github.io/fp/fastpages/jupyter/2022/02/22/Positronium_Part1.html"},"url":"https://jhmartel.github.io/fp/fastpages/jupyter/2022/02/22/Positronium_Part1.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"JHM"},"dateModified":"2022-02-22T00:00:00-06:00","datePublished":"2022-02-22T00:00:00-06:00","description":"Weber potential, positronium, two-body problem.","headline":"Positronium Part I.","mainEntityOfPage":{"@type":"WebPage","@id":"https://jhmartel.github.io/fp/weber/positronium/two-body/2022/02/22/Positronium_Part1.html"},"url":"https://jhmartel.github.io/fp/weber/positronium/two-body/2022/02/22/Positronium_Part1.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/fp/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://jhmartel.github.io/fp/feed.xml" title="JHM Lab." /><link rel="shortcut icon" type="image/x-icon" href="/fp/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -98,17 +98,20 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      5 min read
+      6 min read
     
 </span></p>
 
     
       <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
       
-        <a class="category-tags-link" href="/fp/categories/#fastpages">fastpages</a>
+        <a class="category-tags-link" href="/fp/categories/#weber">weber</a>
         &nbsp;
       
-        <a class="category-tags-link" href="/fp/categories/#jupyter">jupyter</a>
+        <a class="category-tags-link" href="/fp/categories/#positronium">positronium</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/fp/categories/#two-body">two-body</a>
         
       
       </p>
@@ -136,23 +139,23 @@ window.onload = wrap_img;
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>[Incomplete Post]Our goal is to study Weber's potential in the isolated two-body system consisting of an electron and positron pair $e^-$ and $e^+$. 
+<p>Today we begin the study of Weber's potential in the isolated two-body system consisting of an electron and positron pair $e^-$ and $e^+$. 
 We assume the particles $e^\pm$ have equal mass $m=m_{e^{\pm}}$. The reduced mass is concentrated at the centre-of-mass $\mu=m/2$.</p>
 <p>Weber's force is attractive between the pair $e^\pm$ at all distances.</p>
-<p>The particles $e^\pm$ do not indefinitely spiral inwards, but simulations indicate that the radial distance between $e^\pm$ stays strictly bounded between two upper and lower limits $$0 &lt; r_{lower} \leq r \leq r_{upper} &lt; + \infty .$$ This is rigorously proved in <a href="https://www.ifi.unicamp.br/~assis/Int-J-Theor-Phys-V30-p537-545(1991">Weber-Clemente, 1990</a>.pdf).</p>
-<p>But do the particles $e^\pm$ ever 'collide' and annihalate?
-In the standard physics textbooks, it seems well known that annihalation between $e^\pm$ occurs and two gamma rays are ejected in opposite directions when $e^\pm$. conserving momentum, etc., and converting <em>all</em> their mass into energy. Thus it's computed that two gamma rays of energy $0.511 keV$ are released. Here the classical formula $E=m_ec^2$ is applied, where $m_e$ is the reduced mass. [ref]</p>
-<p>The annihalation of $e^\pm$ is apparently an experimental test of the validity of Einstein's "mass-energy" hypothesis. But what does Weber's potential say about the annihalation of $e^+$ and $e^-$ ?</p>
+<p>The particles $e^\pm$ do not indefinitely spiral inwards. Simulations indicate that the radial distance between $e^\pm$ stays strictly bounded between two upper and lower limits $$0 &lt; r_{lower} \leq r \leq r_{upper} &lt; + \infty .$$ This is rigorously proved in <a href="https://www.ifi.unicamp.br/~assis/Int-J-Theor-Phys-V30-p537-545(1991">Weber-Clemente, 1990</a>.pdf).</p>
+<p>If the electron is indivisible particle, then the above two-body problem models a pair $e^-$ and $e^+$ of isolated electron and positron.</p>
+<p><em>But do the particles $e^\pm$ ever 'collide' and annihalate?</em></p>
+<p>In the standard physics textbooks, it seems well known that annihalation between $e^\pm$ occurs and two gamma rays are ejected in opposite directions when $e^\pm$. conserving momentum, etc., and converting <em>all</em> their mass into energy. Thus it's determined that two gamma rays of energy $0.511 keV$ are released, where Einstein's formula $E=m_ec^2$ is applied, where $m_e$ is the reduced mass. [ref] The annihalation of $e^\pm$ is apparently an experimental test of the validity of Einstein's "mass-energy" hypothesis.</p>
+<p>But what does Weber's potential say about the annihalation of $e^+$ and $e^-$ ?</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>References for this section: we have used Assis-Clemente [Ibid], and the lecture notes [ref].</p>
 <p>If we know the centre of mass has zero net force, then we can replace the positions $r_1$, $r_2$ of the particles by their relative distance $r_{12}$ from the centre of mass. This yields $$r_1=R +\frac{m_2}{m_1+m_2} r_{12}$$ and $$r_2=R -\frac{m_1}{m_1+m_2} r_{12}.$$</p>
 <p>Applying Newton's Second Law that $F_{21}=-F_{12}$ yields the following equation for $r_{12}''$: $$ \mu . r_{12}'' = F_{21},$$ where $\mu$ is the reduced mass of the system, namely $\mu=\frac{m_1 m_2}{m_1+m_2}=0.5$.</p>
-<p>In the following equations we use odeint to solve Weber equations of motion of the relative distance $r_{12}$. Therefore we have reduced the two-body problem to a one-body problem based only on relative position $r_{12}$ and it's relative velocity $r_{12}'$ and relative acceleration $r''_{12}$.</p>
+<p>In the following equations we use numpy.odeint to solve Weber equations of motion of the relative distance $r_{12}$. Therefore we have reduced the two-body problem to a one-body problem. This is a standard reduction.</p>
 <p>Given the solution for $r_{12}$, how do we reconstruct the paths/positions of the particles $r_1$, $r_2$ ? Answer: via the relation $r_1=R+\frac{m_2}{m_1+m_2} r_{12}$ and $r_2=R-\frac{m_1}{m_1 + m_2}r_{12}$.</p>
 <p>Now the relative distance $r_{12}$ is a type of radial distance, and if $r, \omega$ is spherical coordinates, then we have $$r'^2=|v|^2= x'^2+y'^2+z'^2=(r')^2+r^2 (\theta')^2. $$  The above formula is the usual $|v|^2=v_r^2+v_t^2$, and the tangent velocity $v_t$ satisfies $v_t=r\theta'$, where $\theta'$ is the angular velocity.</p>
 <p>The conservation of angular momentum says that the angular moment $L=\mu r\times v$, where $v$ is the linear velocity of $r$, is constant along the motion. Moreover one has $$|L|=\mu r^2 \theta'.$$ Thus we find the formula $$\theta'=\frac{|L|}{\mu r^2}.$$ This implies $$T=\frac{\mu}{2}v^2= \frac{\mu}{2}[(r')^2+\frac{|r\times v|^2}{r^{2}}]$$ represents the kinetic energy of the system.</p>
@@ -164,14 +167,13 @@ In the standard physics textbooks, it seems well known that annihalation between
     
     
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p><div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">odeint</span><span class="p">,</span> <span class="n">solve_ivp</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
+<div class=" highlight hl-python"><pre><span></span><span class="c1"># Here we define basic functions.</span>
 
 <span class="k">def</span> <span class="nf">cross</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">):</span>
     <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">z1</span> <span class="o">=</span> <span class="n">v1</span>
@@ -216,12 +218,34 @@ In the standard physics textbooks, it seems well known that annihalation between
     <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span> <span class="o">=</span> <span class="n">rel_position</span>
     <span class="n">vx</span><span class="p">,</span><span class="n">vy</span><span class="p">,</span><span class="n">vz</span> <span class="o">=</span> <span class="n">rel_velocity</span>
     <span class="n">rdot</span><span class="o">=</span><span class="n">dot</span><span class="p">(</span><span class="n">rel_position</span><span class="p">,</span> <span class="n">rel_velocity</span><span class="p">)</span><span class="o">/</span><span class="n">rho</span><span class="p">(</span><span class="n">rel_position</span><span class="p">)</span>
-    <span class="k">return</span> <span class="o">-</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">rho</span><span class="p">(</span><span class="n">rel_position</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="p">(</span><span class="n">rdot</span><span class="o">*</span><span class="n">rdot</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> 
+    <span class="k">return</span> <span class="o">-</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">rho</span><span class="p">(</span><span class="n">rel_position</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="p">(</span><span class="n">rdot</span><span class="o">*</span><span class="n">rdot</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+</p>
+    </details>
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">odeint</span><span class="p">,</span> <span class="n">solve_ivp</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
+
 
 <span class="c1">## Integrating two-body isolated system of oppositely charged particles</span>
 <span class="c1">## i.e. positron+electron pair.</span>
 
-<span class="c1">## the product of the charges q1*q2 is factor in Weber&#39;s force law, and appears twice</span>
+<span class="c1">## The product of the charges q1*q2 is factor in Weber&#39;s force law, and appears twice</span>
 <span class="c1">## in the formula of Newton&#39;s F=ma. </span>
 
 <span class="k">def</span> <span class="nf">weber</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">rel_state</span><span class="p">):</span>
@@ -248,13 +272,11 @@ In the standard physics textbooks, it seems well known that annihalation between
 
 <span class="n">t_span</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">100.0</span><span class="p">)</span>
 <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">100.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
-<span class="c1">#y0=[20,0,0, 1.2, .2, 0.2]  ## initial state of the system y0=[x, y, z, vx, vy, vz]</span>
 
+<span class="n">y1</span><span class="o">=</span><span class="p">[</span><span class="mf">2.0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,]</span> <span class="c1"># initial relative position</span>
+<span class="n">v1</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="c1"># initial relative velocity</span>
 
-<span class="n">y1</span><span class="o">=</span><span class="p">[</span><span class="mf">2.0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,]</span>
-<span class="n">v1</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
-
-<span class="n">result</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">weber</span><span class="p">,</span> <span class="n">y1</span><span class="o">+</span><span class="n">v1</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">tfirst</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">weber</span><span class="p">,</span> <span class="n">y1</span><span class="o">+</span><span class="n">v1</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">tfirst</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1">#here odeint solves the weber equations of motion relative y1+v1 for t.</span>
 
 
 <span class="n">Energy</span><span class="o">=</span><span class="n">T</span><span class="p">(</span><span class="n">y1</span><span class="p">,</span><span class="n">v1</span><span class="p">)</span> <span class="o">+</span> <span class="n">U</span><span class="p">(</span><span class="n">y1</span><span class="p">,</span><span class="n">v1</span><span class="p">)</span>
@@ -319,6 +341,19 @@ The initial angular momentum is equal to 0.8
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>What does the above plot demonstrate?</p>
+<p>It reveals a precession motion around the centre of mass. This is not predicted by Coulomb's force, which bounds the trajectories to elliptical orbits like Newton's Law of Gravitation.</p>
+<p>The force is central, therefore we have conservation of angular momentum, and implies the system is constrained to a plane, namely orthogonal to the angular moment of the system.</p>
+<p>Moreover the system satisfies a conservation of linear momentum, namely the sum $T+U$ is constant.</p>
+<ul>
+<li>Problem: Verify Assis-Clemente's 1990 formula for the lower and upper limits of the relative distance along the orbits.</li>
+</ul>
+
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -406,7 +441,9 @@ The initial angular momentum is equal to 0.8
     </div>
 </div>
 </div>
-
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Output" data-close="Show Output"></summary>
+        <p>
 <div class="output_wrapper">
 <div class="output">
 
@@ -423,14 +460,17 @@ The initial angular momentum is equal to 0.8
 
 </div>
 </div>
-
+</p>
+    </details>
 </div>
     
 
     
     
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p><div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
@@ -453,7 +493,8 @@ The initial angular momentum is equal to 0.8
     </div>
 </div>
 </div>
-
+</p>
+    </details>
 <div class="output_wrapper">
 <div class="output">
 
@@ -502,7 +543,7 @@ The initial angular momentum is equal to 0.8
         theme="github-light"
         crossorigin="anonymous"
         async>
-</script><a class="u-url" href="/fp/fastpages/jupyter/2022/02/22/Positronium_Part1.html" hidden></a>
+</script><a class="u-url" href="/fp/weber/positronium/two-body/2022/02/22/Positronium_Part1.html" hidden></a>
 </article>
 
       </div>
