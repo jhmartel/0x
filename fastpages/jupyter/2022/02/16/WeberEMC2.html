@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Weber’s Critical Radius, Work, and E=mc2 Formulas | JHM Lab.</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Weber’s Critical Radius, Work, and E=mc2 Formulas" />
+<meta name="author" content="JHM" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Weber, Work, Critical Radius" />
+<meta property="og:description" content="Weber, Work, Critical Radius" />
+<link rel="canonical" href="https://jhmartel.github.io/fp/fastpages/jupyter/2022/02/16/WeberEMC2.html" />
+<meta property="og:url" content="https://jhmartel.github.io/fp/fastpages/jupyter/2022/02/16/WeberEMC2.html" />
+<meta property="og:site_name" content="JHM Lab." />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-02-16T00:00:00-06:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Weber’s Critical Radius, Work, and E=mc2 Formulas" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"JHM"},"dateModified":"2022-02-16T00:00:00-06:00","datePublished":"2022-02-16T00:00:00-06:00","description":"Weber, Work, Critical Radius","headline":"Weber’s Critical Radius, Work, and E=mc2 Formulas","mainEntityOfPage":{"@type":"WebPage","@id":"https://jhmartel.github.io/fp/fastpages/jupyter/2022/02/16/WeberEMC2.html"},"url":"https://jhmartel.github.io/fp/fastpages/jupyter/2022/02/16/WeberEMC2.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/fp/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://jhmartel.github.io/fp/feed.xml" title="JHM Lab." /><link rel="shortcut icon" type="image/x-icon" href="/fp/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/fp/">JHM Lab.</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/fp/about/">About Me</a><a class="page-link" href="/fp/search/">Search</a><a class="page-link" href="/fp/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Weber&#39;s Critical Radius, Work, and E=mc2 Formulas</h1><p class="page-description">Weber, Work, Critical Radius</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-02-16T00:00:00-06:00" itemprop="datePublished">
+        Feb 16, 2022
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">JHM</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      5 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/fp/categories/#fastpages">fastpages</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/fp/categories/#jupyter">jupyter</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-justify-center">
+          <div class="px-2">
+
+    <a href="https://github.com/jhmartel/fp/tree/master/_notebooks/2022-02-16-WeberEMC2.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/fp/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/jhmartel/fp/master?filepath=_notebooks%2F2022-02-16-WeberEMC2.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/fp/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/jhmartel/fp/blob/master/_notebooks/2022-02-16-WeberEMC2.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/fp/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+          <div class="px-2">
+  <a href="https://deepnote.com/launch?url=https%3A%2F%2Fgithub.com%2Fjhmartel%2Ffp%2Fblob%2Fmaster%2F_notebooks%2F2022-02-16-WeberEMC2.ipynb" target="_blank">
+      <img class="notebook-badge-image" src="/fp/assets/badges/deepnote.svg" alt="Launch in Deepnote"/>
+  </a>
+</div>
+
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2022-02-16-WeberEMC2.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a href="https://colab.research.google.com/github/jhmartel/fp/blob/master/_notebooks/2022-02-16-WeberEMC2.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" /></a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In the [previous post] we discussed the equations of motion of a charged particle in free fall w.r.t. Weber's potential $U$. Now we consider the problem of work, and the problem of moving particles "upstream" of the potential.</p>
+<p>Recall the Coulomb-type expression that "opposite charges attract" and "like charges repel". If we arranged some charged particles on a plate, then in a short time these particles would either be repelled outwards to the boundary of the plate or the opposite charges would cancel on the interior. Again this is with respect to the Coulomb model $V(r)=1/r$.</p>
+<p>But Weber's model has the following amazing prediction: "opposite charges attract except at a small critical distance $r=r_c$ where the charges acquires a <em>negative</em> inertial mass and the Weber force becomes repulsive". Furthermore, "like charges repel except at a small critical distance where the Weber force becomes attractive". This latter prediction leads to Weber's *planetary model of the atom". [Insert ref].</p>
+<p>In the (cgs) units the critical radius $r_c$ is computed as $r_c=\frac{1}{m c^2}$ where $m$ is the relative inertial mass of one of the particles. The proof of this formula is an application of Newton's second law, that $m a = \bf{F}$ where $\bf{F}$ is Weber's force. [insert ref]</p>
+<p>Now the question arises: if we have two identical but opposite electrically charged particles, say $(-1)e$ and $(+1)e$, where $e$ is a small mass, then how much <em>work</em> is required to drive $(-1)e$ and $(+1)e$ to within Weber's critical radius $r_c$?</p>
+<p>Weber comments in his final memoir [ref] that an <em>infinite</em> amount of work would be required, however no technical details are provided. In fact this author thinks its evident that a large finite amount of work is required, and the computation of this work required is the subject of this post.</p>
+<p>How to compute Work: We imagine a particle moving through a potential $U$ along a trajectory $\gamma.$ Our goal is to determine how much work is required to breach ("pass through") the critical radius $r_c=\frac{1}{mc^2}$ in units where $4 \pi\epsilon_0  = 1$.</p>
+<p>We begin assuming the particle's trajectory is <em>rectilinear</em>. This means the tangent $\gamma'$ and $\gamma$ are parallel for all values of the parameter. Moreover we can use the Riemannian idea of parameterizing the curve by arclength. Then we ask how much work is required to move the particle through $U$ at a constant rate of speed, namely $||\gamma'||=1$.</p>
+<p>Weber's force is conservative, so there is some path independance, however the terminal conditions are not fixed a priori. It might happen that breaching the Weber radius is easier if the particles velocity is nearly parallel to the "virtual" surface of the Weber's critical radius. That is to say, the curvature term $r r''/c^2$ in Weber's force law might sometimes reduce the work needed, depending on the sign.</p>
+<p>In terms of the relational variables recall the useful formula/definition $$ r' = \frac{\bf{r} \cdot \bf{r'}}{r}.$$ In our setting we find $$r'=\frac{\gamma \cdot \gamma'}{||\gamma||}.$$ Applying the Cauchy-Schwartz inequality, we find $$r'=1.$$ I.e. equality is obtained in Cauchy-Schwartz because $\gamma, \gamma'$ are parallel by hypothesis and $||\gamma'||=1$.</p>
+<p>Moreover the rectilinear motion implies $r''=0$, i.e. the trajectory has zero curvature, since the direction of the particle does not change. Therefore Weber's force leads to work being computed by the integral $$W=(1-\frac{1}{2c^2})\int_{+\infty}^{r_c} \frac{1}{r^2} dr     = (1-\frac{1}{2c^2})mc^2=mc^2-m/2.$$ So what is the total energy of the above system? The total energy is the work required $mc^2 - m/2$ plus the initial kinetic energy $T_i=m|\gamma'|^2/2=m/2$. Therefore the total energy required to breach the Weber critical radius is $E=W+T_i=mc^2$.</p>
+<p>N.B. All the while our particles are "travelling upstream". So the above computation indicates that if a particle is given sufficient energy (i.e. sufficient kinetic energy, then the particle could breach the Weber critical radius, and arriving at the Weber radius with almost zero kinetic energy).</p>
+<p>N.B. The integral representing $W$ is parameterization independant. Therefore the work required by the unit-parameterized path is not overly specialized, but represents the general computation.</p>
+<p>The above discussion was restricted to <em>rectilinear</em> trajectories. But the possibility remains that curvilinear ("spiralling") trajectories require less work to breach the Weber radius. Thus while it appears that breaching the Weber radius via rectilinear paths requires large energy $\approx mc^2$, perhaps the spiralling paths -- where the curvature term maintains a definite sign -- are the more interesting.</p>
+<p>Problem: Determine the minimum energy required for an isolated two-body system to breach the Weber critical radius.</p>
+<p>Answer: The minimum energy required to breach the critical radius is $E=mc^2$.</p>
+<p>This is consequence of the fact that $\bf{F}$ is a conservative force, therefore dependant only on the initial and terminal states, and not the path taken. Moreover the work done by a particle traversing a path $\gamma$ depends only on the difference in potential energies. This implies that the above evaluation in the <em>rectilinear</em> case is essentially the same for all paths from some initial point to to within the critical radius.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ol>
+<li>Is the energy spectrum within the critical radius continuous? (Yes, i think the orbits can have arbitrary energy within the radius).</li>
+<li>How to relate Birkeland currents (FFAC) to Weber's potential?
+Don Scott considers the plasma cylinder, with a stead current. Then the min energy state has zero internal pressure, therefore the net internal energy of the plasma cylinder needs be minimized, i.e. vanishing. Difficulty: without the Maxwell equations we do not know relationship between the current flow $I d\ell=qdv$. This equality is Weber's hypothesis, i.e. a current flow is equivalent to a charge in motion, where $dv$ represents the instantaneous velocity of the charged particle.</li>
+</ol>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="jhmartel/fp"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/fp/fastpages/jupyter/2022/02/16/WeberEMC2.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/fp/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/fp/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/fp/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Optimal Transport, Topology of Singularities, Physics.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
