@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>How to Automatically Align Cover Letters and CVs with Job Posts | JHM Lab.</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="How to Automatically Align Cover Letters and CVs with Job Posts" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Using scaPy to automatically align with job postings." />
+<meta property="og:description" content="Using scaPy to automatically align with job postings." />
+<link rel="canonical" href="https://jhmartel.github.io/fp/python/jupyter/job/scapy/2022/03/15/Keywords_CV.html" />
+<meta property="og:url" content="https://jhmartel.github.io/fp/python/jupyter/job/scapy/2022/03/15/Keywords_CV.html" />
+<meta property="og:site_name" content="JHM Lab." />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-03-15T00:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="How to Automatically Align Cover Letters and CVs with Job Posts" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-03-15T00:00:00-05:00","datePublished":"2022-03-15T00:00:00-05:00","description":"Using scaPy to automatically align with job postings.","headline":"How to Automatically Align Cover Letters and CVs with Job Posts","mainEntityOfPage":{"@type":"WebPage","@id":"https://jhmartel.github.io/fp/python/jupyter/job/scapy/2022/03/15/Keywords_CV.html"},"url":"https://jhmartel.github.io/fp/python/jupyter/job/scapy/2022/03/15/Keywords_CV.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/fp/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://jhmartel.github.io/fp/feed.xml" title="JHM Lab." /><link rel="shortcut icon" type="image/x-icon" href="/fp/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/fp/">JHM Lab.</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/fp/about/">About Me</a><a class="page-link" href="/fp/search/">Search</a><a class="page-link" href="/fp/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">How to Automatically Align Cover Letters and CVs with Job Posts</h1><p class="page-description">Using scaPy to automatically align with job postings.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-03-15T00:00:00-05:00" itemprop="datePublished">
+        Mar 15, 2022
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      5 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/fp/categories/#python">python</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/fp/categories/#jupyter">jupyter</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/fp/categories/#job">job</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/fp/categories/#scapy">scapy</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-justify-center">
+          <div class="px-2">
+
+    <a href="https://github.com/jhmartel/fp/tree/master/_notebooks/2022-03-15-Keywords_CV.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/fp/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/jhmartel/fp/master?filepath=_notebooks%2F2022-03-15-Keywords_CV.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/fp/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/jhmartel/fp/blob/master/_notebooks/2022-03-15-Keywords_CV.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/fp/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+          <div class="px-2">
+  <a href="https://deepnote.com/launch?url=https%3A%2F%2Fgithub.com%2Fjhmartel%2Ffp%2Fblob%2Fmaster%2F_notebooks%2F2022-03-15-Keywords_CV.ipynb" target="_blank">
+      <img class="notebook-badge-image" src="/fp/assets/badges/deepnote.svg" alt="Launch in Deepnote"/>
+  </a>
+</div>
+
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2022-03-15-Keywords_CV.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a href="https://colab.research.google.com/github/jhmartel/fp/blob/master/_notebooks/2022-03-15-Keywords_CV.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" /></a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+<center class="youtube-iframe-wrapper">
+    <iframe width="730" height="315" src="https://www.youtube.com/embed/gdK9Mj5PO2g" frameborder="0" allowfullscreen=""></iframe>
+</center>
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>What's my goal? To get a job involving mathematics, cyber security, technical writing and coding.</p>
+<p>Do i need send out 200+ cv's without any replies? Some people say "yes", but I really don't know if it's productive.</p>
+<p>On LinkedIn there was a better suggestion: Find five or six positions where i'm a moderate match (~~60-70%) and reverse-engineer a cv and cover letter for each of them. Here we mean using the same verbs (action words), noun groups (things), and entities. For example, can we ensure that the name of the company, and role, and somebody specific (human reader) is also referenced in the submitted cv and cover letter?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The starting point is spaCy.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="c1"># python -m spacy download en_core_web_sm</span>
+<span class="kn">import</span> <span class="nn">spacy</span>
+<span class="c1"># Load English tokenizer, tagger, parser and NER</span>
+<span class="n">nlp</span> <span class="o">=</span> <span class="n">spacy</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;en_core_web_sm&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We find the job posting, and we are going to copy the contents to a text file, and upload into our google drive.</p>
+<p>For example, we were reviewing a company called "Giatec" and the position posted at <a href="https://giatecscientific.bamboohr.com/jobs/view.php?id=107&amp;source=bamboohr">https://giatecscientific.bamboohr.com/jobs/view.php?id=107&amp;source=bamboohr</a></p>
+<p>Another job is <a href="https://www.linkedin.com/jobs/view/2750187552/?eBP=JOB_SEARCH_ORGANIC&amp;recommendedFlavor=ACTIVELY_HIRING_COMPANY&amp;refId=nml6mNf8uTGRIKmPP5zvJw%3D%3D&amp;trackingId=HfH6ZH1GBKokUeeNyN9TdA%3D%3D&amp;trk=flagship3_search_srp_jobs">https://www.linkedin.com/jobs/view/2750187552/?eBP=JOB_SEARCH_ORGANIC&amp;recommendedFlavor=ACTIVELY_HIRING_COMPANY&amp;refId=nml6mNf8uTGRIKmPP5zvJw%3D%3D&amp;trackingId=HfH6ZH1GBKokUeeNyN9TdA%3D%3D&amp;trk=flagship3_search_srp_jobs</a></p>
+<p>We copy paste the relevant contents of the job post to a .txt document. For example we called the file giatek.txt .</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">f</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;./guidewire.txt&quot;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">f_string</span><span class="o">=</span><span class="n">f</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>  <span class="c1"># converts the binary text document into a python string.</span>
+
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="n">f_string</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">f_string</span><span class="p">)</span>
+
+<span class="c1">#Now we get a nice clean string, with all &quot;\n&quot; characters removed.</span>
+<span class="c1">#print(f_string)</span>
+
+<span class="n">doc</span> <span class="o">=</span> <span class="n">nlp</span><span class="p">(</span><span class="n">f_string</span><span class="p">)</span>
+
+<span class="c1"># Analyze syntax</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Noun phrases:&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">chunk</span><span class="o">.</span><span class="n">text</span> <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">doc</span><span class="o">.</span><span class="n">noun_chunks</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Verbs:&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">token</span><span class="o">.</span><span class="n">lemma_</span> <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">doc</span> <span class="k">if</span> <span class="n">token</span><span class="o">.</span><span class="n">pos_</span> <span class="o">==</span> <span class="s2">&quot;VERB&quot;</span><span class="p">])</span>
+
+<span class="c1"># Find named entities, phrases and concepts</span>
+<span class="c1">#for entity in doc.ents:</span>
+<span class="c1">#    print(entity.text, entity.label_)</span>
+
+
+
+<span class="c1"># we can begin with the longest verbs, which we assume are the most &quot;interesting&quot;.</span>
+
+<span class="n">verb_list</span><span class="o">=</span><span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">doc</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">token</span><span class="o">.</span><span class="n">pos_</span> <span class="o">==</span> <span class="s2">&quot;VERB&quot;</span><span class="p">:</span>
+ <span class="c1">#       print(token.lemma_)</span>
+        <span class="n">verb_list</span><span class="o">=</span><span class="n">verb_list</span><span class="o">+</span><span class="p">[</span><span class="n">token</span><span class="o">.</span><span class="n">lemma_</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span> 
+        <span class="k">pass</span>
+
+<span class="n">verb_list</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">verb_list</span><span class="p">))</span>
+<span class="n">verb_list</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">verb</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">verb</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">verb_list</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">verb_list</span><span class="p">)</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;the length of the verb list is: &quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">verb_list</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Noun phrases: [&#39;Principal Data&#39;, &#39;Scientist/ Modeler&#39;, &#39;Cyber Risk Analytics&#39;, &#39;CAN Remote Option&#39;, &#39;the job&#39;, &#39;a new challenge&#39;, &#39;Join Guidewire&#39;, &#39;a Principal Data Modeler&#39;, &#39;Guidewire&#39;, &#39;Cyence Risk Analytics products&#39;, &#39;the property &amp; casualty (P&amp;C) industry&#39;, &#39;new and evolving risks&#39;, &#39;cyber&#39;, &#39;internet-scale data listening&#39;, &#39;adaptive machine learning&#39;, &#39;insurance risk modeling&#39;, &#39;Cyence Risk Analytics&#39;, &#39;insights&#39;, &#39;P&amp;C customers&#39;, &#39;new risks&#39;, &#39;advantage&#39;, &#39;new opportunities&#39;, &#39;new products&#39;, &#39;Who&#39;, &#39;We&#39;, &#39;What&#39;, &#39;We&#39;, &#39;What&#39;, &#39;We&#39;, &#39;Guidewire&#39;, &#39;the AWS&#39;, &#39;insurance&#39;, &#39;the market leader&#39;, &#39;380 insurance companies&#39;, &#39;our mission&#39;, &#39;we&#39;, &#39;underwriters&#39;, &#39;policies&#39;, &#39;agents&#39;, &#39;claims&#39;, &#39;We&#39;, &#39;a great decision&#39;, &#39;house&#39;, &#39;Our products&#39;, &#39;cyber risk quantification&#39;, &#39;potent ML sandboxes&#39;, &#39;We&#39;, &#39;a post-IPO company&#39;, &#39;the vision&#39;, &#39;insurance&#39;, &#39;a lot&#39;, &#39;Who&#39;, &#39;You&#39;, &#39;Your responsibilities&#39;, &#39;a Principal Modeler&#39;, &#39;methodologies&#39;, &#39;the impact&#39;, &#39;cyber security risk&#39;, &#39;other emerging risks&#39;, &#39;the P&amp;C industry&#39;, &#39;different data sources&#39;, &#39;features&#39;, &#39;assumptions&#39;, &#39;our set&#39;, &#39;risk models&#39;, &#39;Calibrating&#39;, &#39;testing&#39;, &#39;different types&#39;, &#39;models&#39;, &#39;the insurance space&#39;, &#39;Integrating modeling processes&#39;, &#39;our production pipeline&#39;, &#39;our platform Communicating technical details&#39;, &#39;the models&#39;, &#39;their outputs&#39;, &#39;individuals&#39;, &#39;various backgrounds&#39;, &#39;cyber analysts&#39;, &#39;data engineers&#39;, &#39;modelers&#39;, &#39;product managers&#39;, &#39;What&#39;, &#39;We&#39;, &#39;Master&#39;, &#39;PhD degree&#39;, &#39;a quantitative field&#39;, &#39;(e.g. CS&#39;, &#39;years&#39;, &#39;solid statistics&#39;, &#39;predictive modeling foundations&#39;, &#39;Experience&#39;, &#39;data analysis&#39;, &#39;feature engineering&#39;, &#39;data visualization&#39;, &#39;hypotheses&#39;, &#39;Experience&#39;, &#39;different types&#39;, &#39;datasets&#39;, &#39;missing information&#39;, &#39;Experience&#39;, &#39;parametric and non-parametric models&#39;, &#39;a production-level environment&#39;, &#39;High level proficiency&#39;, &#39;Python&#39;, &#39;R&#39;, &#39;SQL Good&#39;, &#39;verbal communication skills Ability&#39;, &#39;a dynamic environment&#39;, &#39;new tools&#39;, &#39;domain knowledge&#39;, &#39;the way&#39;, &#39;A positive attitude&#39;, &#39;a growth mindset Bonus Insurance&#39;, &#39;actuarial modeling&#39;, &#39;financial modeling&#39;, &#39;experience General understanding&#39;, &#39;computer network&#39;, &#39;cybersecurity Experience&#39;, &#39;Cloud infrastructure&#39;, &#39;(e.g. AWS&#39;, &#39;open source data processing frameworks&#39;, &#39;(e.g. Hadoop&#39;, &#39;Spark&#39;, &#39;Mongo&#39;, &#39;Cassandra&#39;, &#39;Guidewire  Guidewire&#39;, &#39;the platform P&amp;C insurers&#39;, &#39;Guidewire&#39;, &#39;core&#39;, &#39;data&#39;, &#39;digital&#39;, &#39;analytics&#39;, &#39;AI&#39;, &#39;our platform&#39;, &#39;a cloud service&#39;, &#39;More than 400 insurers&#39;, &#39;the world&#39;, &#39;Guidewire&#39;, &#39;a partner&#39;, &#39;our customers&#39;, &#39;we&#39;, &#39;their success&#39;, &#39;We&#39;, &#39;our unparalleled implementation track record&#39;, &#39;1000+ successful projects&#39;, &#39;the largest R&amp;D team&#39;, &#39;partner ecosystem&#39;, &#39;the industry&#39;, &#39;Our Marketplace&#39;, &#39;hundreds&#39;, &#39;add-ons&#39;, &#39;integration&#39;, &#39;localization&#39;, &#39;innovation&#39;, &#39;Guidewire Software Inc.&#39;, &#39;equal employment opportunities&#39;, &#39;all applicants&#39;, &#39;employment&#39;, &#39;discrimination&#39;, &#39;harassment&#39;, &#39;any type&#39;, &#39;regard&#39;, &#39;race&#39;, &#39;color&#39;, &#39;religion&#39;, &#39;age&#39;, &#39;sex&#39;, &#39;national origin&#39;, &#39;disability status&#39;, &#39;genetics&#39;, &#39;veteran status&#39;, &#39;sexual orientation&#39;, &#39;gender identity&#39;, &#39;expression&#39;, &#39;any other characteristic&#39;, &#39;federal, state or local laws&#39;, &#39;All offers&#39;, &#39;a criminal history&#39;, &#39;other background checks&#39;, &#39;it&#39;, &#39;the position&#39;, &#39;We&#39;, &#39;individuals&#39;, &#39;disabilities&#39;, &#39;reasonable accommodation&#39;, &#39;the job application&#39;, &#39;interview process&#39;, &#39;essential job functions&#39;, &#39;other benefits&#39;, &#39;privileges&#39;, &#39;employment&#39;, &#39;us&#39;, &#39;accommodation&#39;]
+Verbs: [&#39;CAN&#39;, &#39;join&#39;, &#39;help&#39;, &#39;model&#39;, &#39;evolve&#39;, &#39;combine&#39;, &#39;provide&#39;, &#39;help&#39;, &#39;face&#39;, &#39;take&#39;, &#39;develop&#39;, &#39;believe&#39;, &#39;build&#39;, &#39;run&#39;, &#39;support&#39;, &#39;craft&#39;, &#39;settle&#39;, &#39;believe&#39;, &#39;make&#39;, &#39;should&#39;, &#39;require&#39;, &#39;range&#39;, &#39;redefine&#39;, &#39;do&#39;, &#39;will&#39;, &#39;include&#39;, &#39;develop&#39;, &#39;implement&#39;, &#39;quantify&#39;, &#39;emerge&#39;, &#39;affect&#39;, &#39;explore&#39;, &#39;come&#39;, &#39;enhance&#39;, &#39;validate&#39;, &#39;feed&#39;, &#39;communicate&#39;, &#39;relate&#39;, &#39;work&#39;, &#39;look&#39;, &#39;test&#39;, &#39;work&#39;, &#39;miss&#39;, &#39;implement&#39;, &#39;write&#39;, &#39;think&#39;, &#39;pick&#39;, &#39;open&#39;, &#39;trust&#39;, &#39;engage&#39;, &#39;innovate&#39;, &#39;grow&#39;, &#39;combine&#39;, &#39;deliver&#39;, &#39;include&#39;, &#39;run&#39;, &#39;evolve&#39;, &#39;enable&#39;, &#39;support&#39;, &#39;provide&#39;, &#39;accelerate&#39;, &#39;provide&#39;, &#39;prohibit&#39;, &#39;protect&#39;, &#39;protect&#39;, &#39;pass&#39;, &#39;will&#39;, &#39;ensure&#39;, &#39;provide&#39;, &#39;participate&#39;, &#39;perform&#39;, &#39;receive&#39;, &#39;contact&#39;, &#39;request&#39;]
+59
+[&#39;communicate&#39;, &#39;participate&#39;, &#39;accelerate&#39;, &#39;implement&#39;, &#39;innovate&#39;, &#39;prohibit&#39;, &#39;redefine&#39;, &#39;quantify&#39;, &#39;validate&#39;, &#39;develop&#39;, &#39;deliver&#39;, &#39;explore&#39;, &#39;combine&#39;, &#39;contact&#39;, &#39;require&#39;, &#39;support&#39;, &#39;receive&#39;, &#39;perform&#39;, &#39;request&#39;, &#39;provide&#39;, &#39;believe&#39;, &#39;include&#39;, &#39;protect&#39;, &#39;enhance&#39;, &#39;evolve&#39;, &#39;emerge&#39;, &#39;enable&#39;, &#39;should&#39;, &#39;settle&#39;, &#39;affect&#39;, &#39;engage&#39;, &#39;ensure&#39;, &#39;relate&#39;, &#39;write&#39;, &#39;range&#39;, &#39;trust&#39;, &#39;think&#39;, &#39;craft&#39;, &#39;model&#39;, &#39;build&#39;, &#39;miss&#39;, &#39;work&#39;, &#39;look&#39;, &#39;make&#39;, &#39;open&#39;, &#39;feed&#39;, &#39;face&#39;, &#39;test&#39;, &#39;help&#39;, &#39;pass&#39;, &#39;come&#39;, &#39;pick&#39;, &#39;grow&#39;, &#39;will&#39;, &#39;take&#39;, &#39;join&#39;, &#39;CAN&#39;, &#39;run&#39;, &#39;do&#39;]
+the length of the verb list is:  59
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">sentence_list</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">verb</span> <span class="ow">in</span> <span class="n">verb_list</span><span class="p">:</span>
+    <span class="n">user_sent</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">verb</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;  ---&gt;&gt;  &quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">user_sent</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">:</span> 
+        <span class="n">sentence_list</span><span class="o">=</span><span class="n">sentence_list</span><span class="o">+</span><span class="p">[</span><span class="n">user_sent</span><span class="p">]</span>
+        
+    <span class="k">else</span><span class="p">:</span>
+      
+        <span class="k">pass</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">KeyboardInterrupt</span>                         Traceback (most recent call last)
+<span class="ansi-green-fg">/usr/local/lib/python3.7/dist-packages/ipykernel/kernelbase.py</span> in <span class="ansi-cyan-fg">_input_request</span><span class="ansi-blue-fg">(self, prompt, ident, parent, password)</span>
+<span class="ansi-green-intense-fg ansi-bold">    728</span>             <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 729</span><span class="ansi-red-fg">                 </span>ident<span class="ansi-blue-fg">,</span> reply <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>session<span class="ansi-blue-fg">.</span>recv<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>stdin_socket<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    730</span>             <span class="ansi-green-fg">except</span> Exception<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">/usr/local/lib/python3.7/dist-packages/jupyter_client/session.py</span> in <span class="ansi-cyan-fg">recv</span><span class="ansi-blue-fg">(self, socket, mode, content, copy)</span>
+<span class="ansi-green-intense-fg ansi-bold">    802</span>         <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 803</span><span class="ansi-red-fg">             </span>msg_list <span class="ansi-blue-fg">=</span> socket<span class="ansi-blue-fg">.</span>recv_multipart<span class="ansi-blue-fg">(</span>mode<span class="ansi-blue-fg">,</span> copy<span class="ansi-blue-fg">=</span>copy<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    804</span>         <span class="ansi-green-fg">except</span> zmq<span class="ansi-blue-fg">.</span>ZMQError <span class="ansi-green-fg">as</span> e<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">/usr/local/lib/python3.7/dist-packages/zmq/sugar/socket.py</span> in <span class="ansi-cyan-fg">recv_multipart</span><span class="ansi-blue-fg">(self, flags, copy, track)</span>
+<span class="ansi-green-intense-fg ansi-bold">    624</span>         &#34;&#34;&#34;
+<span class="ansi-green-fg">--&gt; 625</span><span class="ansi-red-fg">         </span>parts <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">[</span>self<span class="ansi-blue-fg">.</span>recv<span class="ansi-blue-fg">(</span>flags<span class="ansi-blue-fg">,</span> copy<span class="ansi-blue-fg">=</span>copy<span class="ansi-blue-fg">,</span> track<span class="ansi-blue-fg">=</span>track<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">]</span>
+<span class="ansi-green-intense-fg ansi-bold">    626</span>         <span class="ansi-red-fg"># have first part already, only loop while more to receive</span>
+
+<span class="ansi-green-fg">zmq/backend/cython/socket.pyx</span> in <span class="ansi-cyan-fg">zmq.backend.cython.socket.Socket.recv</span><span class="ansi-blue-fg">()</span>
+
+<span class="ansi-green-fg">zmq/backend/cython/socket.pyx</span> in <span class="ansi-cyan-fg">zmq.backend.cython.socket.Socket.recv</span><span class="ansi-blue-fg">()</span>
+
+<span class="ansi-green-fg">zmq/backend/cython/socket.pyx</span> in <span class="ansi-cyan-fg">zmq.backend.cython.socket._recv_copy</span><span class="ansi-blue-fg">()</span>
+
+<span class="ansi-green-fg">/usr/local/lib/python3.7/dist-packages/zmq/backend/cython/checkrc.pxd</span> in <span class="ansi-cyan-fg">zmq.backend.cython.checkrc._check_rc</span><span class="ansi-blue-fg">()</span>
+
+<span class="ansi-red-fg">KeyboardInterrupt</span>: 
+
+During handling of the above exception, another exception occurred:
+
+<span class="ansi-red-fg">KeyboardInterrupt</span>                         Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-3-464af29b72aa&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> sentence_list<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">]</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-green-fg">for</span> verb <span class="ansi-green-fg">in</span> verb_list<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">----&gt; 3</span><span class="ansi-red-fg">     </span>user_sent<span class="ansi-blue-fg">=</span>input<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34; &#34;</span><span class="ansi-blue-fg">+</span>str<span class="ansi-blue-fg">(</span>verb<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">+</span><span class="ansi-blue-fg">&#34;  ---&gt;&gt;  &#34;</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      4</span>     <span class="ansi-green-fg">if</span> len<span class="ansi-blue-fg">(</span>user_sent<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">&gt;</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">      5</span>         sentence_list<span class="ansi-blue-fg">=</span>sentence_list<span class="ansi-blue-fg">+</span><span class="ansi-blue-fg">[</span>user_sent<span class="ansi-blue-fg">]</span>
+
+<span class="ansi-green-fg">/usr/local/lib/python3.7/dist-packages/ipykernel/kernelbase.py</span> in <span class="ansi-cyan-fg">raw_input</span><span class="ansi-blue-fg">(self, prompt)</span>
+<span class="ansi-green-intense-fg ansi-bold">    702</span>             self<span class="ansi-blue-fg">.</span>_parent_ident<span class="ansi-blue-fg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    703</span>             self<span class="ansi-blue-fg">.</span>_parent_header<span class="ansi-blue-fg">,</span>
+<span class="ansi-green-fg">--&gt; 704</span><span class="ansi-red-fg">             </span>password<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">False</span><span class="ansi-blue-fg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    705</span>         )
+<span class="ansi-green-intense-fg ansi-bold">    706</span> 
+
+<span class="ansi-green-fg">/usr/local/lib/python3.7/dist-packages/ipykernel/kernelbase.py</span> in <span class="ansi-cyan-fg">_input_request</span><span class="ansi-blue-fg">(self, prompt, ident, parent, password)</span>
+<span class="ansi-green-intense-fg ansi-bold">    732</span>             <span class="ansi-green-fg">except</span> KeyboardInterrupt<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    733</span>                 <span class="ansi-red-fg"># re-raise KeyboardInterrupt, to truncate traceback</span>
+<span class="ansi-green-fg">--&gt; 734</span><span class="ansi-red-fg">                 </span><span class="ansi-green-fg">raise</span> KeyboardInterrupt
+<span class="ansi-green-intense-fg ansi-bold">    735</span>             <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    736</span>                 <span class="ansi-green-fg">break</span>
+
+<span class="ansi-red-fg">KeyboardInterrupt</span>: </pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">text_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;sentence_list_guidewire.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
+<span class="c1">#Opens or creates the .txt file, sharing the directory of the script#</span>
+
+<span class="k">for</span> <span class="n">sent</span> <span class="ow">in</span> <span class="n">sentence_list</span><span class="p">:</span>
+    <span class="n">text_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">sent</span><span class="p">)</span>
+    <span class="n">text_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="c1">#Writes the variable into the .txt file#</span>
+<span class="n">text_file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="c1">#Closes the .txt file#</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="jhmartel/fp"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/fp/python/jupyter/job/scapy/2022/03/15/Keywords_CV.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/fp/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/fp/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/fp/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Optimal Transport, Topology of Singularities, Physics.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
