@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Cyber Risk and (Un)Insurability | JHM Lab.</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Cyber Risk and (Un)Insurability" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Brief intro to the problem of cyber insurance…" />
+<meta property="og:description" content="Brief intro to the problem of cyber insurance…" />
+<link rel="canonical" href="https://jhmartel.github.io/fp/cyber%20insurance/2022/03/25/Insurance.html" />
+<meta property="og:url" content="https://jhmartel.github.io/fp/cyber%20insurance/2022/03/25/Insurance.html" />
+<meta property="og:site_name" content="JHM Lab." />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-03-25T00:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Cyber Risk and (Un)Insurability" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-03-25T00:00:00-05:00","datePublished":"2022-03-25T00:00:00-05:00","description":"Brief intro to the problem of cyber insurance…","headline":"Cyber Risk and (Un)Insurability","mainEntityOfPage":{"@type":"WebPage","@id":"https://jhmartel.github.io/fp/cyber%20insurance/2022/03/25/Insurance.html"},"url":"https://jhmartel.github.io/fp/cyber%20insurance/2022/03/25/Insurance.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/fp/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://jhmartel.github.io/fp/feed.xml" title="JHM Lab." /><link rel="shortcut icon" type="image/x-icon" href="/fp/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/fp/">JHM Lab.</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/fp/about/">About Me</a><a class="page-link" href="/fp/search/">Search</a><a class="page-link" href="/fp/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Cyber Risk and (Un)Insurability</h1><p class="page-description">Brief intro to the problem of cyber insurance...</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-03-25T00:00:00-05:00" itemprop="datePublished">
+        Mar 25, 2022
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      12 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/fp/categories/#cyber insurance">cyber insurance</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-justify-center">
+          <div class="px-2">
+
+    <a href="https://github.com/jhmartel/fp/tree/master/_notebooks/2022-03-25-Insurance.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/fp/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/jhmartel/fp/master?filepath=_notebooks%2F2022-03-25-Insurance.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/fp/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/jhmartel/fp/blob/master/_notebooks/2022-03-25-Insurance.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/fp/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+          <div class="px-2">
+  <a href="https://deepnote.com/launch?url=https%3A%2F%2Fgithub.com%2Fjhmartel%2Ffp%2Fblob%2Fmaster%2F_notebooks%2F2022-03-25-Insurance.ipynb" target="_blank">
+      <img class="notebook-badge-image" src="/fp/assets/badges/deepnote.svg" alt="Launch in Deepnote"/>
+  </a>
+</div>
+
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2022-03-25-Insurance.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a href="https://colab.research.google.com/github/jhmartel/fp/blob/master/_notebooks/2022-03-25-Insurance.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" /></a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The market for cyber insurance appears relatively small compared to other conventional insurance markets. This raises the very interesting question "Is Cyber Risk Insurable?".</p>
+<p>In an extreme sense, all events are insurable. However the insurer might be driven to ruin and lose everything. So more specifically, not all events can be <em>consistently profitably insured</em>. Insurance policies are wagers about future-costs of variable goods and services. A profitable insurance policy requires accurate forecasts of expected future costs. Moreover the distribution of these losses and events need to be reasonably non-correlated. This is the difficult with insuring houses in flood zones, since a flood typically floods <em>all</em> the houses in a given region, and not a house "here and there". On the other hand, house fires don't typically affect multiples houses at once (although fires ``spread" of course).</p>
+<p>The question of which events <em>are</em> profitably insurable was considered by Baruch Berliner in various articles. Berliner's insurability criteria is the following:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We are influenced by deFinetti's definition of probability in terms of Dutch books and wagers. It's not enough to say that an event has 50% probability, for everyone is entitled to their opinion on the probabilities, but to <em>show</em> that you believe the event has 50% probability means you will <em>wager</em> on the outcome for anything better than 1:1 odds, i.e. you will happily sell bets where the odds are less than 50%, and will buy bets where the odds are greater than 50%.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The story of insurance starts with a basic equation: $$Price=Cost+Profit.$$ The equation is almost tautological, simply expressing that "profit" is <em>defined</em> as the difference between "price" and "cost".</p>
+<p>For noninsurance companies, the production cost is known before the product is sold, and the initial price can be set to achieve a profit. This ensures that price is greater than cost, and the profit is positive ($&gt;0$).</p>
+<p>Insurance is much riskier. <em>"Insurance is a product which promises to do something in the future if certain events take place during a specified time period."</em></p>
+<p>Thus insurance needs to set a price <em>now</em> to cover a cost that might arise in the <em>future</em> during a specified time interval.</p>
+<p>Ex. Insurance promises to pay for rebuilding a home in case of fire; or promises to pay for medical treatment if a worker is injured on the job.</p>
+<p>Insurance is a type of <em>futures contract</em>, offering products and services in the future if a predetermined set of events occur. However it's difficult for insurance to be profitable if, for example, the costs of the services are subject to change in the future. Thus insurance needs estimate the expected cost of its policies, and needs set prices which will cover all expected costs. This is the business of <em>rate-making</em>.</p>
+<p>Ratemaking in insurance has the goal of setting rates such that the premiums are expected to cover all costs and achieve the target underwriting profit. Some equivalent definitions:</p>
+<ul>
+<li>A profitable rate provides for all costs associated with the transfer of risk.</li>
+<li>A profitable rate is an estimate of the expected value of future costs. </li>
+</ul>
+<p>Ratemaking is difficult when the costs are not known at the point of sale and need be estimated.</p>
+<p>N.B. Historic costs only used to the extent that they provide valuable information for estimating future costs.</p>
+<p>Similar to the futures and options financial markets, the most profitable position is to be a net seller to the market, being involved in both buying and selling of insurance contracts. Thus insurance firms also buy and sell insurance contracts between themselves in order to diversify their own risks, and as a means of locking in profit by transferring their risk to third parties. This is the business of <em>under writing</em>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Are there uninsurable risks?</p>
+<p>Yes, according to the insurance companies, any risk that is <em>not measurable</em> is considered uninsurable.</p>
+<p>Why?</p>
+<p>Because the insurance company cannot set rates with a reasonable expectation of profit. For example, it's recently reported that up to 10% of houses risk becoming uninsurable due to the increase of local flooding, c.f. <a href="https://renx.ca/newsletter/residential-real-estate-news-2013-07-09/">"‘Many, many’ Canadian homes could become uninsurable"</a> and <a href="https://thenewdaily.com.au/finance/finance-news/2022/03/06/insurance-floods-climate/">"Uninsurable"</a>.</p>
+<p>In otherwords, the actuaries are faced with a new reality, where the historical records are no longer relevant. Moreover, flooding typically threatens multiple houses simultaneously, and this compounded risk (or dependancy) is risky for the insurer.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Ratemaking is related to estimates on the value at risk, or VaR.</p>
+<p>Ex. An asset may have a 3% one month VaR of 2% representing a 3% chance of the asset declining in value by 2% during the one-month time frame.</p>
+<p>The VaR formalism introduces the notion of <em>confidence interval</em>. [Incomplete].</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>So what about cyber security and cyber risk?</p>
+<p>The goal of cyber insurance should be to transfer risk.</p>
+<p>Claim: cyber insurance is essentially different from <em>indemnity insurance</em>. [how?].</p>
+<ol>
+<li><p>Unlike motor insurance, or home insurance, or life insurance, any firm offering cyber insurance has its own proper cyber risk. (I.e. there is operational cyber risk with the insurance company itself). For example, one rarely needs consider whether your car insurance is at risk of being in an accident, or whether your home insurance provider will have their offices destroyed. But any cyberinsurance company  and it's proper IT structure will always face cyber risk themselves.</p>
+</li>
+<li><p>Motor insurance is protection for uncorrelated risks. Likewise home insurance claims do not usually result in simultaneous neighbouring claims, except in catastrophic natural events like hurricanes, floods, etc.. Likewise a vehicular accident usually involves a minimal number of secondary vehicles (although, of course this does also happen). But cyberrisks are significantly correlated with each other [ref].</p>
+</li>
+</ol>
+<p>Quote: " Two properties distinguish cyber-risk from conventional risk. First, nowadays ICT resources are not isolated machines, but interconnected in a network. Their value largely emerges from this interconnection, therefore the analysis of risk and potential losses must take into account the inter-dependencies between connected nodes. Second, most ICT resources are universal automatons and thus have a dual nature: if operational,they generate value for its operators and therefore become loss sources when they malfunction; moreover, when abused or “taken over” by malicious attackers, benign nodes can become threats to other nodes."</p>
+<p>[Extract from [ref]]
+Def: We thus define cyber risk as “operational risks to information and
+technology assets that have consequences affecting the confidentiality, availability, or integrity of information or information systems” (Cebula and Young, 2010). In contrast to the property and liability category it is notable that cyber risk is a mixture of short- and long-tail risks, which can be of a first- and third-party nature. Cyber risk thus is a combination of both categories. In contrast to the terror and cat risk one striking result is that cyber is a low frequency/high severity risk with respect to extreme scenarios, but it also has a high frequency component, which we could call the cyber risks “of daily life” (e.g., hacker attacks). Again it seems that unlike other risk categories, that cyber is a mix of categories.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a href="https://www.canadianunderwriter.ca/insurance/four-uninsurable-cyber-risks-1004214054/">"Four Uninsurable Cyber Risks"</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The following is taken from the above link [ref].</p>
+<p>“Historically, in property insurance, damages caused by war have been seen as uninsurable,” said Tim Zeilman, vice president and global product owner-cyber, Hartford Steam Boiler, during an A.M. Best Company Inc. webinar. “I think the same is true for cyber.”</p>
+<p>"Munich Re would deem a risk as insurable if it is measurable – if you are able to quantify what your exposure is, said Annamaria Landaverde, senior vice president and cyber team lead for Munich Re U.S.".</p>
+<p>Munich Re generally considers the following three categories of events as insurable:</p>
+<p>a widespread malware event;
+a cloud outage;
+a widespread data breach.
+This is because the reinsurer could quantify its maximum probable loss, said Landaverde.</p>
+<p>On the other hand, she said, the following three categories of widespread critical infrastructure outages are generally uninsurable:</p>
+<p>satellite communications
+the Internet; and
+the electrical grid.</p>
+<p>Munich Re would deem them uninsurable because – at least under a cyber policy – the reinsurer could not quantify the maximum probable loss, she suggested.</p>
+<p>Then there is the category of war losses.</p>
+<p>“I think it is just a question of adequately defining what war means from a cyber perspective. War has changed. Thinking about old-fashioned kinetic war may not make sense for cyber,” said Zeilman.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a href="https://riskandinsurance.com/top-five-uninsurable-risks/">Top Five Uninsurable Risks</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Notes-on-Hubbard's-Book.">Notes on Hubbard's Book.<a class="anchor-link" href="#Notes-on-Hubbard's-Book."> </a></h1><p>The following are some notes based on my reading of "How to Measure Anything in Cybersecurity and Risk". They are basically direct quotations from the text.</p>
+<p>Measurement is an observation that quantitatively reduces uncertainty. 
+Equivalently, a measurement is a quantitatively expressed reduction of uncertainty on one or more observations. [p.21].</p>
+<p>Probability: idea from Shannon we use probabilities because we lack perfect information. Quote from Ron Howard [p.25] "...The whole idea of probability is to be able to describe by numbers your ignorance, or equivalently your knowledge. So no matter how knowledgeable or ignorant you are, that's going to determine what probabilities are consistent with that."</p>
+<p>Example: to want performance metrics for IT security. but, "what do you mean by 'IT security'?". Ask enough questions and they mean things like a reduction in intrusions and virus infections. These things impact the organization through fraud, lost productivity, or potential legal liabilities (i.e. if a laptop is stolen that contains private information for alot of people!).</p>
+<p>If X is something that we care about, then X by definition, must be detectable in some way. How could we care about an undetectable event. If the event is detectable, then we can measure "more of it" or measure "less of it" along a relative scale.</p>
+<p>Terms which initially vague like "threat capability" or "reputation to damage" or "customer confidence" seem immeasurable at first, but these terms can be decomposed into lists of more specific things.</p>
+<p>Measure of uncertainty: a set of probabilities assigned to a set of possibilities: "There is a 20% chance we will have a data breach sometime in the next five years."</p>
+<p>Risk: A state of uncertainty where some of the possibilities involve a loss, catastrophe, or other undesirable outcomes.</p>
+<p>Measurement of Risk: a set of possibilities, each with quantified probabilities and quantified losses. "We believe there is a 10% chance that a data breach will result in a legal liability exceeding $10 million."</p>
+<p>Need unlearn the term "statistically significant".</p>
+<p>Measuring with very small random samples of a very large population.</p>
+<p>Measuring when many other, even unknown, variables are involved. E.g. we can estimate how much a new security control reduced risk even when there are many other factors affecting whether or not losses due to cyberattacks occur.</p>
+<p>Measuring the risk of rare events.
+Measuring subjective preferences and values.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Hubbard-and-Rule-of-Five:">Hubbard and Rule of Five:<a class="anchor-link" href="#Hubbard-and-Rule-of-Five:"> </a></h1><p>Consider a random sample of five of anything. E.g., time spent by employees on websites, a survey of firms in some industry reporting cybersecurity budgets.</p>
+<p><em>What is the chance that the median of the entire population is between the largest and smallest of that sample of five?</em></p>
+<p>The answer is 93.75%.</p>
+<p>For the sample population to not contain the median in its convex hull requires that all the samples live either below or above the median. And this amounts to flipping a fair coin five times such that all outcomes are HHHHH or TTTTT.</p>
+<p>Here are the hypotheses:</p>
+<ol>
+<li><p>No matter how complex or "unique" your measurement problem seems, assume it has been measured before.</p>
+</li>
+<li><p>If you are resourceful, you can probably find more sources of data than you first thought.</p>
+</li>
+<li><p>You probably need less data than your intuition tells you -- this is actually even more the case when you have alot of uncertainty now.</p>
+</li>
+</ol>
+<p>Instead of rating the likelihood on a scale of 1 to 5, Hubbard method substitutes: Estimating the probability of the event occurring in a given period of time (e.g. 1 year). "Event X has a 10% chance of occurring in the next 12 months".</p>
+<p>Rating impact on a scale of 1 to 5: substitute "Estimating a 90% confidence interval for a monetized loss". "If event X occurs, there is a 90% chance the loss will be between 1 million and 8 million."</p>
+<p>Plotting likelihood and impact scores on a risk matrix: substitute using the quantitative  likelihood and impact to generate a "loss exceedance curve" using a Monte Carlo simulation.</p>
+<p>Further dividing the risk matrix into risk categories or red/yellow/green: Compare the loss exceedance curve to a risk tolerance curve and prioritizing actions based on return on mitigation.</p>
+<p>Events | Assigned Probabilities | Range of Losses.</p>
+<p>Risk Curves, Loss Exceedance Curves.</p>
+<p>To a subjectivist, a probability merely describes what a person knows, whether or not the uncertainty involves a fixed fact, such as the true mean of a population, as long as it is unrevealed to the observer. Using probabilities (and confidence intervals) as an expression of uncertainty is the practical approach for making risky decisions.</p>
+<p>Note by JHM: "Here we diverge somewhat from Hubbard in his interpretation of the subjectivist view. For what is the confidence interval ? What does it mean to have a 90% confidence that X occurs ?</p>
+<p>Enter deFinetti's definition of operational probabilities, namely as the wagering rate for the event. If a person has 90% confidence that X happens, then are they willing to take an 8:1 bet on the outcome of event X happening? So here perhaps the event X is not repeatable, but then we can imagine a population of bettors who are looking to wager on the event X, having their <em>own</em> subjective probabilities.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="jhmartel/fp"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/fp/cyber%20insurance/2022/03/25/Insurance.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/fp/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/fp/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/fp/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Optimal Transport, Topology of Singularities, Physics.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
