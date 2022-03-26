@@ -4,17 +4,15 @@ title: About Me
 permalink: /about/
 ---
 
-Welcome to JHM Labs !
+Welcome to JHM Labs.
 
-JHM is a CDN mathematician specializing in optimal transport, costs, energy, electrodynamics, topology of singularity, and more. 
+JHM is a Canadian mathematician, specializing in optimal transport, costs, probability, energy, electrodynamics, topology of singularities, and more. Beyond mathematics, we have interest in natural science, classical physics, economics, monetary policy, commodities, and technology. 
 
-This blog is the beginning of JHM releasing preprints and broadcasting ideas. Our interest is developing our python skill set, and simultaneously developing the electrodynamics inspired by Ampere, Weber, and the Brazilian physicist AKT Assis.
-
-These days [2022-03-17] we are specially interested in the mathematics of insurance and cyber risk. The question of _measuring_ cyber risks is key to enabling profitable cyber insurance policies. This is subject of current research.
+This website is powered by **[fastpages](https://github.com/fastai/fastpages)** [^1]. We are releasing preprints and broadcasting ideas and short articles. Our goal is to regularly release draft articles. Specifically we are interested in developing our python skills, investigating the electrodynamics inspired by Ampere, Weber, and the Brazilian physicist A.K.T. Assis at Unicamp University.
 
 
 
-This website is powered by **[fastpages](https://github.com/fastai/fastpages)** [^1].
+
 
 
 
