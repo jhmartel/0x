@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Alexandrov and Souls. Part 1. | JHM Lab.</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Alexandrov and Souls. Part 1." />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Very brief update on a work in progress. Studying the problem of souls on singular Alexandrov spaces." />
+<meta property="og:description" content="Very brief update on a work in progress. Studying the problem of souls on singular Alexandrov spaces." />
+<link rel="canonical" href="https://jhmartel.github.io/fp/alexandrov/souls/singular/2022/04/22/Alexandrov.html" />
+<meta property="og:url" content="https://jhmartel.github.io/fp/alexandrov/souls/singular/2022/04/22/Alexandrov.html" />
+<meta property="og:site_name" content="JHM Lab." />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-04-22T00:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Alexandrov and Souls. Part 1." />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-04-22T00:00:00-05:00","datePublished":"2022-04-22T00:00:00-05:00","description":"Very brief update on a work in progress. Studying the problem of souls on singular Alexandrov spaces.","headline":"Alexandrov and Souls. Part 1.","mainEntityOfPage":{"@type":"WebPage","@id":"https://jhmartel.github.io/fp/alexandrov/souls/singular/2022/04/22/Alexandrov.html"},"url":"https://jhmartel.github.io/fp/alexandrov/souls/singular/2022/04/22/Alexandrov.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/fp/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://jhmartel.github.io/fp/feed.xml" title="JHM Lab." /><link rel="shortcut icon" type="image/x-icon" href="/fp/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/fp/">JHM Lab.</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/fp/about/">About Me</a><a class="page-link" href="/fp/search/">Search</a><a class="page-link" href="/fp/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Alexandrov and Souls. Part 1.</h1><p class="page-description"> Very brief update on a work in progress. Studying the problem of souls on singular Alexandrov spaces.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-04-22T00:00:00-05:00" itemprop="datePublished">
+        Apr 22, 2022
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      3 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/fp/categories/#Alexandrov">Alexandrov</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/fp/categories/#souls">souls</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/fp/categories/#singular">singular</a>
+        
+      
+      </p>
+    
+
+    
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2022-04-22-Alexandrov.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a href="https://colab.research.google.com/github/jhmartel/fp/blob/master/_notebooks/2022-04-22-Alexandrov.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" /></a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>I've had something on my mind about Alexandrov spaces for awhile. I let the idea rest for 17 months, but I'm curious to see what I can squeeze out of it.
+<a href="https://github.com/jhmartel/CAT">Here</a> you can locate the draft article. It's still a work-in-progress. I would elaborate on the problem, except i have no python code to illustrate.</p>
+<p>What is an Alexandrov space?</p>
+<p>An Alexandrov space $(X,d)$ is a metric space, like a Riemannian manifold but possibly with corners and sharp angles, and where triangles are <em>fat</em>. Examples include: convex sets $C$, the boundaries of convex sets $\partial C$, affine space $\mathbf{R}^d$.</p>
+<p>We are interested in the singular mm-spaces, so we use the synthetic definition of sectional curvature and not necessarily the Gaussian definition of differential Riemannian geometry. Alexandrov spaces have sectional curvature $\kappa \geq 0$, which implies that every geodesic triangle $\Delta(a,b,c)$ in $X$ is <em>fatter</em> than the comparison triangle $\tilde{\Delta}$ in $\mathbf{R}^2$.</p>
+<p>In Alexandrov geometry, geodesics frequently focus and collide. Initially geodesic rays might appear to be orthogonal, but at a not-too-faraway time, the rays will focus and converge back to a point. After this refocussing the geodesics might or might not diverge again to infinity. Positive sectional curvature tends to manifest in general relativity spacetimes, where the presence of mass (attractive matter) tends to cause light rays to focus and converge.</p>
+<p>Our goal is a general method for constructing the <em>souls</em> of singular finite-dimensional Alexandrov spaces.</p>
+<p>The original result on souls was achieved by G. Perelman (1994), building on the work of Gromoll, Meyer, Cheeger. Perelman's result in the Riemannian setting was that the souls $S$ of Riemannian Alexandrov spaces $(X,g)$ had the property that: $X$ was diffeomorphic to the normal bundle of $S$.</p>
+<p>So what remains to be proved in the singular setting?</p>
+<p>On a singular Alexandrov space, the space of directions at every point is isometric to an Alexandrov space of curvature $\kappa \geq 1$. For almost all points, this space of directions is isometric to a $d-1$ dimensional sphere $\mathbf{S}^{d-1}$. This is well-known regularity property of Alexandrov spaces, namely that almost all points are regular. This is analogous to the fact in convex analysis that <em>proper lower semicontinuous convex functions are differentiable almost everywhere.</em></p>
+<p>The challenge in the singular setting is to define gradient flows which are naturally defined and extended through the singular points.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Python-and-Alexandrov?">Python and Alexandrov?<a class="anchor-link" href="#Python-and-Alexandrov?"> </a></h1><p>Our approach to mathematics is based on discovery. We are not confident in our ability to determine what is true in mathematics a priori. Rather we prefer to experiment and discovery what is true.</p>
+<p>So how can we use python to study Alexandrov spaces? It's not clear...
+There is an analogy between lsc proper convex functions $f: \mathbf{R}^d \to \mathbf{R} \cup \{+\infty\}$ and Alexandrov spaces.</p>
+<p>For example, the regularity of Alexandrov spaces follows from the fact that: lsc proper convex functions are differentiable almost-everywhere on their domain. This is because the gradient $D f$ is Lipschitz on its domain, and therefore differentiable almost-everywhere. Therefore $f$ is even twice-differentiable almost everywhere on its domain.</p>
+<p>Similarly, if an Alexandrov space contains a doubly-ended geodesic ray, then the Splitting theorem says $X=\mathbf{R}^1 \times X_0$ where $X_0$ is again Alexandrov. For convex lsc proper functions, the analogous fact is this: if the graph of the derivative $Df$ contains a double ended straight line, then up to a change of variable, $f$ can be factored as $f=\ell(x_1) + f_0(x_2, \ldots, x_d)$ where $\ell$ is affine and $f_0$ is a convex function which only depends on the remaining variables $x_2, \ldots, x_d$. (There may be slight error here, but this is essentially the idea as i learned from Prof. R.J. McCann.)</p>
+<p>But the proper lsc convex functions are something like the <em>local</em> theory of Alexandrov spaces. For example, a difficult result in the foundations of Alexandrov geometry is Toponogov's Globalization theorem, namely: if a space satisfies Toponogov comparison everywhere on small neighborhoods, then the space satisfies Toponogov comparison globally.</p>
+<p>Although we should note that the convex analysis analog does not readily lead to a proof of Toponogov's Globalization theorem, which is  very difficult result in foundations of Alexandrov geometry. For functions $f$ on $\mathbf{R}^d$, if $f$ is locally convex, then $f$ is globally convex.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="jhmartel/fp"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/fp/alexandrov/souls/singular/2022/04/22/Alexandrov.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/fp/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/fp/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/fp/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Optimal Transport, Topology of Singularities, Physics.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
