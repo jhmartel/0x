@@ -95,7 +95,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      3 min read
+      4 min read
     
 </span></p>
 
@@ -136,17 +136,17 @@ window.onload = wrap_img;
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>I've had something on my mind about Alexandrov spaces for awhile. I let the idea rest for 17 months, but I'm curious to see what I can squeeze out of it.
-<a href="https://github.com/jhmartel/CAT">Here</a> you can locate the draft article. It's still a work-in-progress. I would elaborate on the problem, except i have no python code to illustrate.</p>
-<p>What is an Alexandrov space?</p>
-<p>An Alexandrov space $(X,d)$ is a metric space, like a Riemannian manifold but possibly with corners and sharp angles, and where triangles are <em>fat</em>. Examples include: convex sets $C$, the boundaries of convex sets $\partial C$, affine space $\mathbf{R}^d$.</p>
+<p><a href="https://github.com/jhmartel/CAT">Here</a> is available a very rough work-in-progress. I've let the idea rest for seventeen months. It's difficult to illustrate the idea in python, and there appears no application of python to Alexandrov geometry yet.</p>
+<p>What is Alexandrov geometry?</p>
+<p>Introductions and references are available from <a href="https://arxiv.org/abs/1903.08539">Alexander, Kapovitch, Petrunin</a>. The subject is notoriously difficult. The original paper of <a href="https://www.ihes.fr/~gromov/wp-content/uploads/2018/08/386.pdf">Burago, Gromov, Perelman</a> is still useful.</p>
+<p>An Alexandrov space $(X,d)$ is a fat and round metric space, like a sphere or cube but possibly with corners and sharp angles, and where triangles are <em>fat</em>. Examples include: convex sets $C$, the boundaries of convex sets $\partial C$, affine space $\mathbf{R}^d$. There are several important metric constructions by which spaces with curvature bounded below ($CBB[\kappa]$ in the notation of AKP).</p>
 <p>We are interested in the singular mm-spaces, so we use the synthetic definition of sectional curvature and not necessarily the Gaussian definition of differential Riemannian geometry. Alexandrov spaces have sectional curvature $\kappa \geq 0$, which implies that every geodesic triangle $\Delta(a,b,c)$ in $X$ is <em>fatter</em> than the comparison triangle $\tilde{\Delta}$ in $\mathbf{R}^2$.</p>
 <p>In Alexandrov geometry, geodesics frequently focus and collide. Initially geodesic rays might appear to be orthogonal, but at a not-too-faraway time, the rays will focus and converge back to a point. After this refocussing the geodesics might or might not diverge again to infinity. Positive sectional curvature tends to manifest in general relativity spacetimes, where the presence of mass (attractive matter) tends to cause light rays to focus and converge.</p>
 <p>Our goal is a general method for constructing the <em>souls</em> of singular finite-dimensional Alexandrov spaces.</p>
 <p>The original result on souls was achieved by G. Perelman (1994), building on the work of Gromoll, Meyer, Cheeger. Perelman's result in the Riemannian setting was that the souls $S$ of Riemannian Alexandrov spaces $(X,g)$ had the property that: $X$ was diffeomorphic to the normal bundle of $S$.</p>
 <p>So what remains to be proved in the singular setting?</p>
-<p>On a singular Alexandrov space, the space of directions at every point is isometric to an Alexandrov space of curvature $\kappa \geq 1$. For almost all points, this space of directions is isometric to a $d-1$ dimensional sphere $\mathbf{S}^{d-1}$. This is well-known regularity property of Alexandrov spaces, namely that almost all points are regular. This is analogous to the fact in convex analysis that <em>proper lower semicontinuous convex functions are differentiable almost everywhere.</em></p>
-<p>The challenge in the singular setting is to define gradient flows which are naturally defined and extended through the singular points.</p>
+<p>On a singular Alexandrov space, the space of directions at every point is isometric to an Alexandrov space of curvature $\kappa \geq 1$. The metric distance on the space of directions $\Sigma_p X$ at a point $x$ is defined by the angle between the directions. Alexandrov spaces (curvature bounded below by zero) have well-defined angles and directions. For almost all points, this space of directions is isometric to a $d-1$ dimensional sphere $\mathbf{S}^{d-1}$. This is well-known regularity property of Alexandrov spaces, namely that almost all points are regular. This is analogous to the fact in convex analysis that <em>proper lower semicontinuous convex functions are differentiable almost everywhere.</em></p>
+<p>The real challenge in the singular setting is to define gradient flows which are naturally defined and extend through the singular points.</p>
 
 </div>
 </div>
