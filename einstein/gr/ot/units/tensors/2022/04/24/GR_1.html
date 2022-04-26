@@ -8,8 +8,8 @@
 <meta name="generator" content="Jekyll v4.1.1" />
 <meta property="og:title" content="GR + OT. Part 1." />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="How to apply Optimal Transport (OT) to General Relativity (GR)? Define Energy. Brief note on challenges of bridging GR and OT, with some commentary on Prof. McCann’s 2020 article." />
-<meta property="og:description" content="How to apply Optimal Transport (OT) to General Relativity (GR)? Define Energy. Brief note on challenges of bridging GR and OT, with some commentary on Prof. McCann’s 2020 article." />
+<meta name="description" content="How to apply Optimal Transport (OT) to General Relativity (GR). The answer depends on GR defining energy and work, including some commentary on Prof. McCann’s 2020 article." />
+<meta property="og:description" content="How to apply Optimal Transport (OT) to General Relativity (GR). The answer depends on GR defining energy and work, including some commentary on Prof. McCann’s 2020 article." />
 <link rel="canonical" href="https://jhmartel.github.io/fp/einstein/gr/ot/units/tensors/2022/04/24/GR_1.html" />
 <meta property="og:url" content="https://jhmartel.github.io/fp/einstein/gr/ot/units/tensors/2022/04/24/GR_1.html" />
 <meta property="og:site_name" content="JHM Lab." />
@@ -18,7 +18,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="GR + OT. Part 1." />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-04-24T00:00:00-05:00","datePublished":"2022-04-24T00:00:00-05:00","description":"How to apply Optimal Transport (OT) to General Relativity (GR)? Define Energy. Brief note on challenges of bridging GR and OT, with some commentary on Prof. McCann’s 2020 article.","headline":"GR + OT. Part 1.","mainEntityOfPage":{"@type":"WebPage","@id":"https://jhmartel.github.io/fp/einstein/gr/ot/units/tensors/2022/04/24/GR_1.html"},"url":"https://jhmartel.github.io/fp/einstein/gr/ot/units/tensors/2022/04/24/GR_1.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-04-24T00:00:00-05:00","datePublished":"2022-04-24T00:00:00-05:00","description":"How to apply Optimal Transport (OT) to General Relativity (GR). The answer depends on GR defining energy and work, including some commentary on Prof. McCann’s 2020 article.","headline":"GR + OT. Part 1.","mainEntityOfPage":{"@type":"WebPage","@id":"https://jhmartel.github.io/fp/einstein/gr/ot/units/tensors/2022/04/24/GR_1.html"},"url":"https://jhmartel.github.io/fp/einstein/gr/ot/units/tensors/2022/04/24/GR_1.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/fp/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://jhmartel.github.io/fp/feed.xml" title="JHM Lab." /><link rel="shortcut icon" type="image/x-icon" href="/fp/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -89,7 +89,7 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">GR + OT. Part 1.</h1><p class="page-description">How to apply Optimal Transport (OT) to General Relativity (GR)? Define Energy. Brief note on challenges of bridging GR and OT, with some commentary on Prof. McCann's 2020 article. </p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-04-24T00:00:00-05:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">GR + OT. Part 1.</h1><p class="page-description">How to apply Optimal Transport (OT) to General Relativity (GR). The answer depends on GR defining energy and work, including some commentary on Prof. McCann's 2020 article.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-04-24T00:00:00-05:00" itemprop="datePublished">
         Apr 24, 2022
       </time>
        • <span class="read-time" title="Estimated read time">
@@ -142,7 +142,9 @@ window.onload = wrap_img;
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>I recently watched Yann Brenier's <a href="https://youtu.be/FPSNuJjnYG8">YT lecture</a> on Optimal Transport (OT) and General Relativity (GR). He mentioned Professor McCann's <a href="https://www.math.toronto.edu/mccann/papers/GRO.pdf">GRO paper</a>. There seems to be interest in the question of ``How to apply OT to GR ?" As Brenier suggested, there appears possibly some arrogance in the OT theorists who believe that OT is readymade to make a breakthrough in the GR field. I have my own thoughts on the problem...I'm a bridge builder, so I ask, Where is the bridge from OT to GR ? But the trouble is that GR is a very radical paradigm for thinking about physics, and specifically about <em>energy</em>, which is notoriously undefined (and undefinable!) in GR. Likewise, the notion of <em>work</em> is also undefined in GR. For this reason it's basically impossible to properly relate thermodynamics to GR. See mathoverflow, physics.stackexchange for numerous questions about the impossibility of really defining energy tensors which satisfy a conservation law, e.g. <a href="https://physics.stackexchange.com/questions/306838/energy-conservation-and-general-relativity">1</a>, <a href="https://physics.stackexchange.com/questions/109532/is-energy-conserved-in-general-relativity-does-nabla-atab-rm-matter-0?noredirect=1&amp;lq=1">2</a>. These difficulties gave Einstein alot of grief throughout his life.</p>
+<p>I recently watched Yann Brenier's <a href="https://youtu.be/FPSNuJjnYG8">YT lecture</a> on Optimal Transport (OT) and General Relativity (GR). He mentioned Professor McCann's <a href="https://www.math.toronto.edu/mccann/papers/GRO.pdf">GRO paper</a>. 
+The question ``How to apply OT to GR ?" seems to be gaining attention. But as Brenier suggested, there possibly appears some arrogance in the OT theorists who believe that OT is readymade to make a breakthrough in the GR field.</p>
+<p>I have my own thoughts on the problem.T he trouble is that GR is a very radical paradigm for thinking about physics, especially about <em>energy</em> which is notoriously undefined (and undefinable!) in GR. Likewise <em>work</em> is undefined in GR. Thus it's basically impossible to properly relate thermodynamics to GR. See mathoverflow, physics.stackexchange for numerous questions about the impossibility of really defining energy tensors which satisfy a conservation law, e.g. <a href="https://physics.stackexchange.com/questions/306838/energy-conservation-and-general-relativity">1</a>, <a href="https://physics.stackexchange.com/questions/109532/is-energy-conserved-in-general-relativity-does-nabla-atab-rm-matter-0?noredirect=1&amp;lq=1">2</a>. These difficulties gave Einstein alot of grief throughout his life.</p>
 <p>In OT, everything is generally controlled by the geometry of the cost $c: X\times Y \to \mathbf{R} \cup \{+\infty\}$, where $(X, \sigma)$ and $(Y, \tau)$ are the source and target measure spaces, respectively. But <em>cost</em> is really more properly understood as <em>energy</em>.</p>
 <p>What is the cost of transporting/correlating a unit source mass $dx$ to a unit target mass $dy$ ? Well... isn't it really the energy required to transport/correlate?</p>
 <p>Thus when OT studies couplings and semicoupling measures $\pi$ between the source measure $\sigma$ and target $\tau$, the optimization problem is really about the <em>min energy states</em>, i.e. ground states. So OT is already positioned to contribute to GR, as soon as GR can define <em>energy</em>!</p>
@@ -159,23 +161,6 @@ In this particular coordinate system one finds $ds^2=-c^2d\tau^2$ and $ds'=c ~ d
 </div>
 </div>
 </div>
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="err">$</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-    
-
 </div>
 
 
