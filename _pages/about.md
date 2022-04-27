@@ -6,14 +6,10 @@ permalink: /about/
 
 Welcome to JHM Labs.
 
-JHM is a Canadian mathematician, specializing in optimal transport, costs, probability, energy, electrodynamics, topology of singularities, and more. Beyond mathematics, we have interest in natural science, classical physics, economics, monetary policy, commodities, and technology. 
+JHM is a Canadian mathematician specializing in optimal transport, topology of singularities, energy and electrodynamics, and more. Our research touches on aspect of classical physics, economics, metals and recycling, and computation. 
 
-This website is powered by **[fastpages](https://github.com/fastai/fastpages)** [^1]. We are releasing preprints and broadcasting ideas and short articles. Our goal is to regularly release draft articles. Specifically we are interested in developing our python skills, investigating the electrodynamics inspired by Ampere, Weber, and the Brazilian physicist A.K.T. Assis at Unicamp University.
+This website is powered by **[fastpages](https://github.com/fastai/fastpages)** [^1]. 
 
-
-
-
-
-
+The purpose of this website is to broadcast and record our ideas in short articles. 
 
 [^1]:a blogging platform that natively supports Jupyter notebooks in addition to other formats.
