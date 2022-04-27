@@ -98,7 +98,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      8 min read
+      9 min read
     
 </span></p>
 
@@ -209,10 +209,11 @@ This is the so-called <em>continental field-theoretic viewpoint</em> after Maxwe
 <p>If $v$ belongs to null cone, then $q(x):=h(v,x)^2/2$ for $x\in V$ defines a quadratic function on $V$ with $q(v)=h(v,v)^2=0$.</p>
 <p>It's clear that $q$ is minimized along $v^\perp$, i.e. $q(x,v)=0$ for all $x\in v^\perp$ and $v\in v^\perp$. Here $v^\perp$ consists of all $u$ such that $h(u,v)=0$.</p>
 <p><strong>Lemma</strong>. <em>For every vector $v\in {\bf{R}}^{3,1}$, let $q(x):=h(v,x)^2/2$ be the quadratic form defined by $v$. Then $\square q=0$ if and only if $v \in N$ and  $h(v,v)=0$.</em></p>
-<p><em>Proof.</em> We claim that $\square q=h(v,v)$ when $q(u)=h(v,u)^2/2$.</p>
-<p>If the vector $v$ has coordinates $v=\langle v_t, v_x, v_y, v_z \rangle$, then $h(v,x)^2$ is equal to $$(-c^2 v_t t + v_xx+ v_yy+ v_zz)^2/2,$$  which is equal to $$c^4 v_t^2 t^2 +v_x^2 x^2 + v_y^2 y^2 + v_z^2 z^2 + (mixed~ terms).$$
+<p><em>Proof.</em> We claim that $\square q=h(v,v)$ when $q(u)=h(v,u)^2/2$. If the vector $v$ has coordinates $v=\langle v_t, v_x, v_y, v_z \rangle$, then $h(v,x)^2$ is equal to $$(-c^2 v_t t + v_xx+ v_yy+ v_zz)^2/2,$$  which is equal to $$c^4 v_t^2 t^2 +v_x^2 x^2 + v_y^2 y^2 + v_z^2 z^2 + (mixed~ terms).$$
 Applying d'Alembert's operator we find $$\square q =2( -c^2 v_t^2+v_x^2 + v_y^2 + v_z^2)=2 h(v,v),$$ since $\square(mixed~~terms)=0$ and the claim follows.</p>
-<p>Thus we find that null vectors $v\in N$ yield solutions $q_v$ to HWE. A superposition principle also applies, where any signed measure $\mu \in \mathscr{M}(N)$ yields a $\mu$-averaged solution $q(x):=\int_N q_v (x) d\mu(v)$ to the HWE.</p>
+<p>Thus we find that null vectors $v\in N$ yield solutions $q_v$ to HWE.</p>
+<p>A superposition principle also applies, where any signed measure $\mu \in \mathscr{M}(N)$ yields a $\mu$-averaged solution $q(x):=\int_N q_v (x) d\mu(v)$ to the HWE. Here it would be useful to have a representation theorem, something like, if $\phi$ is any solution of HWE, then $\phi$ can be represented as a $\mu$-average of the $h_v$ as described above.</p>
+<p>[To do: establish the conservation of energy for the HWE from the same principles.]</p>
 
 </div>
 </div>
