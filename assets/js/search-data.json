@@ -202,7 +202,7 @@
   
       ,"page1": {
           "title": "About Me",
-          "content": "Welcome to JHM Labs. . JHM is a Canadian mathematician specializing in optimal transport, topology of singularities, energy and electrodynamics, and more. Our research touches on aspect of classical physics, economics, metals and recycling, and computation. . This website is powered by fastpages 1. . The purpose of this website is to broadcast and record our ideas in short articles. . a blogging platform that natively supports Jupyter notebooks in addition to other formats. &#8617; . |",
+          "content": "Welcome to JHM Labs. . JHM is a Canadian mathematician specializing in optimal transport, topology of singularities, energy and electrodynamics, and more. Our research touches on aspect of classical physics, economics, metals and recycling, and computation. . The purpose of this website is to broadcast and record our ideas in short articles. This website is powered by fastpages 1. . a blogging platform that natively supports Jupyter notebooks in addition to other formats. &#8617; . |",
           "url": "https://jhmartel.github.io/fp/about/",
           "relUrl": "/about/",
           "date": ""
