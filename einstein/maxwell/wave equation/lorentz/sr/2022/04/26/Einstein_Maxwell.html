@@ -181,14 +181,13 @@ This is the so-called <em>continental field-theoretic viewpoint</em> after Maxwe
 <p>The choice of $h$ allows us to define an isometry between the differential forms and vector fields, i.e. secord order linear operators. Specifically, $h$ allows us to define explicit isometry between symmetric $(2,0)$ tensors and symmetric $(0,2)$ tensors.</p>
 <p><strong>Lemma</strong>: The metric $h$ identifies the dual of $ds^2$ with d'Alembert's wave operator $\square$. That is $(ds^2)^* = \square.$</p>
 <p>Proof. The proof is basic linear algebra. First one needs prove that the $h$-dual of $dx_0$ is $dx_0^* =-c^{-2} \frac{\partial}{\partial x_0}$. Likewise we find $dx_i^*=\frac{\partial}{\partial x_i}$ for $i=1,2,3$. This is all in the tangent space, i.e. between $(1,0)$ and $(0,1)$ tensors. Now we consider the squares, i.e. the symmetric $(2,0)$ tensors. We find that $$(ds^2)^*=-c^2 (dx_0^*)^2 + (dx_1^*)^2 + (dx_2^*)^2 + (dx_3^*)^2, $$ and which is equal to $$-c^{-2} (\frac{\partial}{\partial x_0})^2 + (\frac{\partial}{\partial x_1})^2 +(\frac{\partial}{\partial x_2})^2+(\frac{\partial}{\partial x_3})^2, $$ which is equal to d'Alembert's square operator $\square$ as desired.</p>
-<p>The Lorentz invariance of $\square$ shows the solutions to the homogeneous wave equation (HWE) are Lorentz covariant and $\square \phi =0$ if and only if $\square \lambda \cdot \phi =0$ for every Lorentz transformation $\lambda \in L$. The corresponding fact for $ds^2$ is that the null cone $ds^2=0$ is Lorentz covariant.</p>
+<p>The Lorentz invariance of $\square$ shows the solutions to the homogeneous wave equation (HWE) are Lorentz covariant and $\square \phi =0$ if and only if $\square \lambda \cdot \phi =0$ for every Lorentz transformation $\lambda \in L$. This is the wave equation version of the fact that the null cone $ds^2=0$ is Lorentz covariant.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>For example, the quadratic form representing $ds^2$ satisfies $\square h=0$ where $h=-c^2t^2+\frac{1}{3}(x^2+y^2+z^2)$.</p>
 <p>Now Einstein's (A12) postulates the <em>uniform rectilinear</em> propagation of light in vacuum. This would suggest a corpuscular model of light, being represented as affine parameterized lines $$s\mapsto (s, x(s), y(s), z(s))=(s, \gamma(s)) $$ in ${\bf{R}}^{3,1}$ satisfying $D^2_{ss} \gamma =0$.</p>
 <p>Is the equation $D^2_{ss} \gamma=0$ Lorentz covariant? (Yes?)</p>
 <p>But what are the corresponding "<em>uniform rectilinear</em>" solutions $\phi$ for the dual HWE: $~~\square \phi=0$ ? Compare <a href="https://ccrma.stanford.edu/~jos/pasp/Spherical_Waves_Point_Source.html">this</a>.</p>
@@ -201,19 +200,19 @@ This is the so-called <em>continental field-theoretic viewpoint</em> after Maxwe
 <p>An idea: there has always been correspondance between lines in $V$ (one-dimensional linear subspaces) and quadratic functionals via the Segre embedding, or $\lambda \mapsto \lambda^2$ where $\lambda\in V^*$ is a linear functional.</p>
 <p>The following questions will be answered below:</p>
 <ul>
-<li><p>Are the quadratic functions $q(x)=h(v,x)^2/2$ solutions to $\square =0$ for null vector $v\in N$?</p>
+<li><p>Are the quadratic functions $q(x)=h(v,x)^2/2$ solutions to $\square =0$ for null vector $v\in N$? (Yes, we prove below).</p>
 </li>
 <li><p>Can we find quadratic functions $q$ whose level sets are everywhere orthogonal to the null cone $N$ ?</p>
 </li>
 </ul>
 <p>The idea would be to derive some canonical solutions $\square q=0$ from quadratics arising from vectors on the null cone.</p>
 <p>If $v$ belongs to null cone, then $q(x):=h(v,x)^2/2$ for $x\in V$ defines a quadratic function on $V$ with $q(v)=h(v,v)^2=0$.</p>
-<p>It's clear that $q$ is minimized along $v^\perp$, and that $v\in v^\perp$. Moreover the differential of $q(x)=q(t,x)$ satisfies $dq|_x=h(v,x)v$.</p>
+<p>It's clear that $q$ is minimized along $v^\perp$, i.e. $q(x,v)=0$ for all $x\in v^\perp$ and $v\in v^\perp$. Here $v^\perp$ consists of all $u$ such that $h(u,v)=0$.</p>
 <p><strong>Lemma</strong>. <em>For every vector $v\in {\bf{R}}^{3,1}$, let $q(x):=h(v,x)^2/2$ be the quadratic form defined by $v$. Then $\square q=0$ if and only if $v \in N$ and  $h(v,v)=0$.</em></p>
 <p><em>Proof.</em> We claim that $\square q=h(v,v)$ when $q(u)=h(v,u)^2/2$.</p>
-<p>If the vector $v$ has coordinates $v=\langle v_t, v_x, v_y, v_z \rangle$, then $h(v,x)^2$ is equal to $$(-v_t t + v_xx+ v_yy+ v_zz)^2,$$  which is equal to $$v_t^2 t^2 +v_x^2 x^2 + v_y^2 y^2 + v_z^2 z^2 + (mixed~ terms).$$
-Therefore applying d'Alembert's operator we find $$\square q =2( -v_t^2+v_x^2 + v_y^2 + v_z^2), $$ since $\square(mixed~~terms)=0$ and the claim follows.</p>
-<p>Therefore we obtain a simple class of homogeneous quadratic functions in $(x,t)$ which satisfy HWE.</p>
+<p>If the vector $v$ has coordinates $v=\langle v_t, v_x, v_y, v_z \rangle$, then $h(v,x)^2$ is equal to $$(-c^2 v_t t + v_xx+ v_yy+ v_zz)^2/2,$$  which is equal to $$c^4 v_t^2 t^2 +v_x^2 x^2 + v_y^2 y^2 + v_z^2 z^2 + (mixed~ terms).$$
+Applying d'Alembert's operator we find $$\square q =2( -c^2 v_t^2+v_x^2 + v_y^2 + v_z^2)=2 h(v,v),$$ since $\square(mixed~~terms)=0$ and the claim follows.</p>
+<p>Thus we find that null vectors $v\in N$ yield solutions $q_v$ to HWE. A superposition principle also applies, where any signed measure $\mu \in \mathscr{M}(N)$ yields a $\mu$-averaged solution $q(x):=\int_N q_v (x) d\mu(v)$ to the HWE.</p>
 
 </div>
 </div>
