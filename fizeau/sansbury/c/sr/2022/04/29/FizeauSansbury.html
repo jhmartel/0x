@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Fizeau and Sansbury | JHM Lab.</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Fizeau and Sansbury" />
+<meta name="author" content="JHM" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Here we compare Fizeau’s classical sawtooth experiment (1840) with Sansbury’s proposed setup. While Fizeau studies a saw tooth wheel in uniform motion on the order of twenty rotations per second, Sansbury’s setup can be interpreted as the same wheel in nonuniform motion. The classical interpretation of this experiment versus the relativistic interpretation are not compared in this note." />
+<meta property="og:description" content="Here we compare Fizeau’s classical sawtooth experiment (1840) with Sansbury’s proposed setup. While Fizeau studies a saw tooth wheel in uniform motion on the order of twenty rotations per second, Sansbury’s setup can be interpreted as the same wheel in nonuniform motion. The classical interpretation of this experiment versus the relativistic interpretation are not compared in this note." />
+<link rel="canonical" href="https://jhmartel.github.io/fp/fizeau/sansbury/c/sr/2022/04/29/FizeauSansbury.html" />
+<meta property="og:url" content="https://jhmartel.github.io/fp/fizeau/sansbury/c/sr/2022/04/29/FizeauSansbury.html" />
+<meta property="og:site_name" content="JHM Lab." />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-04-29T00:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Fizeau and Sansbury" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"JHM"},"dateModified":"2022-04-29T00:00:00-05:00","datePublished":"2022-04-29T00:00:00-05:00","description":"Here we compare Fizeau’s classical sawtooth experiment (1840) with Sansbury’s proposed setup. While Fizeau studies a saw tooth wheel in uniform motion on the order of twenty rotations per second, Sansbury’s setup can be interpreted as the same wheel in nonuniform motion. The classical interpretation of this experiment versus the relativistic interpretation are not compared in this note.","headline":"Fizeau and Sansbury","mainEntityOfPage":{"@type":"WebPage","@id":"https://jhmartel.github.io/fp/fizeau/sansbury/c/sr/2022/04/29/FizeauSansbury.html"},"url":"https://jhmartel.github.io/fp/fizeau/sansbury/c/sr/2022/04/29/FizeauSansbury.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/fp/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://jhmartel.github.io/fp/feed.xml" title="JHM Lab." /><link rel="shortcut icon" type="image/x-icon" href="/fp/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/fp/">JHM Lab.</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/fp/about/">About Me</a><a class="page-link" href="/fp/search/">Search</a><a class="page-link" href="/fp/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Fizeau and Sansbury</h1><p class="page-description">Here we compare Fizeau's classical sawtooth experiment (1840) with Sansbury's proposed setup. While Fizeau studies a saw tooth wheel in uniform motion on the order of twenty rotations per second, Sansbury's setup can be interpreted as the same wheel in nonuniform motion. The classical interpretation of this experiment versus the relativistic interpretation are not compared in this note.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-04-29T00:00:00-05:00" itemprop="datePublished">
+        Apr 29, 2022
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">JHM</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      4 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/fp/categories/#fizeau">fizeau</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/fp/categories/#sansbury">sansbury</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/fp/categories/#c">c</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/fp/categories/#SR">SR</a>
+        
+      
+      </p>
+    
+
+    
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2022-04-29-FizeauSansbury.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a href="https://colab.research.google.com/github/jhmartel/fp/blob/master/_notebooks/2022-04-29-FizeauSansbury.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" /></a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As described in previous posts, our critical <a href="https://github.com/jhmartel/SR/">essay</a> on foundations in SR is basically stable and readable. I aim to elaborate on the concluding section, which briefly mentions Ralph Sansbury's proposed experiment. The issue is always <em>light propagation in vacuum</em>. Sansbury's experiment is this. We take $c$ the speed of light as equal to $1$ foot per nanosecond $[\mu s]=10^{-8}$ seconds.</p>
+<h1 id="Sansbury's-Experiment">Sansbury's Experiment<a class="anchor-link" href="#Sansbury's-Experiment"> </a></h1><p>We quote from Sansbury's <a href="http://www.naturalphilosophy.org/pdf/abstracts/abstracts_5955.pdf">paper</a> and his book <a href="https://www.amazon.ca/Faster-Than-Light-Relativity-Reconsidered-ebook/dp/B00LQT8056">"Faster than Light"</a>.</p>
+<p><strong>(Case 1)</strong> <em>A $15$ nanosecond light pulse from a laser was sent to a light detector, $30$ feet away. When the light pulse was blocked at the photodiode during the time of emission, but unblocked at the expected time of arrival, $31.2$ nanoseconds after the beginning of the time of emission, for $15$ nanosecond duration, little light was received. (A little more than the $4mV$ noise on the oscilloscope). This process was repeated thousands of times per second.</em></p>
+<p><strong>(Case 2)</strong> <em>When the light was unblocked at the photodiode during the time of emission ($15$ nanoseconds) but blocked after the beginning of the time of emission, during the expected time of arrival for $15$ nanoseconds, twice as much light was received ($8mV$). This process was repeated thousands of times per second.</em></p>
+<p>Sansbury's conclusion? That <em>this indicated that light is not a moving wave or photon, but rather the cumulative effect of instantaneous forces at a distance. That is, undetectable oscillations of charge can occur in the atomic nuclei of the photodiode that spill over as detectable oscillations of electrons after a delay.</em></p>
+<p>Sansbury found the equipment necessary for the experience to expensive to rent for an extended period of time, and he was possibly not a sufficient expert in calibrating the equipment. So Sansbury's experiment appears to have not been sufficiently investigated, and we would argue that the experiment has neither been reproduced nor properly reviewed.</p>
+<h1 id="Fizeau's-Saw-Tooth-Experiment-(1849)">Fizeau's Saw Tooth Experiment (1849)<a class="anchor-link" href="#Fizeau's-Saw-Tooth-Experiment-(1849)"> </a></h1><p>Now Sansbury's apparatus has some similarity with Fizeau's sawtooth apparatus, as used circa 1849 to prove some of the first sensible measurements of luminal velocity. So in this post we look to properly compare Fizeau's experiment with Sansbury's.</p>
+<p><a href="https://skullsinthestars.com/2008/03/31/fizeaus-experiment-the-original-paper/">Here</a> is a blog which inlcudes a transcription of Fizeau's original 1849 paper in Comptes Rendus.</p>
+<p><a href="https://youtu.be/7CUE1Bpz4hM">Here</a> is an interesting youtube video en francais sur la mesure de Fizeau. Around the 4-5 minute mark is the most interesting.</p>
+<p><a href="https://physics.stackexchange.com/questions/315812/why-does-the-fizeau-measurement-of-the-speed-of-light-use-a-sawtoothed-gear-inst">Here</a> is a useful physics stackexchange answer.</p>
+<h1 id="Sansbury-vs.-Fizeau">Sansbury vs. Fizeau<a class="anchor-link" href="#Sansbury-vs.-Fizeau"> </a></h1><p>Now Fizeau's original setup is a type of Sansbury test where the wheel is in uniform motion. Sansbury's setup involves a wheel in <em>nonuniform</em> motion. 
+Fizeau was historically looking to estimate the luminal velocity $c$. Sansbury's experiment assumes $c$ as given, estimated at $1$ foot per nanosecond. Sansbury's goal is to distinguish light propagation from particle model.</p>
+<p>For example, suppose we have Fizeau's apparatus setup, with the 720 saw teeth on the wheel, and with angular velocity $\omega$ such that the wheel in continuous uniform motion with velocity $\omega$ blocks out all light. Fizeau would conclude that the time required for the wheel to turn one saw tooth was equal to the light's return trip time.</p>
+<p>Sansbury's <strong>(Case 1)</strong> could be realized if the wheel was allowed to rotate nonuniformly, i.e. if the wheel could be accelerated in "impulses" something closer to the actual discrete motions of a clock. For example, if the wheel is initially opened at the time of emission, then immediately rotated one saw tooth length (to the closed position) during the expected time of travel, and just prior to the expected time of arrival is rotated another tooth length (to the open position), then Fizeau would predict that the receiver would observe a strong light source. However Sansbury predicts that the receiver would observe rather a very weak signal. Notice, here we require the wheel to move twice as fast as Fizeau's angular velocity. In otherwords the wheel must rotate two complete tooth lengths before the estimated arrival time.</p>
+<p>Sansbury's <strong>(Case 2)</strong> could be realized if the wheel was rotating <em>discontinuously</em>. For example, if we keep the wheel fixed during the expected time of flight of the light particle, and turn the wheel one complete toothlength at the expected time of arrival, then Sansbury would predict a relatively strong signal would be received. Fizeau and the particle model would however predict no light would be received, since it was essentially blocked by the sawtooth at the expected time of arrival.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="jhmartel/fp"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/fp/fizeau/sansbury/c/sr/2022/04/29/FizeauSansbury.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/fp/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/fp/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/fp/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Optimal Transport, Topology of Singularities, Physics.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
