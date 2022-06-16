@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Remarks on Ahlfor’s Measure Conjecture. | JHM Lab.</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Remarks on Ahlfor’s Measure Conjecture." />
+<meta name="author" content="JHM" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="(Under construction) Here we record some observations and ideas regarding Ahlfor’s measure conjecture. We begin writing basic python code to study limit points of divergent subsequences in Kleinian-type groups in higher dimensions. For the purposes of this article however we restrict ourselves to small dimensions." />
+<meta property="og:description" content="(Under construction) Here we record some observations and ideas regarding Ahlfor’s measure conjecture. We begin writing basic python code to study limit points of divergent subsequences in Kleinian-type groups in higher dimensions. For the purposes of this article however we restrict ourselves to small dimensions." />
+<link rel="canonical" href="https://jhmartel.github.io/fp/2022/06/16/AhlforsConjecture.html" />
+<meta property="og:url" content="https://jhmartel.github.io/fp/2022/06/16/AhlforsConjecture.html" />
+<meta property="og:site_name" content="JHM Lab." />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-06-16T00:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Remarks on Ahlfor’s Measure Conjecture." />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"JHM"},"dateModified":"2022-06-16T00:00:00-05:00","datePublished":"2022-06-16T00:00:00-05:00","description":"(Under construction) Here we record some observations and ideas regarding Ahlfor’s measure conjecture. We begin writing basic python code to study limit points of divergent subsequences in Kleinian-type groups in higher dimensions. For the purposes of this article however we restrict ourselves to small dimensions.","headline":"Remarks on Ahlfor’s Measure Conjecture.","mainEntityOfPage":{"@type":"WebPage","@id":"https://jhmartel.github.io/fp/2022/06/16/AhlforsConjecture.html"},"url":"https://jhmartel.github.io/fp/2022/06/16/AhlforsConjecture.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/fp/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://jhmartel.github.io/fp/feed.xml" title="JHM Lab." /><link rel="shortcut icon" type="image/x-icon" href="/fp/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/fp/">JHM Lab.</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/fp/about/">About Me</a><a class="page-link" href="/fp/search/">Search</a><a class="page-link" href="/fp/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Remarks on Ahlfor&#39;s Measure Conjecture.</h1><p class="page-description"> (Under construction) Here we record some observations and ideas regarding Ahlfor's measure conjecture. We begin writing basic python code to study limit points of divergent subsequences in Kleinian-type groups in higher dimensions. For the purposes of this article however we restrict ourselves to small dimensions. </p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-06-16T00:00:00-05:00" itemprop="datePublished">
+        Jun 16, 2022
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">JHM</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      15 min read
+    
+</span></p>
+
+    
+
+    
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2022-06-16-AhlforsConjecture.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a href="https://colab.research.google.com/github/jhmartel/fp/blob/master/_notebooks/2022-06-16-AhlforsConjecture.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" /></a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>A recent <a href="https://mathoverflow.net/questions/424343/counterexamples-to-the-ahlfors-measure-conjecture-in-higher-dimensions">MO post</a> has prompted us to express something about our views regarding $\Gamma$ actions and $\Gamma$-invariant Borel measures and proper discontinuous actions, $E\Gamma$ spaces, etc.. The conjecture is rather famous, especially in three dimensions. But since our PhD thesis (2019) we have some nonstandard approaches to the problem, which we will elaborate below.</p>
+<p>It's not easy to describe the current state of the conjecture, depending on several implications and reductions to other conjectures, especially in three-dimensions. A good reference is <a href="http://www.numdam.org/item/PMIHES_2003__98__145_0/">here</a>.</p>
+<p>The above MO question is interesting in that it's asking about the corresponding conjecture in higher dimensions. I sent Alex Kolpakov a message asking him about the question because he's the person who I know knows the most about four-dimensional manifolds.</p>
+<p>The setting for Ahlfor's problem begins with a discrete finitely generated group $\Gamma &lt; Isom(\bf{H}^{n+1})$ of some hyperbolic space. The discreteness of the group representation implies that $\Gamma$ acts <em>proper discontinuously</em> on the hyperbolic space. The hyperbolic space also has a canonical volume measure. We say the representation has finite covolume if the quotient $\bf{H} /\Gamma$ has finite volume. In otherwords $\Gamma$ represents the fundamental group of a hyperbolic orbifold $X:=\bf{H}^{n+1} / \Gamma$, and the action $$\Gamma \times \bf{H}^{n+1} \to \bf{H}^{n+1}$$ is the universal covering action $$\pi_1 \times \tilde{X} \to \tilde{X} $$ where $\tilde{X}\approx \bf{H}^{n+1}$.</p>
+<p>Now given an action of $\Gamma$ on $\bf{H}$ we next need to define the topology of the "boundary at-infinity".</p>
+<p>To review: geodesics in hyperbolic space $\bf{H}^{n+1}$ diverge exponentially in every direction. The hyperbolic space is expansive at-infinity. And even though the Poincare disk might naively appear to be a small bounded disk, this disk in fact contains an infinitely large expansive world.</p>
+<p><img src="https://tse3.mm.bing.net/th?id=OIP.CKJrGh970eN8IDdmqgmzDQHaHa&amp;pid=Api" alt="" /></p>
+<p>We need carefully define the topology to properly define the <em>limit points</em> $L_\Gamma$ of a $\Gamma$-orbit $\Gamma.pt$. In fact some confusion arises because the topology on the visual sphere at-infinity is not always made explicit by authors. Naively the majority definition of the topology on the visual sphere consists of open subsets which are <em>presumed</em> to contain ideal points $\xi$ at infinity. This perspective implicitly assumes that the boundary disk is the natural compactification of the hyperbolic space $\bf{H}$.</p>
+<p>But actually the correct definition of these ideal points is via horoballs and the horofunctions. A point at-infinity $\xi$ really corresponds to a $1$-Lipschitz function $b_\xi: \bf{H} \to \bf{R}$, and specifically the pole at negative infinity $-\infty$ of $b_\xi$. The level sets of the horofunction $b_\xi$ are horospheres centred at $\xi$.</p>
+<p>So we have two definitions of the points at-infinity, and two different topologies. For example:</p>
+<ol>
+<li><p>Horofunction definition of limit points at-infinity: the point $\xi$ is a limit point of the orbit $\Gamma .pt$ with respect to the horoball topology if the values of the orbit $b_\xi(\gamma.pt)$, $\gamma \in \Gamma$, accumulate near the negative infinity pole. I.e. iff there exists an infinite subsequence such that $b_\xi(\gamma.pt)$ diverges to $-\infty$.</p>
+</li>
+<li><p>"Open" topology definition of limit points: the visual point $\xi' \in \partial_\infty \bf{H}$ is a limit point of the orbit $\Gamma .pt$ w.r.t. the open topology if every open neighborhood $U$ of $\xi'$ in $\bf{H} \cup \partial_\infty \bf{H}$ has a non trivial intersection with the orbit $U \cap \Gamma.pt \neq \emptyset$.</p>
+</li>
+</ol>
+<p>The problem with the second definition, which admittedly the majority topology in the literature, is that the point at-infinity has not been defined, and no criteria is given for testing whether the "point" $\xi'$ is contained or not contained in the open subset $U$ of $\bf{H}$.</p>
+<p>Therefore in the horofunction topology, the ideal points at-infinity are not "points on a sphere" they are instead $1$-Lipschitz functions obtained as a natural limit of the distance functions $d(x,y)$. The point at infinity $\xi$ is instead the negative infinity pole of the corresponding horofunction $b_\xi$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Naively one says there is a circle at infinity, namely the visual sphere $\partial_\infty \bf{H} \approx \bf{S}^1$. With respect to the hyperbolic metric, of course the boundary is infinitely far away. Now we need to topologize the visual boundary such that the $\Gamma$-action on $\bf{H}$ extends to a continuous topological action on $\bf{H} \cup \partial \bf{H}$.</p>
+<p>One method of topologizing the boundary is via the visual angle metric. Another interesting topology on the boundary is the Busemann topology. The key fact necessary is that the topology of $\partial_\infty$ needs be defined such that the group $\Gamma$ acts continuously on $\bf{H} \cup \partial_\infty \bf{H}$.</p>
+<p>[Edit] If we fix a basepoint $pt$ in $\bf{H}$, then one naturally defines the boundary at-infinity $\partial_\infty \bf{H}$. The boundary at-infinity is topologized with the visual angle metric, and it's a standard fact that the boundary at-infinity is a topological sphere $\partial_\infty \bf{H}^{n+1} \approx \bf{S}^n$. The sphere at-infinity does not have a $\Gamma$-invariant metric since $\Gamma$ actions by translating the basepoint $pt$. It is a standard fact that the sphere at-infinity has a well-defined $\Gamma$-invariant metric modulo quasi-isometries. The definition of quasi-isometries will not be further developed in this article, except to say this: that the topological sphere at-infinity is a difficult object to study with respect to the $\Gamma$ action.</p>
+<p>Standard fact: Under assumptions [insert] the topological action $\Gamma \times \bf{S}^n \to \bf{S}^n$ is <em>ergodic</em> with respect to the class of $n$-dimensional Lebesgue measures on $\bf{S}^n$. In other words, if $\lambda$ is the $n$-dimensional Lebesgue measure on the topological sphere at-infinity $\bf{S}^n$, then the only $\lambda$-measurable $\Gamma$-invariant functions $f: \bf{S}^n \to \bf{R}$ are constant a.e.. [Insert reference to Mostow's proof, or Thurston's book]. Roughly speaking, the topological $\Gamma$-action on $\bf{S}^n$ is very complicated, acting with sources and sinks and strange dynamics which are not measured by the $n$-dimensional Lebesge measure $\lambda$.</p>
+<p>To finally state Ahlfor's measure conjecture we need to define the limit set of a $\Gamma$-orbit. Informally we can define $L_\Gamma \subset \partial_\infty \bf{H}$ as the accumulation points of the orbit $\Gamma. pt$.</p>
+<p>Ahlfor's Measure Conjecture: If $\Gamma, X$ satisfy the assumptions (i) and (ii), namely having finitely many ends and finite volume, then the limit set $L_\Gamma$ is either a zero or full measure subset of $\partial_\infty \tilde{X}$. In otherwords, the limit set $L_\Gamma$ is either equal to $\bf{S}^n$ or has vanishing $n$-dimensional measure.</p>
+<p>In most circumstances, the action of $\Gamma$ on the visual sphere is ergodic with respect to the natural Lebesgue measure on the sphere. However the example in the above MO post shows the action is not necessarily ergodic in higher dimensions for certain groups. However in this counter-example to ergodicity the group $\Gamma$ is finitely-generated but not finitely-presentable.</p>
+<p>Now we must admit that the structure of the limit points $L_\Gamma$ is very difficult to comprehend. Many experts have been involved in producing graphics and simulations of these limit sets, especially for Kleinian and Fuchsian groups. Mumford's book "Indra's Pearls" is also relevant here.</p>
+<p>Now our approach to Ahlfor's Measure Conjecture is to first realize that the visual boundary is not the correct boundary for the group action $\Gamma \times \bf{H} \to \bf{H}$. We view the visual boundary as extremely unnatural with respect to the group $\Gamma$. Specifically, the problem is that the $\Gamma$ action is not proper discontinuous on the visual sphere. This means that point orbits on the sphere are not well separated by the $\Gamma$ action. In otherwords, the visual boundary is very confusing because group elements which otherwise are very distinct can have similar actions on the visual boundary, and their distinct identities become confused.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="c1"># generated by the letters, a, A, b, B. Eventually we use a dictionary to convert these</span>
+<span class="c1"># letters and words into numerical matrices. </span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="c1">#from numpy.linalg import matrix_power</span>
+
+<span class="n">gen</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;A&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;B&#39;</span><span class="p">]</span>
+<span class="n">inverse_list</span><span class="o">=</span><span class="p">[[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;A&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">]]</span>
+
+<span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">x</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="ow">in</span> <span class="n">inverse_list</span><span class="p">):</span>
+       <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">else</span><span class="p">:</span>
+       <span class="k">return</span> <span class="kc">True</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">l</span><span class="o">=</span><span class="p">[]</span>
+    <span class="n">level</span><span class="p">,</span> <span class="n">word_list</span><span class="p">,</span> <span class="n">tail</span> <span class="o">=</span> <span class="n">x</span>
+    <span class="n">new_level</span><span class="o">=</span><span class="n">level</span><span class="o">+</span><span class="mi">1</span>
+    <span class="k">for</span> <span class="n">letter</span> <span class="ow">in</span> <span class="n">gen</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">test</span><span class="p">([</span><span class="n">tail</span><span class="p">,</span> <span class="n">letter</span><span class="p">])</span><span class="o">==</span><span class="kc">True</span><span class="p">:</span>
+            <span class="n">new_word_list</span><span class="o">=</span><span class="n">word_list</span><span class="o">+</span><span class="p">[</span><span class="n">letter</span><span class="p">]</span>
+            <span class="n">new_tail</span><span class="o">=</span><span class="n">letter</span>
+            <span class="n">l</span><span class="o">=</span><span class="n">l</span><span class="o">+</span><span class="p">[[</span><span class="n">new_level</span><span class="p">,</span> <span class="n">new_word_list</span><span class="p">,</span> <span class="n">new_tail</span><span class="p">]]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">pass</span>
+    <span class="k">return</span> <span class="n">l</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">([</span><span class="mi">1</span><span class="p">,[</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">],</span><span class="s1">&#39;a&#39;</span> <span class="p">]))</span>
+
+
+<span class="c1"># Below we print the ends. </span>
+
+<span class="n">seed</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">[],</span> <span class="s1">&#39;&#39;</span><span class="p">];</span>
+
+<span class="k">def</span> <span class="nf">ends</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">m</span><span class="p">,</span> <span class="n">seed</span> <span class="o">=</span> <span class="n">x</span>
+    <span class="n">sample_list</span><span class="o">=</span><span class="p">[</span><span class="n">seed</span><span class="p">];</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+        <span class="n">new_list</span><span class="o">=</span><span class="p">[]</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">sample_list</span><span class="p">:</span>
+            <span class="n">new_list</span><span class="o">=</span><span class="n">new_list</span><span class="o">+</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+            <span class="n">sample_list</span><span class="o">=</span><span class="n">new_list</span>        
+    <span class="k">return</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">sample_list</span><span class="p">),</span> <span class="n">sample_list</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">ends</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="n">seed</span><span class="p">]))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[[2, [&#39;B&#39;, &#39;a&#39;, &#39;a&#39;], &#39;a&#39;], [2, [&#39;B&#39;, &#39;a&#39;, &#39;b&#39;], &#39;b&#39;], [2, [&#39;B&#39;, &#39;a&#39;, &#39;B&#39;], &#39;B&#39;]]
+[108, [[4, [&#39;a&#39;, &#39;a&#39;, &#39;a&#39;, &#39;a&#39;], &#39;a&#39;], [4, [&#39;a&#39;, &#39;a&#39;, &#39;a&#39;, &#39;b&#39;], &#39;b&#39;], [4, [&#39;a&#39;, &#39;a&#39;, &#39;a&#39;, &#39;B&#39;], &#39;B&#39;], [4, [&#39;a&#39;, &#39;a&#39;, &#39;b&#39;, &#39;a&#39;], &#39;a&#39;], [4, [&#39;a&#39;, &#39;a&#39;, &#39;b&#39;, &#39;A&#39;], &#39;A&#39;], [4, [&#39;a&#39;, &#39;a&#39;, &#39;b&#39;, &#39;b&#39;], &#39;b&#39;], [4, [&#39;a&#39;, &#39;a&#39;, &#39;B&#39;, &#39;a&#39;], &#39;a&#39;], [4, [&#39;a&#39;, &#39;a&#39;, &#39;B&#39;, &#39;A&#39;], &#39;A&#39;], [4, [&#39;a&#39;, &#39;a&#39;, &#39;B&#39;, &#39;B&#39;], &#39;B&#39;], [4, [&#39;a&#39;, &#39;b&#39;, &#39;a&#39;, &#39;a&#39;], &#39;a&#39;], [4, [&#39;a&#39;, &#39;b&#39;, &#39;a&#39;, &#39;b&#39;], &#39;b&#39;], [4, [&#39;a&#39;, &#39;b&#39;, &#39;a&#39;, &#39;B&#39;], &#39;B&#39;], [4, [&#39;a&#39;, &#39;b&#39;, &#39;A&#39;, &#39;A&#39;], &#39;A&#39;], [4, [&#39;a&#39;, &#39;b&#39;, &#39;A&#39;, &#39;b&#39;], &#39;b&#39;], [4, [&#39;a&#39;, &#39;b&#39;, &#39;A&#39;, &#39;B&#39;], &#39;B&#39;], [4, [&#39;a&#39;, &#39;b&#39;, &#39;b&#39;, &#39;a&#39;], &#39;a&#39;], [4, [&#39;a&#39;, &#39;b&#39;, &#39;b&#39;, &#39;A&#39;], &#39;A&#39;], [4, [&#39;a&#39;, &#39;b&#39;, &#39;b&#39;, &#39;b&#39;], &#39;b&#39;], [4, [&#39;a&#39;, &#39;B&#39;, &#39;a&#39;, &#39;a&#39;], &#39;a&#39;], [4, [&#39;a&#39;, &#39;B&#39;, &#39;a&#39;, &#39;b&#39;], &#39;b&#39;], [4, [&#39;a&#39;, &#39;B&#39;, &#39;a&#39;, &#39;B&#39;], &#39;B&#39;], [4, [&#39;a&#39;, &#39;B&#39;, &#39;A&#39;, &#39;A&#39;], &#39;A&#39;], [4, [&#39;a&#39;, &#39;B&#39;, &#39;A&#39;, &#39;b&#39;], &#39;b&#39;], [4, [&#39;a&#39;, &#39;B&#39;, &#39;A&#39;, &#39;B&#39;], &#39;B&#39;], [4, [&#39;a&#39;, &#39;B&#39;, &#39;B&#39;, &#39;a&#39;], &#39;a&#39;], [4, [&#39;a&#39;, &#39;B&#39;, &#39;B&#39;, &#39;A&#39;], &#39;A&#39;], [4, [&#39;a&#39;, &#39;B&#39;, &#39;B&#39;, &#39;B&#39;], &#39;B&#39;], [4, [&#39;A&#39;, &#39;A&#39;, &#39;A&#39;, &#39;A&#39;], &#39;A&#39;], [4, [&#39;A&#39;, &#39;A&#39;, &#39;A&#39;, &#39;b&#39;], &#39;b&#39;], [4, [&#39;A&#39;, &#39;A&#39;, &#39;A&#39;, &#39;B&#39;], &#39;B&#39;], [4, [&#39;A&#39;, &#39;A&#39;, &#39;b&#39;, &#39;a&#39;], &#39;a&#39;], [4, [&#39;A&#39;, &#39;A&#39;, &#39;b&#39;, &#39;A&#39;], &#39;A&#39;], [4, [&#39;A&#39;, &#39;A&#39;, &#39;b&#39;, &#39;b&#39;], &#39;b&#39;], [4, [&#39;A&#39;, &#39;A&#39;, &#39;B&#39;, &#39;a&#39;], &#39;a&#39;], [4, [&#39;A&#39;, &#39;A&#39;, &#39;B&#39;, &#39;A&#39;], &#39;A&#39;], [4, [&#39;A&#39;, &#39;A&#39;, &#39;B&#39;, &#39;B&#39;], &#39;B&#39;], [4, [&#39;A&#39;, &#39;b&#39;, &#39;a&#39;, &#39;a&#39;], &#39;a&#39;], [4, [&#39;A&#39;, &#39;b&#39;, &#39;a&#39;, &#39;b&#39;], &#39;b&#39;], [4, [&#39;A&#39;, &#39;b&#39;, &#39;a&#39;, &#39;B&#39;], &#39;B&#39;], [4, [&#39;A&#39;, &#39;b&#39;, &#39;A&#39;, &#39;A&#39;], &#39;A&#39;], [4, [&#39;A&#39;, &#39;b&#39;, &#39;A&#39;, &#39;b&#39;], &#39;b&#39;], [4, [&#39;A&#39;, &#39;b&#39;, &#39;A&#39;, &#39;B&#39;], &#39;B&#39;], [4, [&#39;A&#39;, &#39;b&#39;, &#39;b&#39;, &#39;a&#39;], &#39;a&#39;], [4, [&#39;A&#39;, &#39;b&#39;, &#39;b&#39;, &#39;A&#39;], &#39;A&#39;], [4, [&#39;A&#39;, &#39;b&#39;, &#39;b&#39;, &#39;b&#39;], &#39;b&#39;], [4, [&#39;A&#39;, &#39;B&#39;, &#39;a&#39;, &#39;a&#39;], &#39;a&#39;], [4, [&#39;A&#39;, &#39;B&#39;, &#39;a&#39;, &#39;b&#39;], &#39;b&#39;], [4, [&#39;A&#39;, &#39;B&#39;, &#39;a&#39;, &#39;B&#39;], &#39;B&#39;], [4, [&#39;A&#39;, &#39;B&#39;, &#39;A&#39;, &#39;A&#39;], &#39;A&#39;], [4, [&#39;A&#39;, &#39;B&#39;, &#39;A&#39;, &#39;b&#39;], &#39;b&#39;], [4, [&#39;A&#39;, &#39;B&#39;, &#39;A&#39;, &#39;B&#39;], &#39;B&#39;], [4, [&#39;A&#39;, &#39;B&#39;, &#39;B&#39;, &#39;a&#39;], &#39;a&#39;], [4, [&#39;A&#39;, &#39;B&#39;, &#39;B&#39;, &#39;A&#39;], &#39;A&#39;], [4, [&#39;A&#39;, &#39;B&#39;, &#39;B&#39;, &#39;B&#39;], &#39;B&#39;], [4, [&#39;b&#39;, &#39;a&#39;, &#39;a&#39;, &#39;a&#39;], &#39;a&#39;], [4, [&#39;b&#39;, &#39;a&#39;, &#39;a&#39;, &#39;b&#39;], &#39;b&#39;], [4, [&#39;b&#39;, &#39;a&#39;, &#39;a&#39;, &#39;B&#39;], &#39;B&#39;], [4, [&#39;b&#39;, &#39;a&#39;, &#39;b&#39;, &#39;a&#39;], &#39;a&#39;], [4, [&#39;b&#39;, &#39;a&#39;, &#39;b&#39;, &#39;A&#39;], &#39;A&#39;], [4, [&#39;b&#39;, &#39;a&#39;, &#39;b&#39;, &#39;b&#39;], &#39;b&#39;], [4, [&#39;b&#39;, &#39;a&#39;, &#39;B&#39;, &#39;a&#39;], &#39;a&#39;], [4, [&#39;b&#39;, &#39;a&#39;, &#39;B&#39;, &#39;A&#39;], &#39;A&#39;], [4, [&#39;b&#39;, &#39;a&#39;, &#39;B&#39;, &#39;B&#39;], &#39;B&#39;], [4, [&#39;b&#39;, &#39;A&#39;, &#39;A&#39;, &#39;A&#39;], &#39;A&#39;], [4, [&#39;b&#39;, &#39;A&#39;, &#39;A&#39;, &#39;b&#39;], &#39;b&#39;], [4, [&#39;b&#39;, &#39;A&#39;, &#39;A&#39;, &#39;B&#39;], &#39;B&#39;], [4, [&#39;b&#39;, &#39;A&#39;, &#39;b&#39;, &#39;a&#39;], &#39;a&#39;], [4, [&#39;b&#39;, &#39;A&#39;, &#39;b&#39;, &#39;A&#39;], &#39;A&#39;], [4, [&#39;b&#39;, &#39;A&#39;, &#39;b&#39;, &#39;b&#39;], &#39;b&#39;], [4, [&#39;b&#39;, &#39;A&#39;, &#39;B&#39;, &#39;a&#39;], &#39;a&#39;], [4, [&#39;b&#39;, &#39;A&#39;, &#39;B&#39;, &#39;A&#39;], &#39;A&#39;], [4, [&#39;b&#39;, &#39;A&#39;, &#39;B&#39;, &#39;B&#39;], &#39;B&#39;], [4, [&#39;b&#39;, &#39;b&#39;, &#39;a&#39;, &#39;a&#39;], &#39;a&#39;], [4, [&#39;b&#39;, &#39;b&#39;, &#39;a&#39;, &#39;b&#39;], &#39;b&#39;], [4, [&#39;b&#39;, &#39;b&#39;, &#39;a&#39;, &#39;B&#39;], &#39;B&#39;], [4, [&#39;b&#39;, &#39;b&#39;, &#39;A&#39;, &#39;A&#39;], &#39;A&#39;], [4, [&#39;b&#39;, &#39;b&#39;, &#39;A&#39;, &#39;b&#39;], &#39;b&#39;], [4, [&#39;b&#39;, &#39;b&#39;, &#39;A&#39;, &#39;B&#39;], &#39;B&#39;], [4, [&#39;b&#39;, &#39;b&#39;, &#39;b&#39;, &#39;a&#39;], &#39;a&#39;], [4, [&#39;b&#39;, &#39;b&#39;, &#39;b&#39;, &#39;A&#39;], &#39;A&#39;], [4, [&#39;b&#39;, &#39;b&#39;, &#39;b&#39;, &#39;b&#39;], &#39;b&#39;], [4, [&#39;B&#39;, &#39;a&#39;, &#39;a&#39;, &#39;a&#39;], &#39;a&#39;], [4, [&#39;B&#39;, &#39;a&#39;, &#39;a&#39;, &#39;b&#39;], &#39;b&#39;], [4, [&#39;B&#39;, &#39;a&#39;, &#39;a&#39;, &#39;B&#39;], &#39;B&#39;], [4, [&#39;B&#39;, &#39;a&#39;, &#39;b&#39;, &#39;a&#39;], &#39;a&#39;], [4, [&#39;B&#39;, &#39;a&#39;, &#39;b&#39;, &#39;A&#39;], &#39;A&#39;], [4, [&#39;B&#39;, &#39;a&#39;, &#39;b&#39;, &#39;b&#39;], &#39;b&#39;], [4, [&#39;B&#39;, &#39;a&#39;, &#39;B&#39;, &#39;a&#39;], &#39;a&#39;], [4, [&#39;B&#39;, &#39;a&#39;, &#39;B&#39;, &#39;A&#39;], &#39;A&#39;], [4, [&#39;B&#39;, &#39;a&#39;, &#39;B&#39;, &#39;B&#39;], &#39;B&#39;], [4, [&#39;B&#39;, &#39;A&#39;, &#39;A&#39;, &#39;A&#39;], &#39;A&#39;], [4, [&#39;B&#39;, &#39;A&#39;, &#39;A&#39;, &#39;b&#39;], &#39;b&#39;], [4, [&#39;B&#39;, &#39;A&#39;, &#39;A&#39;, &#39;B&#39;], &#39;B&#39;], [4, [&#39;B&#39;, &#39;A&#39;, &#39;b&#39;, &#39;a&#39;], &#39;a&#39;], [4, [&#39;B&#39;, &#39;A&#39;, &#39;b&#39;, &#39;A&#39;], &#39;A&#39;], [4, [&#39;B&#39;, &#39;A&#39;, &#39;b&#39;, &#39;b&#39;], &#39;b&#39;], [4, [&#39;B&#39;, &#39;A&#39;, &#39;B&#39;, &#39;a&#39;], &#39;a&#39;], [4, [&#39;B&#39;, &#39;A&#39;, &#39;B&#39;, &#39;A&#39;], &#39;A&#39;], [4, [&#39;B&#39;, &#39;A&#39;, &#39;B&#39;, &#39;B&#39;], &#39;B&#39;], [4, [&#39;B&#39;, &#39;B&#39;, &#39;a&#39;, &#39;a&#39;], &#39;a&#39;], [4, [&#39;B&#39;, &#39;B&#39;, &#39;a&#39;, &#39;b&#39;], &#39;b&#39;], [4, [&#39;B&#39;, &#39;B&#39;, &#39;a&#39;, &#39;B&#39;], &#39;B&#39;], [4, [&#39;B&#39;, &#39;B&#39;, &#39;A&#39;, &#39;A&#39;], &#39;A&#39;], [4, [&#39;B&#39;, &#39;B&#39;, &#39;A&#39;, &#39;b&#39;], &#39;b&#39;], [4, [&#39;B&#39;, &#39;B&#39;, &#39;A&#39;, &#39;B&#39;], &#39;B&#39;], [4, [&#39;B&#39;, &#39;B&#39;, &#39;B&#39;, &#39;a&#39;], &#39;a&#39;], [4, [&#39;B&#39;, &#39;B&#39;, &#39;B&#39;, &#39;A&#39;], &#39;A&#39;], [4, [&#39;B&#39;, &#39;B&#39;, &#39;B&#39;, &#39;B&#39;], &#39;B&#39;]]]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="c1"># into a matrix product. We evaluate these products over the ends of the tree </span>
+<span class="c1"># generated by the words in the letters a, A, b, B. </span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">numpy.linalg</span> <span class="kn">import</span> <span class="n">matrix_power</span> <span class="k">as</span> <span class="n">mp</span>
+
+<span class="c1"># S is a typical pseudo-anosov type transformation</span>
+<span class="c1"># T was randomly chosen, and might not be a good example.</span>
+<span class="n">S</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]]);</span>
+<span class="n">T</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]]);</span>
+
+
+<span class="n">Id</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">]]);</span>
+
+<span class="c1"># matrix_power is abbreviated mp.</span>
+<span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;a&#39;</span> <span class="p">:</span> <span class="n">S</span><span class="p">,</span>
+     <span class="s1">&#39;A&#39;</span> <span class="p">:</span> <span class="n">mp</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span>
+     <span class="s1">&#39;b&#39;</span> <span class="p">:</span> <span class="n">T</span><span class="p">,</span>
+     <span class="s1">&#39;B&#39;</span> <span class="p">:</span> <span class="n">mp</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+     <span class="p">};</span>
+
+
+<span class="k">def</span> <span class="nf">bracket</span><span class="p">(</span><span class="n">w</span><span class="p">):</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">w</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="nd">@y</span><span class="p">)</span><span class="o">@</span><span class="p">(</span><span class="n">mp</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="nd">@mp</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="c1">## the @ symbol represents matrix multiplication, i.e. np.matmul()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The commutator of S and T is:&quot;</span><span class="p">,</span> <span class="n">bracket</span><span class="p">([</span><span class="n">S</span><span class="p">,</span><span class="n">T</span><span class="p">]));</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The commutator of S and S is trivial:&quot;</span><span class="p">,</span> <span class="n">bracket</span><span class="p">([</span><span class="n">S</span><span class="p">,</span><span class="n">S</span><span class="p">]))</span>
+
+<span class="c1"># matmul is the numpy function for matrix multiplication.</span>
+<span class="k">def</span> <span class="nf">product</span><span class="p">(</span><span class="n">word_list</span><span class="p">):</span>
+    <span class="n">m</span><span class="o">=</span><span class="n">Id</span><span class="p">;</span>
+    <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">word_list</span><span class="p">:</span>
+        <span class="n">m</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="n">word</span><span class="p">]</span><span class="nd">@m</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">m</span>
+
+<span class="n">sample_word_list</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">];</span>
+<span class="n">swl1</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">]</span>
+
+<span class="c1"># print(product(swl1));</span>
+<span class="c1"># print(product(sample_word_list))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>The commutator of S and T is: [[-5. -3.]
+ [-3. -2.]]
+The commutator of S and S is trivial: [[1. 0.]
+ [0. 1.]]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">e</span><span class="o">=</span><span class="n">ends</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="n">seed</span><span class="p">]);</span>
+<span class="n">max_index</span><span class="o">=</span><span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<span class="n">matrix_list</span><span class="o">=</span><span class="p">[];</span>
+
+<span class="k">def</span> <span class="nf">maxFunc</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+  <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">();</span>
+
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_index</span><span class="p">):</span>
+    <span class="n">matrix_list</span><span class="o">=</span><span class="n">matrix_list</span><span class="o">+</span><span class="p">[</span><span class="n">product</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">n</span><span class="p">][</span><span class="mi">1</span><span class="p">])]</span>
+
+<span class="n">matrix_list</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">maxFunc</span><span class="p">,</span> <span class="n">reverse</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">rpl</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">maxFunc</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span><span class="o">*</span><span class="n">x</span>
+
+<span class="k">def</span> <span class="nf">quad</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">transpose</span><span class="p">(),</span> <span class="n">x</span><span class="p">)</span>    
+
+<span class="c1"># looks at the first largest elements. We should keep those terms which </span>
+<span class="c1"># are of similar order of magnitude as det(rpl(x)).</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">matrix_list</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]:</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The matrix product is:&quot;</span><span class="p">,</span>  <span class="n">x</span><span class="p">);</span> 
+<span class="c1">#    print(&quot;The sup norm of the matrix product is:&quot;, maxFunc(x));</span>
+<span class="c1">#    print(&quot;Renormalized projectivization:&quot;,rpl(x));</span>
+<span class="c1">#    print(&quot;The determinant of the renormalized projectivization is:&quot;, np.linalg.det(rpl(x)));</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The log-absolute-determinant of the renormalized projectivization is:&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span>
+              <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span>
+                  <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">rpl</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+                  <span class="p">)</span>
+              <span class="p">)</span>
+         <span class="p">);</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The quadratic form Transpose(x)*x of x=rpl(x) is:&quot;</span><span class="p">,</span> <span class="n">quad</span><span class="p">(</span><span class="n">rpl</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>  <span class="p">);</span>
+    
+    <span class="n">eigen</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">quad</span><span class="p">(</span><span class="n">rpl</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
+<span class="c1">#    print(&quot;The eigendistribution: is:&quot;, eigen);</span>
+   
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The log-absolute value of the near zero eigenvalue is:&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span>
+        <span class="n">eigen</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+        <span class="p">))</span>  
+    <span class="p">)</span>
+    <span class="n">min_index</span><span class="o">=</span><span class="n">eigen</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">argmin</span><span class="p">()</span>
+    <span class="n">max_index</span><span class="o">=</span><span class="n">eigen</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">argmax</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The approximate limit point is:&quot;</span><span class="p">,</span> <span class="n">eigen</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">max_index</span><span class="p">]</span> <span class="p">);</span>
+    
+<span class="c1">#   print(&quot;The rank-one quadratic form represented by the limit point is:&quot;, (eigen[1][max_index])@(eigen[1][max_index].transpose())   )</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1">## N.B. the limit point is the eigenvector corresponding to the nonzero eigenvalue. </span>
+
+<span class="c1">## we would like to retain only those elements such that floor(log|det(x)|) is maximized. </span>
+<span class="c1">## this means considering only those words whose renormalized projectivizations are of the same</span>
+<span class="c1">## order of magnitude, i.e. of the same maximal &quot;dimension&quot;.</span>
+<span class="c1">## TO DO: quantify the uncertainty in the approximate limit point.</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>The matrix product is: [[ 29.  12.]
+ [-75. -31.]]
+The log-absolute-determinant of the renormalized projectivization is: -8.634976227072784
+The quadratic form Transpose(x)*x of x=rpl(x) is: [[1.14951111 0.4752    ]
+ [0.4752     0.19644444]]
+The log-absolute value of the near zero eigenvalue is: -17.567056648013256
+The approximate limit point is: [ 0.92414737 -0.38203618]
+
+
+The matrix product is: [[-29. -12.]
+ [ 75.  31.]]
+The log-absolute-determinant of the renormalized projectivization is: -8.634976227072784
+The quadratic form Transpose(x)*x of x=rpl(x) is: [[1.14951111 0.4752    ]
+ [0.4752     0.19644444]]
+The log-absolute value of the near zero eigenvalue is: -17.567056648013256
+The approximate limit point is: [ 0.92414737 -0.38203618]
+
+
+The matrix product is: [[ 31.  12.]
+ [-75. -29.]]
+The log-absolute-determinant of the renormalized projectivization is: -8.634976227072784
+The quadratic form Transpose(x)*x of x=rpl(x) is: [[1.17084444 0.4528    ]
+ [0.4528     0.17511111]]
+The log-absolute value of the near zero eigenvalue is: -17.567056648013256
+The approximate limit point is: [ 0.93268339 -0.36069612]
+
+
+The matrix product is: [[-31. -12.]
+ [ 75.  29.]]
+The log-absolute-determinant of the renormalized projectivization is: -8.634976227072784
+The quadratic form Transpose(x)*x of x=rpl(x) is: [[1.17084444 0.4528    ]
+ [0.4528     0.17511111]]
+The log-absolute value of the near zero eigenvalue is: -17.567056648013256
+The approximate limit point is: [ 0.93268339 -0.36069612]
+
+
+The matrix product is: [[-31. -13.]
+ [ 74.  31.]]
+The log-absolute-determinant of the renormalized projectivization is: -8.608130186408527
+The quadratic form Transpose(x)*x of x=rpl(x) is: [[1.17549306 0.49251278]
+ [0.49251278 0.206355  ]]
+The log-absolute value of the near zero eigenvalue is: -17.539682136925283
+The approximate limit point is: [ 0.92231631 -0.38643579]
+
+
+The matrix product is: [[ 31.  13.]
+ [-74. -31.]]
+The log-absolute-determinant of the renormalized projectivization is: -8.608130186408527
+The quadratic form Transpose(x)*x of x=rpl(x) is: [[1.17549306 0.49251278]
+ [0.49251278 0.206355  ]]
+The log-absolute value of the near zero eigenvalue is: -17.539682136925283
+The approximate limit point is: [ 0.92231631 -0.38643579]
+
+
+The matrix product is: [[70. 29.]
+ [29. 12.]]
+The log-absolute-determinant of the renormalized projectivization is: -8.496990484098841
+The quadratic form Transpose(x)*x of x=rpl(x) is: [[1.17163265 0.48530612]
+ [0.48530612 0.20102041]]
+The log-absolute value of the near zero eigenvalue is: -17.310726354950265
+The approximate limit point is: [ 0.92387953 -0.38268343]
+
+
+The matrix product is: [[-41. -17.]
+ [ 70.  29.]]
+The log-absolute-determinant of the renormalized projectivization is: -8.496990484098706
+The quadratic form Transpose(x)*x of x=rpl(x) is: [[1.34306122 0.55653061]
+ [0.55653061 0.23061224]]
+The log-absolute value of the near zero eigenvalue is: -17.447393627661846
+The approximate limit point is: [ 0.92382689 -0.38281051]
+
+
+The matrix product is: [[ 41.  17.]
+ [-70. -29.]]
+The log-absolute-determinant of the renormalized projectivization is: -8.496990484098706
+The quadratic form Transpose(x)*x of x=rpl(x) is: [[1.34306122 0.55653061]
+ [0.55653061 0.23061224]]
+The log-absolute value of the near zero eigenvalue is: -17.447393627661846
+The approximate limit point is: [ 0.92382689 -0.38281051]
+
+
+The matrix product is: [[-12.  29.]
+ [ 29. -70.]]
+The log-absolute-determinant of the renormalized projectivization is: -8.496990484098877
+The quadratic form Transpose(x)*x of x=rpl(x) is: [[ 0.20102041 -0.48530612]
+ [-0.48530612  1.17163265]]
+The log-absolute value of the near zero eigenvalue is: -17.31072635129126
+The approximate limit point is: [-0.38268343 -0.92387953]
+
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="c1"># To do: are two-generator subgroups sufficient to enumerate all the limit points?</span>
+<span class="c1"># To do: need collect approximate limit points and attach a confidence value, i.e. rank by how small the smallest eigenvalue is in quad(rpl(x)).</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="jhmartel/fp"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/fp/2022/06/16/AhlforsConjecture.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/fp/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/fp/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/fp/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Optimal Transport, Topology of Singularities, Physics.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
