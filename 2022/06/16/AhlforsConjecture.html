@@ -9,8 +9,8 @@
 <meta property="og:title" content="Remarks on Ahlfor’s Measure Conjecture." />
 <meta name="author" content="JHM" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="(Under construction). Here we record some observations and ideas regarding Ahlfor’s measure conjecture. We begin writing basic python code to study limit points of divergent subsequences in Kleinian-type groups in higher dimensions. For the purposes of this article however we restrict ourselves to small dimensions. This post is very rough and difficult to read." />
-<meta property="og:description" content="(Under construction). Here we record some observations and ideas regarding Ahlfor’s measure conjecture. We begin writing basic python code to study limit points of divergent subsequences in Kleinian-type groups in higher dimensions. For the purposes of this article however we restrict ourselves to small dimensions. This post is very rough and difficult to read." />
+<meta name="description" content="(Under construction) Here we record some observations and ideas regarding Ahlfor’s measure conjecture. We begin writing basic python code to study limit points of divergent subsequences in Kleinian-type groups in higher dimensions. For the purposes of this article however we restrict ourselves to small dimensions." />
+<meta property="og:description" content="(Under construction) Here we record some observations and ideas regarding Ahlfor’s measure conjecture. We begin writing basic python code to study limit points of divergent subsequences in Kleinian-type groups in higher dimensions. For the purposes of this article however we restrict ourselves to small dimensions." />
 <link rel="canonical" href="https://jhmartel.github.io/fp/2022/06/16/AhlforsConjecture.html" />
 <meta property="og:url" content="https://jhmartel.github.io/fp/2022/06/16/AhlforsConjecture.html" />
 <meta property="og:site_name" content="JHM Lab." />
@@ -19,7 +19,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Remarks on Ahlfor’s Measure Conjecture." />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"JHM"},"dateModified":"2022-06-16T00:00:00-05:00","datePublished":"2022-06-16T00:00:00-05:00","description":"(Under construction). Here we record some observations and ideas regarding Ahlfor’s measure conjecture. We begin writing basic python code to study limit points of divergent subsequences in Kleinian-type groups in higher dimensions. For the purposes of this article however we restrict ourselves to small dimensions. This post is very rough and difficult to read.","headline":"Remarks on Ahlfor’s Measure Conjecture.","mainEntityOfPage":{"@type":"WebPage","@id":"https://jhmartel.github.io/fp/2022/06/16/AhlforsConjecture.html"},"url":"https://jhmartel.github.io/fp/2022/06/16/AhlforsConjecture.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"JHM"},"dateModified":"2022-06-16T00:00:00-05:00","datePublished":"2022-06-16T00:00:00-05:00","description":"(Under construction) Here we record some observations and ideas regarding Ahlfor’s measure conjecture. We begin writing basic python code to study limit points of divergent subsequences in Kleinian-type groups in higher dimensions. For the purposes of this article however we restrict ourselves to small dimensions.","headline":"Remarks on Ahlfor’s Measure Conjecture.","mainEntityOfPage":{"@type":"WebPage","@id":"https://jhmartel.github.io/fp/2022/06/16/AhlforsConjecture.html"},"url":"https://jhmartel.github.io/fp/2022/06/16/AhlforsConjecture.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/fp/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://jhmartel.github.io/fp/feed.xml" title="JHM Lab." /><link rel="shortcut icon" type="image/x-icon" href="/fp/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -90,7 +90,7 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Remarks on Ahlfor&#39;s Measure Conjecture.</h1><p class="page-description"> (Under construction). Here we record some observations and ideas regarding Ahlfor's measure conjecture. We begin writing basic python code to study limit points of divergent subsequences in Kleinian-type groups in higher dimensions. For the purposes of this article however we restrict ourselves to small dimensions. This post is very rough and difficult to read. </p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-06-16T00:00:00-05:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">Remarks on Ahlfor&#39;s Measure Conjecture.</h1><p class="page-description"> (Under construction) Here we record some observations and ideas regarding Ahlfor's measure conjecture. We begin writing basic python code to study limit points of divergent subsequences in Kleinian-type groups in higher dimensions. For the purposes of this article however we restrict ourselves to small dimensions. </p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-06-16T00:00:00-05:00" itemprop="datePublished">
         Jun 16, 2022
       </time>• 
           <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -98,7 +98,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      15 min read
+      17 min read
     
 </span></p>
 
@@ -509,6 +509,17 @@ The approximate limit point is: [-0.38268343 -0.92387953]
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>What's the python code say?</p>
+<p>First we need to generate the ends of a tree. That is, the ends of a Cayley graph. Why? Because the limit points correspond to divergent sequences of group elements. We see that a sequence diverges iff the sup norm of the matrices diverges to infinity, i.e. some element must be diverging. Here we generate the ends of the tree "abstractly", and then replace with actual matrix elements $S, T$ using a python dictionary.</p>
+<p>Second, given divergent sequences we take the renormalized projective limit (RPL) of this sequence. This is inspired by H. Furstenberg's paper <a href="https://www.ams.org/journals/proc/1976-055-01/S0002-9939-1976-0422497-X/S0002-9939-1976-0422497-X.pdf">"On Borel's Density Theorem"</a>
+The idea of taking the RPL is based on the natural ambient compactification of $\bf{H}$ when viewed in Voronoi's Cone model of hyperbolic space. That is, the RPL naturally defines the limit point as lying on the visual sphere at-infinity.</p>
+<p>When we study RPL's with near zero determinants, then we find approximate limit points of the orbit. In the above computations, we restrict ourselves to two-generator subgroups of $\Gamma$. Note: a ping-pong argument should tell us that the limit points of a two-generator subgroup accumulate in a Cantor set at-infinity.</p>
+
+</div>
+</div>
+</div>
 </div>
 
 
