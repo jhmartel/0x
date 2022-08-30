@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Summer 2022 is over. Brief update on state of affairs. | JHM Lab.</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Summer 2022 is over. Brief update on state of affairs." />
+<meta name="author" content="JHM" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Optimal Transport, Topology of Singularities, Physics." />
+<meta property="og:description" content="Optimal Transport, Topology of Singularities, Physics." />
+<link rel="canonical" href="https://jhmartel.github.io/fp/2022/08/29/_08_29_LongLostUpdate.html" />
+<meta property="og:url" content="https://jhmartel.github.io/fp/2022/08/29/_08_29_LongLostUpdate.html" />
+<meta property="og:site_name" content="JHM Lab." />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-08-29T00:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Summer 2022 is over. Brief update on state of affairs." />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"JHM"},"dateModified":"2022-08-29T00:00:00-05:00","datePublished":"2022-08-29T00:00:00-05:00","description":"Optimal Transport, Topology of Singularities, Physics.","headline":"Summer 2022 is over. Brief update on state of affairs.","mainEntityOfPage":{"@type":"WebPage","@id":"https://jhmartel.github.io/fp/2022/08/29/_08_29_LongLostUpdate.html"},"url":"https://jhmartel.github.io/fp/2022/08/29/_08_29_LongLostUpdate.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/fp/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://jhmartel.github.io/fp/feed.xml" title="JHM Lab." /><link rel="shortcut icon" type="image/x-icon" href="/fp/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/fp/">JHM Lab.</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/fp/about/">About Me</a><a class="page-link" href="/fp/search/">Search</a><a class="page-link" href="/fp/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Summer 2022 is over. Brief update on state of affairs.</h1><p class="page-description"> </p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-08-29T00:00:00-05:00" itemprop="datePublished">
+        Aug 29, 2022
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">JHM</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      4 min read
+    
+</span></p>
+
+    
+
+    
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2022_08_29_LongLostUpdate.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a href="https://colab.research.google.com/github/jhmartel/fp/blob/master/_notebooks/2022_08_29_LongLostUpdate.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" /></a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Wow, I've been busy in real world and have paused some writing projects. Of course there is still ALOT to be said. But I'm searching for opportunities, and have travelled to Calgary, AB, to see what's happening here. Again, I am travelling to make a decision about where to reside.</p>
+<p>What's been on my mind?</p>
+<ol>
+<li>The Qiskit and quantum computing has reached the following stage: the mathematical theory is perfect but incomplete, unsatisfactory, and the physical interpretation is not sufficient. [Insert comment: there is tensorial categorical issue with the quantum definitions of observables and projections of variables, e.g. the Einstein-Podolsky-Rosen (EPR) paradox and interpretations. This tensorial definition is provided by Gromov in his ERGO brain papers and specifically his paper "In Search of Structure Part 1: Entropy".]</li>
+</ol>
+<p>Again there is alot to say.</p>
+<p>The further logical incompleteness of quantum is reflected in Neil Bohr's famous proclamation that <em>"Those who are not shocked when they first come across quantum theory cannot possibly have understood it."</em></p>
+<p>Or Richard Feynman <em>"If you think you understand quantum mechanics, you don’t understand quantum mechanics.
+ "</em></p>
+<p>Or Werner Heisenberg's <em>"Not only is the Universe stranger than we think, it is stranger than we can think."</em></p>
+<p>Now let me say that these statements are True, but they are also True evidence that Quantum is unacceptable. It is admittedly inconsistent in its very foundations, at its root, genesis, and zero block. So why is quantum accepted at all? Because there is something useful about it. So let us continue to be guided by pragmatism. <em>What's useful</em>?</p>
+<p>Another remark on Bohr's claim. There is something <em>shocking</em> in quantum physics, and this is well documented in the historical accounts of Bohr, Planck, and Einstein. And what is the <em>shock</em>? It is found in Bohr's planetary two-body model of the hydrogen atom which violates classical physics. More specifically, the apparent non-radiation of Bohr's planetary model of the hydrogen atom is the shocking postulate. But the apparent nonradiation is an ad hoc postulate, and which is contradictory to the classical dynamics. Quantum is shocking for those who try to explain the atom via classical electrodynamics, e.g. the Maxwell field theory and Lorentz force laws. However as Weber and Gauss understood from Ampere's Newtonian theory of electricity, there are many more dynamic and stable configurations in Weber's relational action-at-a-distance model than the standard Lorentz-Maxwell field framework.</p>
+<p>So we view Niels Bohr's above statement as <strong>True</strong>. Indeed for the student to accept the mathematical premise of Bohr's quantum theory is to positively reject the classical physics, because Bohr does not <em>resolve</em> the problem of the apparently non-radiating hydrogen atom . Rather he takes this apparent non-radiation as a fundamental postulate, regardless of its apparent irreconciliability with the basic classical theory of two-body electronic systems.</p>
+<p><em>What is the alternative?</em></p>
+<p>The alternative was proposed by Wilhelm Weber before Planck, and before Bohr. The Weber planetary model of the atom is stable, and does resolve the inherent contradictions of Bohr's model. In otherwords, Weber restores the planetary atom to classical physics.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Update: I've been looking for work since around November 2021. Today is June 2022, so that makes approximately seven months unemployed. I work labour jobs on the side, but that's just to make ends meet. I will say I consider it quite demoralizing and humiliating to be ready, willing, and able to work a job, and yet having no job. I'm sorry my excuse is I'm too talented and too skilled and too good to be working labour like a beast. The consequences of this choice are this: instead of readily earning 32$/hour as entry level wage, I'm poor and effectively homeless. But I'm a dreamer, and i'm called to do physics and mathematics, and I'll do it until I die.</p>
+<ol>
+<li>I have recently updated my special relativity paper titled <a href="https://github.com/jhmartel/SR/">"On Critical Foundations of SR and Light Propagation in Vacuum"</a>.  I actually think the paper is quite readable at this stage. The main idea is simply a modification of Fizeau's spinning wheel experiment following a suggestion of Ralph Sansbury which -- at least to my mind -- would be decisive in demonstrating that "light" is really something that "travel through space". </li>
+</ol>
+<p>Remark. In Maxwell's treatise, especially the final chapters of Vol II, and his review of action-at-a-distance theories of Gauss, Weber, Neumann, etc., Maxwell is clear that it's <em>inconceivable</em> for him to imagine light as anything other than a "particle" which necessarily travels through space. This presumption then leads to the confused issue of whether light is particle or wave or somehow both? (I.e. Bohr complementarity).</p>
+<p>My new goal is to acquire the IBM Qiskit Developer Accreditation. This involves a 60 question multiple choice exam in August.</p>
+<p>Why?</p>
+<ol>
+<li><p>Qiskit and Quantum Computing (QC) seems like perfect opportunity to prove both my math and programming skills. Honestly I don't think anybody can understand Qiskit or the quantum gates without strong linear algebra.</p>
+</li>
+<li><p>Qiskit and especially Qiskit Pulse are excellent testing grounds for fundamental physics. Indeed my hypothesis is that decoherence and quantum errors are going to remain a <em>persistent</em> problem in QC. It would be amazing to actually derive/prove the persistence of these errors via Weber's electrodynamics.</p>
+</li>
+</ol>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="jhmartel/fp"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/fp/2022/08/29/_08_29_LongLostUpdate.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/fp/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/fp/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/fp/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Optimal Transport, Topology of Singularities, Physics.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
