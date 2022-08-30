@@ -4,8 +4,8 @@
         "post0": {
             "title": "Title",
             "content": ". bold text# Preprint on Closing Steinberg Symbols in Mapping Class Group with Applications to Constructing Spines. . &quot;Mapping Class Group, Bieri-Eckmann duality, spines, Teichmueller space&quot; . toc:false- branch: master | badges: true | comments: true | author: JHM | categories: [fastpages, jupyter] | . Today we announce that our preprint on &quot;Closing Steinberg Symbols in Mapping Class Groups&quot; has achieved a basically stable form. The article is available at [https://www.github.com/jhmartel/MCG]. . There is a proof missing in one of the lemmas, but otherwise the paper can be read as is. We don&#39;t solve all the problems we wanted to, and we cannot yet produce an explicit spine for the genus two mapping class group, for example, but we&#39;ve written what we can. . Comments are welcome at jhmartel {at} proton {dot} me. .",
-            "url": "https://jhmartel.github.io/fp/2022/08/30/ClosingSteinbergArticleIsAvailable.html",
-            "relUrl": "/2022/08/30/ClosingSteinbergArticleIsAvailable.html",
+            "url": "https://jhmartel.github.io/fp/2022/08/30/ClosingSteinbergArticleAvailable.html",
+            "relUrl": "/2022/08/30/ClosingSteinbergArticleAvailable.html",
             "date": " • Aug 30, 2022"
         }
         
