@@ -4,12 +4,13 @@ title: About Me
 permalink: /about/
 ---
 
-Welcome to JHM Labs.
-
-JHM is a Canadian mathematician specializing in optimal transport, topology of singularities, energy and electrodynamics, and more. Our research touches on aspect of classical physics, economics, metals and recycling, and computation. 
+Welcome to JHM Labs!
 
 The purpose of this website is to broadcast and record our ideas in short articles. This website is powered by **[fastpages](https://github.com/fastai/fastpages)** [^1]. 
 
- 
+JHM is me, a mathematician and general good guy from Aylmer, QC, Canada. 
+Our goal is to develop a math-physics lab for 21st century.
+Our research includes python, jupyter notebooks, optimal transport, topology of singularities, energy and electrodynamics, history of science, computation, mapping class groups, geometric topology, and whatever else we think about.
+
 
 [^1]:a blogging platform that natively supports Jupyter notebooks in addition to other formats.
