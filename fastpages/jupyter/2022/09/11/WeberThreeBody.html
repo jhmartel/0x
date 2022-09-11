@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>[Under Construction] Weber Three Body Problem. | JHM Lab.</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="[Under Construction] Weber Three Body Problem." />
+<meta name="author" content="JHM" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Our goal in this post is to integrate the equations of motion for three charged bodies under Weber’s force law. Why? Because we want to test the Sansbury proposal that the electron $e^{-}$ is structured, specifically as a 3-body system with net charge -1=-1-1+1. Yes, this is strange hypothesis and very important to investigate. But there is a challenge: the Newtonian equations of motion combined with Weber force are not the usual second order ODEs. This means we need to introduce a Differential Algebraic Equation (DAE) solver named GEKKO, and this has delayed the publication of this post. With GEKKO we can solve ODEs of the form $F(x, x’, x’’)=0$. This post is theoretical. But we are working on the python notebooks for the actual code for Weber 3-body problem with net charge -1 = -1 -1 + 1." />
+<meta property="og:description" content="Our goal in this post is to integrate the equations of motion for three charged bodies under Weber’s force law. Why? Because we want to test the Sansbury proposal that the electron $e^{-}$ is structured, specifically as a 3-body system with net charge -1=-1-1+1. Yes, this is strange hypothesis and very important to investigate. But there is a challenge: the Newtonian equations of motion combined with Weber force are not the usual second order ODEs. This means we need to introduce a Differential Algebraic Equation (DAE) solver named GEKKO, and this has delayed the publication of this post. With GEKKO we can solve ODEs of the form $F(x, x’, x’’)=0$. This post is theoretical. But we are working on the python notebooks for the actual code for Weber 3-body problem with net charge -1 = -1 -1 + 1." />
+<link rel="canonical" href="https://jhmartel.github.io/fp/fastpages/jupyter/2022/09/11/WeberThreeBody.html" />
+<meta property="og:url" content="https://jhmartel.github.io/fp/fastpages/jupyter/2022/09/11/WeberThreeBody.html" />
+<meta property="og:site_name" content="JHM Lab." />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-09-11T00:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="[Under Construction] Weber Three Body Problem." />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"JHM"},"dateModified":"2022-09-11T00:00:00-05:00","datePublished":"2022-09-11T00:00:00-05:00","description":"Our goal in this post is to integrate the equations of motion for three charged bodies under Weber’s force law. Why? Because we want to test the Sansbury proposal that the electron $e^{-}$ is structured, specifically as a 3-body system with net charge -1=-1-1+1. Yes, this is strange hypothesis and very important to investigate. But there is a challenge: the Newtonian equations of motion combined with Weber force are not the usual second order ODEs. This means we need to introduce a Differential Algebraic Equation (DAE) solver named GEKKO, and this has delayed the publication of this post. With GEKKO we can solve ODEs of the form $F(x, x’, x’’)=0$. This post is theoretical. But we are working on the python notebooks for the actual code for Weber 3-body problem with net charge -1 = -1 -1 + 1.","headline":"[Under Construction] Weber Three Body Problem.","mainEntityOfPage":{"@type":"WebPage","@id":"https://jhmartel.github.io/fp/fastpages/jupyter/2022/09/11/WeberThreeBody.html"},"url":"https://jhmartel.github.io/fp/fastpages/jupyter/2022/09/11/WeberThreeBody.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/fp/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://jhmartel.github.io/fp/feed.xml" title="JHM Lab." /><link rel="shortcut icon" type="image/x-icon" href="/fp/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/fp/">JHM Lab.</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/fp/about/">About Me</a><a class="page-link" href="/fp/search/">Search</a><a class="page-link" href="/fp/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">[Under Construction] Weber Three Body Problem.</h1><p class="page-description">Our goal in this post is to integrate the equations of motion for three charged bodies under Weber's force law. Why? Because we want to test the Sansbury proposal that the electron $e^{-}$ is structured, specifically as a 3-body system with net charge -1=-1-1+1. Yes, this is strange hypothesis and very important to investigate. But there is a challenge: the Newtonian equations of motion combined with Weber force are not the usual second order ODEs. This means we need to introduce a Differential Algebraic Equation (DAE) solver named GEKKO, and this has delayed the publication of this post. With GEKKO we can solve ODEs of the form $F(x, x', x'')=0$. This post is theoretical. But we are working on the python notebooks for the actual code for Weber 3-body problem with net charge -1 = -1 -1 + 1. </p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-09-11T00:00:00-05:00" itemprop="datePublished">
+        Sep 11, 2022
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">JHM</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      4 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/fp/categories/#fastpages">fastpages</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/fp/categories/#jupyter">jupyter</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-justify-center">
+          <div class="px-2">
+
+    <a href="https://github.com/jhmartel/fp/tree/master/_notebooks/2022-09-11-WeberThreeBody.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/fp/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/jhmartel/fp/master?filepath=_notebooks%2F2022-09-11-WeberThreeBody.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/fp/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/jhmartel/fp/blob/master/_notebooks/2022-09-11-WeberThreeBody.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/fp/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+          <div class="px-2">
+  <a href="https://deepnote.com/launch?url=https%3A%2F%2Fgithub.com%2Fjhmartel%2Ffp%2Fblob%2Fmaster%2F_notebooks%2F2022-09-11-WeberThreeBody.ipynb" target="_blank">
+      <img class="notebook-badge-image" src="/fp/assets/badges/deepnote.svg" alt="Launch in Deepnote"/>
+  </a>
+</div>
+
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2022-09-11-WeberThreeBody.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a href="https://colab.research.google.com/github/jhmartel/fp/blob/master/_notebooks/2022-09-11-WeberThreeBody.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" /></a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Remark:"><strong>Remark</strong>:<a class="anchor-link" href="#Remark:"> </a></h1><p>This article is not yet readable. We've hit a technical difficulty which need to first solve, namely how to integrate ODEs of the form $x''=f(x,x', x'')$ on python. Typically odeint integrates equations of the form $x''=f(x)$ or $x''=f(x,x')$. But the Weber force involves interaction between all the particles their relative accelerations, so applying Newton's 2nd Law gives us equations of motion of the form $$m_i a_i = m_i \frac{dv_i'}{dt}=\sum_j F_{ij}$$ where the force depends on the acceleration of $a_i$ and the particles $a_j$. In the literature this is known as a "Differential Algebraic Equation" (DAE). So we've been looking for python packages which have DAE solvers. It does not appear to be well-known subject.</p>
+<h1 id="Introduction:-Weber's-Force."><strong>Introduction</strong>: Weber's Force.<a class="anchor-link" href="#Introduction:-Weber's-Force."> </a></h1><p>Our goal is to study the $N$-body problem on python according to Weber's electrodynamic law. In fact $N=3$ would be good start, and many author's have studied the $2$-body problem, even us in our <a href="https://jhmartel.github.io/fp/fastpages/jupyter/2022/02/10/LetterToAssisWeberPotentials.html">first post</a> on this blog.</p>
+<p>The Weber potential belongs to relational mechanics, being given by a force $F_{12}$ between two charged particles satisfying Newton's action-reaction principle, so $F_{12}=-F_{21}$, and the force is also <em>radial</em> being along the straight line segment joining the centre of the particles. However what is further strange about Weber's potential is that the force $F$ depends on the relative positions, velocity, and accelerations of the particles!</p>
+<p>So let us consider a three body system with particles having inertial masses $m_1, m_2, m_3$ and such that they have positions $r_1, r_2, r_3$ relative to the centre of mass $O=O_{CM}$ of the system. We will assume that the calculations are performed in the centre of mass frame.</p>
+<p>The total force acting on particle $m_1$ is the sum $F_{12}+F_{13}$, where for example $$F_{1j}=\frac{q_1 q_j}{r^3_{1j}} \hat{\bf{r}}_  \left( 1-\frac^2}{2 c^2} + \frac{r_{1j} r_{1j}''}{c^2}    \right) $$ for $j=2,3$.</p>
+<p>Now if we directly apply Newton's 2nd Law we get:
+$$F_{\text{net} 1}=F_{21}+F_{31}=m_1 \frac{dv_1}{dt}.$$ Here we want to be extremely careful in interpreting these terms. The velocity $v_1$ is the velocity of the particle $m_1$ with respect to the centre-of-mass, i.e. we have $v_1=v_{1O}$. The difficulty with the second order differential equation obtained from Newton's 2nd Law is that $r_{12}''$ is an acceleration term that has some component in common with $\frac{dv_1}{dt}$. The term $r_{12}''$ is very different from $r_1$. Indeed we view $r_1$ and $dr_1/dt=v_1$ as vectors (a position and velocity vector). However the radial $r_{12}$ and $r_{12}'$, $r_{12}''$ are <em>scalar-valued</em> functions!</p>
+<p>To use python's odeint solver, we either need to rewrite the expression defining Newton's 2nd Law, or we need to directly define an integration method which integrates the equation <em>as is</em>.</p>
+<p>What are the terms that enter into the ODE?</p>
+<p>We have the states $state[i]$ for $i=1,2,3$. Each state has position, velocity, and acceleration relative to the centre-of-mass $O$:</p>
+$$state[i]=[r_i, v_i, a_i, q_i, m_i].$$<p>Here $q_i$ represents the electric charge, and $m_i$ the inertial mass.</p>
+<p>The force on $state[i]$ caused by the other states $state[j]$ depends on the relative <em>radial</em> positions, velocities, and accelerations,  namely via:</p>
+$$r_{ij}:=|r_i - r_j|  $$<p>and 
+$$v_{ij}:=v_i - v_j  $$ and 
+$$a_{ij}:=a_i -a_j $$ and
+$$r'_{ij}:= {\hat{\bf{r}}}_{ij} \cdot v_{ij}  $$ and 
+
+$$r''_{ij}:=\frac{ {v_{ij} \cdot v_{ij}} - ({\hat{r}}_{ij} \cdot v_{ij})^2 +r_{ij} \cdot a_{ij}} {r_{ij}}.$$
+</p>
+<p>This last identity for $r''_{ij}$ is very important for our calculations. If we directly substitute this formula into Weber's force law and Newton's 2nd Law we get:</p>
+$$m_i a_i= f_i(r_{ij}, v_{ij}) + \sum_{j} \frac{q_i q_j}{r_{ij}^2 c^2} ~ {\hat{\bf{r}}}_{ij}~ ( r_{ij} \cdot a_{ij}), $$<p>where $f_i$ is defined as</p>
+$$f_i(r_{ij}, v_{ij}):=\sum_j \frac{q_i q_j}{r^2_{ij}} \hat{\bf{r}}_{ij} \left( 1-\frac^2}{2 c^2} + \frac{1}{c^2} [ v_{ij}\cdot v_{ij} -  ({\hat{\bf{r}}}_{ij} \cdot v_{ij})^2      ]\right) $$<p>for $1\leq i , j \leq 3$.</p>
+<p>Using the above formulas we rewrite $r'_{ij} = \hat{\bf{r}}_{ij} \cdot v_{ij}$, and therefore everything in $f_i$ can be computed directly from $ \{ {\hat{\bf{r}}}_{ij}\}$ and $\{v_{ij}\}$.</p>
+<p>These are all the terms that enter into the calculation of Weber's force law. It's more complicated than Newton's Gravitational equations, which depends only on the relative positions $\{r_{ij}\}$. Notice that $r_{ij}$, $r'_{ij}$, $r''_{ij}$ are scalar-valued, and the terms $r_i$, $v_i$, $v_{ij}$, and $a_{ij}$ are vector-valued.</p>
+<p>Now the auxiliary function $f_i$ is ready-made for python's odeint. But the second right hand term is more interesting, as it involves the relative acceleration term directly, where $a_{ij}:=a_i - a_j$ by definition. We are looking to solve for $a_i$, for all $i$. The challenge is to:</p>
+<ol>
+<li>decouple the equations into independant ODEs</li>
+<li>try to rearrange the terms, see what symbolic manipulation can yield. This means writing it out in full (or in Wolfram Mathematica) and staring at it for a good while. Time for experimentation with the symbols.</li>
+</ol>
+<p>Remark. An initial approximation might involve ignoring this second term. In fact we should rewrite our python code to reflect this direct factorization. Note that $r'_{ij}$ is still present in our formula, but we could directly use formula $r'_{ij}=\hat{\bf{r}}_{ij} \cdot v_{ij}$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="jhmartel/fp"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/fp/fastpages/jupyter/2022/09/11/WeberThreeBody.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/fp/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/fp/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/fp/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Optimal Transport, Topology of Singularities, Physics.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
