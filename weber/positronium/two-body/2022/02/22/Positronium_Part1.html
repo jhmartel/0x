@@ -232,11 +232,14 @@ We assume the particles $e^\pm$ have equal mass $m=m_{e^{\pm}}$. The reduced mas
     
     
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p><div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class=" highlight hl-python"><pre><span></span><span class="c1">## import the basic packages</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">odeint</span><span class="p">,</span> <span class="n">solve_ivp</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
@@ -301,7 +304,8 @@ We assume the particles $e^\pm$ have equal mass $m=m_{e^{\pm}}$. The reduced mas
     </div>
 </div>
 </div>
-
+</p>
+    </details>
 <div class="output_wrapper">
 <div class="output">
 
@@ -357,7 +361,9 @@ The initial angular momentum is equal to 0.8
     
     
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p><div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
@@ -441,9 +447,8 @@ The initial angular momentum is equal to 0.8
     </div>
 </div>
 </div>
-<details class="description">
-      <summary class="btn btn-sm" data-open="Hide Output" data-close="Show Output"></summary>
-        <p>
+</p>
+    </details>
 <div class="output_wrapper">
 <div class="output">
 
@@ -460,8 +465,7 @@ The initial angular momentum is equal to 0.8
 
 </div>
 </div>
-</p>
-    </details>
+
 </div>
     
 
@@ -495,39 +499,6 @@ The initial angular momentum is equal to 0.8
 </div>
 </p>
     </details>
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>                 2
-       ⎛d       ⎞ 
-       ⎜──(r(t))⎟ 
-   2   ⎝dt      ⎠ 
-- c  + ───────────
-            2     
-──────────────────
-      2           
-     c ⋅r(t)      
-
-                                  2
-                        ⎛d       ⎞ 
-              2         ⎜──(r(t))⎟ 
-   2         d          ⎝dt      ⎠ 
-- c  - r(t)⋅───(r(t)) + ───────────
-              2              2     
-            dt                     
-───────────────────────────────────
-               2  2                
-              c ⋅r (t)             
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
     
 
