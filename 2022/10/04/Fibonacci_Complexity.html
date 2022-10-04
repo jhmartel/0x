@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Computational Complexity of Fibonacci Sequences. Part 1. | JHM Lab.</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Computational Complexity of Fibonacci Sequences. Part 1." />
+<meta name="author" content="JHM" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="I was reviewing the computational complexity of fibonacci sequences 1, 1, 2, 3, 5, 8, 13, …, and also reflecting on Wolfram’s idea of computational irreducibility. Is O(log(n)) provably the minimal time complexity of computing fibonacci sequences? Can we formalize Wolfram’s definition and obtain a strategy for proving the minimality of these running times?" />
+<meta property="og:description" content="I was reviewing the computational complexity of fibonacci sequences 1, 1, 2, 3, 5, 8, 13, …, and also reflecting on Wolfram’s idea of computational irreducibility. Is O(log(n)) provably the minimal time complexity of computing fibonacci sequences? Can we formalize Wolfram’s definition and obtain a strategy for proving the minimality of these running times?" />
+<link rel="canonical" href="https://jhmartel.github.io/fp/2022/10/04/Fibonacci_Complexity.html" />
+<meta property="og:url" content="https://jhmartel.github.io/fp/2022/10/04/Fibonacci_Complexity.html" />
+<meta property="og:site_name" content="JHM Lab." />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-10-04T00:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Computational Complexity of Fibonacci Sequences. Part 1." />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"JHM"},"dateModified":"2022-10-04T00:00:00-05:00","datePublished":"2022-10-04T00:00:00-05:00","description":"I was reviewing the computational complexity of fibonacci sequences 1, 1, 2, 3, 5, 8, 13, …, and also reflecting on Wolfram’s idea of computational irreducibility. Is O(log(n)) provably the minimal time complexity of computing fibonacci sequences? Can we formalize Wolfram’s definition and obtain a strategy for proving the minimality of these running times?","headline":"Computational Complexity of Fibonacci Sequences. Part 1.","mainEntityOfPage":{"@type":"WebPage","@id":"https://jhmartel.github.io/fp/2022/10/04/Fibonacci_Complexity.html"},"url":"https://jhmartel.github.io/fp/2022/10/04/Fibonacci_Complexity.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/fp/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://jhmartel.github.io/fp/feed.xml" title="JHM Lab." /><link rel="shortcut icon" type="image/x-icon" href="/fp/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/fp/">JHM Lab.</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/fp/about/">About Me</a><a class="page-link" href="/fp/search/">Search</a><a class="page-link" href="/fp/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Computational Complexity of Fibonacci Sequences. Part 1.</h1><p class="page-description"> I was reviewing the computational complexity of fibonacci sequences 1, 1, 2, 3, 5, 8, 13, ..., and also reflecting on Wolfram's idea of computational irreducibility. Is O(log(n)) provably the minimal time complexity of computing fibonacci sequences? Can we formalize Wolfram's definition and obtain a strategy for proving the minimality of these running times? </p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-10-04T00:00:00-05:00" itemprop="datePublished">
+        Oct 4, 2022
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">JHM</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      9 min read
+    
+</span></p>
+
+    
+
+    
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2022-10-04-Fibonacci_Complexity.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a href="https://colab.research.google.com/github/jhmartel/fp/blob/master/_notebooks/2022-10-04-Fibonacci_Complexity.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" /></a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The papers of Alan Craig Feinstein on $P$ versus $NP$ have caused me to <a href="https://jhmartel.github.io/fp/fastpages/jupyter/2022/09/03/PversusNP.html">previously review</a> some basic questions in computational complexity. This post continues our line of thought on what "computational complexity" means from the pragmatic perspective. This in contrast to "theoretical" computation results, which is a contradiction in terms.</p>
+<p>In this post we simply consider the question:
+<em>What is the computational complexity of computing the $n$-th Fibonacci number?</em></p>
+<p>Let's recall the basic definition: the fibonacci sequence is a sequence of integers $f_0, f_1, f_2, \ldots$ defined recursively by the rules 
+
+$$f_0=1, ~~ f_1=1, ~~\text{and}~~ f_{n+1}=f_n+f_{n-1}~~\text{for}~~ n\geq 1.$$
+</p>
+<p>Naively to compute $f_{2022}$ would require we apply the definition and find $f_{2021}$ and $f_{2020}$, and then continuing the recursion we need to call all the previous values of $f_k$ for $k &lt; 2022$. What is the precise computation?</p>
+<p>Let's begin with the pseudocode. The idea is memoization. If we apply the above recursive formula to evaluate $f_{2022}$, then we'll find ourselves reusing values of $f_k$ for $k &lt; 2022$. The memoization is simply a device for recording and reusing these intermediate values. So to compute $f_{2022}$ we will need to <em>store</em> the previous values, although there is a method (Bottom-Up evaluation) which is similar, and which inductively evaluates $f_1$, $f_2$, $f_3$, etc., until we reach $f_{2022}$. So if we compute $f_{2022}$ and memoize all the terms $m=\{f_1, f_2, f_3, \ldots\}$ then we see the memo $m$ grows unbounded in length. Some authors modify the memo to only contain the two "largest" elements, thus reducing the length of the list. This would require updating the memo $$\{f_1, f_2\} \leadsto \{f_2, f_3\} \leadsto \{f_3, f_4\} \leadsto \cdots \leadsto \{f_{n-1}, f_n\} \leadsto \cdots.$$ But still the number of bytes necessary to represent the fibonacci elements grows exponentially with $n$ since $f_{n+1} \approx \varphi^n$ where $\varphi$ is the golden ratio $\varphi=\frac{1+\sqrt{5}}{2} \approx 1.618033$.</p>
+<p>The memoization gives a time complexity of $O(n)$ to compute $f_n$. But memoization requires memory to store the memo! We think this needs be accounted for in the computational complexity, since obviously it's part of the <em>computation</em>.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">fib_cache</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span> <span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+
+<span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">fib_cache</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">fib_cache</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="mi">100</span><span class="p">):</span>
+      <span class="n">fib</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">fib_cache</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span> <span class="o">=</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+    <span class="c1"># print(fib_cache) # &lt;--this line is diagnostic.</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+  <span class="c1"># There&#39;s interesting comment on why the range(100, n, 100) line is important</span>
+  <span class="c1"># to avoid a &quot;recursive depth error&quot;. The point is that the memo needs to be filled</span>
+  <span class="c1"># as the algorithm develops, otherwise it recurses too far and returns an error!</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="c1"># fib(1111111)</span>
+
+<span class="n">fib</span><span class="p">(</span><span class="mi">1111</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>6851462981265369536304298877223231154064355390623195419885661484162849735541256952762360871448156142552148460793441585691068131682370855135019896825808086317430648360941203391832868742715640036246053259136014253626356840914521594989</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Wolfram's-(non)Definition-of-Computational-Irreducibility."><em>Wolfram's (non)Definition of Computational Irreducibility.</em><a class="anchor-link" href="#Wolfram's-(non)Definition-of-Computational-Irreducibility."> </a></h1><p>In Wolfram's book "A New Kind of Science", there is introduced the idea  of <em>computational irreducibility</em>. We quote from Chapter 13, pp.739-740.</p>
+<p>[Begin quote] "<em>Computational irreducibility leads to a much more fundamental problem with prediction. For it implies that even if in principle one has all the information one needs to work out how some particular system will behave, it can still take an irreducible amount of computational work actually [sic] to do this.</em></p>
+<p><strong><em>Indeed, whenever computational irreducibility exists in a system it means that in effect there can be no way to predict how the system will behave except by going through almost as many steps of computation as the evolution of the system itself.</em></strong></p>
+<p><em>In traditional science it has rarely even been recognized that there is a need to consider how systems that are used to make predictions actually operate.</em> <strong><em>But what leads to the phenomenon of computational irreducibility is that there is in fact always a fundamental competition between systems used to make predictions and systems whose behaviour one tries to predict.</em></strong></p>
+<p>_For if meaningful general predictions are to be possible, it must at some level be the case that the system making the predictions be able to <strong><em>outrun</em></strong> the system it is trying to predict. But for this to happen the system making the predictions must be able to perform more sophisticated computations than the system is trying to predict._</p>
+<p><em>But the remarkable assertion that the Principle of Computational Equivalence  makes is that this assumption is not correct, and that in fact almost any system whose behaviour is not obviously simple performs computations that are in the end exactly equivalent in their sophistication.</em></p>
+<p><em>So what this means is that systems one uses to make predictions cannot be expected to do computations that are any more sophisticated than the computations that occur in all sorts of systems whose behaviour we might try to predict. And from this it follows that for many systems no systematic prediction can be done, so that there is no general way to shortcut their process of evolution, and as a result their behaviour must be considered computationally irreducible.</em>" [End quote]</p>
+<p>Here's what I like about Wolfram's idea of "computational irreducibility". Firstly it aligns with experience. Mathematicians who actually compute things know that there's no shortcuts for alot of operations. It's very difficult to add two numbers $a+b$ without actually "adding" them arithmetically. In otherwords, mathematicians don't expect shortcuts. This relates to Craig Alan Feinstein's arguments that $P \neq NP$, and specifically that the subset-sum problem is computationally irreducible. To decide whether a set of signed integers $S$ contains a zero subset-sum, there really is nothing we can do except exhaustively search through all the subsets and add the elements. But most theoretical computer scientists "dream" of somehow there existing a shortcut, a black box, a sophisticated magical algorithm that will compute the sums without actually computing them! So Wolfram's idea of "computational irreducibility" is in opposition to the theoretical computer scientists' optimism.</p>
+<p>But what's lacking is any rigorous proof or definition of <em>computational irreducibility</em>. If I had to make a pseudo-definition (intuitive) I would first say:</p>
+<ul>
+<li><p>a computation is the evaluation of a function $f: X \to Y$,</p>
+</li>
+<li><p>and the evaluation $f$ is <em>computationally irreducible</em> if the complexity of any equivalent composition $g: X \to Z$ and $h: Z \to Y$ with $f = h \circ g$ satisfies $$c(f) \leq c(h) + c(g),$$ where $c(f)$ represents the "computational complexity" of evaluating a function $f$.</p>
+</li>
+</ul>
+<p>However the complexity $c(f)$ is not well-defined at this point. But the idea is that a function $f$ always admits (nonunique!) compositions $f=h \circ g$, but the question would be whether these compositions $h, g$ are any simpler than the evaluation of $f$ itself!</p>
+<p>The above is not sufficiently rigorous since we have not defined $c(f)$. Now it must be clear that $c(-)$ is <em>not</em> defined on the category of functions, since compositions $f=h\circ g$ are <em>identical</em> functions, but not necessarily identical <em>computations</em>.</p>
+<p>For example, Wolfram would argue that the Collatz function arising in the Collatz conjecture <a href="https://www.youtube.com/watch?v=094y1Z2wpJg">$3x+1$ problem</a> is computationally irreducible. There are no shortcuts for evaluating the Collatz function, and therefore there will never be a <em>proof</em> of Collatz' conjecture. This is why no mathematician should study the problem, because the results/outputs of the Collatz function cannot be logically established, they can only be <em>empirically</em> established by directly evaluating the Collatz function using the definition.</p>
+<h1 id="Topological-Irreducibility"><em>Topological Irreducibility</em><a class="anchor-link" href="#Topological-Irreducibility"> </a></h1><p>Let's examine the word <em>irreducibility</em> somewhat more. Wikipedia has many references, but the primary definition (for our perspective) is the topological irreducibility. Here is the definition from Wikipedia</p>
+<p><em>Def. (Reducible and Irreducible Topological Spaces)</em></p>
+<ul>
+<li><em>A topological space $X$ is reducible if it can be written as a union $ X=X</em>{1}\cup X<em>{2}$ of two closed proper subsets $X</em>{1}, X<em>{2}$ of $X$.</em></li>
+<li><em>A topological space $X$ is irreducible (or hyperconnected) if it is not reducible. Equivalently, if all non empty open subsets of X are dense, or if any two nonempty open sets have nonempty intersection.</em></li>
+</ul>
+<p>So the computational aspect of irreducibility would involve computing intersections of nontrivial open subsets of the space. Formally it would be better to provide the relative definition of irreducibility for subsets $A \subset X$, but we just use the subspace topology on $A$ in $X$. I.e., open subsets of $A$ are defined as intersections $U \cap A$ of open subsets $U$ of $X$. It's useful to introduce the relative definition because our first idea for defining computational complexity is to consider the topology of the graph of the function in question, i.e. $graph(f) \subset X \times Y$. Now if we have a composition $f = h \circ g$, then we obtain two graphs(!) namely $$graph(h) \subset Z \times Y$$ and $$graph(g)\subset X \times Z.$$</p>
+<p>I suppose it would be interesting to determine whether the graph of the Collatz function is an irreducible topological subset of the product $\bf{N} \times \bf{N}$. And here we need specific the topology of $\bf{N}$, which is not so obvious, although perhaps the discrete topology is the most natural.</p>
+<p>To this point we haven't proved anything new, we've only conceptualized the problem, trying to more formally define "irreducibility". We have yet to define the complexity $c(f)$ of a function although our idea is that $c(f)$ should reflect a property of $graph(f)$. Dependancy on the graph of $f$ allows us to compare compositions $f=h\circ g$ and maybe develop comparisons between $c(f)$, $c(g)$, $c(h)$, etc..</p>
+<p>But the point is that we have a strategy now, and we can consult the literature by looking for techniques to prove the irreducibility of topological spaces. This is a general problem, and we can even begin with the more specialized case of algebraic geometry.</p>
+<p>In algebraic geometry, if a variety is irreducible then what does that mean <em>in concrete terms</em> for the equations defining the variety? For hypersurfaces it means the variety can be described by two equations instead of one. For example a polynomial $p(x)$ is reducible if $p(x)=q_1(x) . q_2(x)$ for nontrivial polynomials $q_1, q_2$. What's interesting for polynomials is that the degrees of the products are strictly smaller, namely $$deg(p) = deq(q_1)+deg(q_2).$$</p>
+<p>The above definition implies the standard algebraic geometry definition of irreducible algebraic varieties $V$ via the topology of prime ideals in the spectrum $Spec(V)$ of $V$.</p>
+<p>But this is the beginning of another post. 
+-JHM.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="jhmartel/fp"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/fp/2022/10/04/Fibonacci_Complexity.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/fp/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/fp/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/fp/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Optimal Transport, Topology of Singularities, Physics.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
