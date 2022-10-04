@@ -237,9 +237,8 @@ $ X= X_1 \cup X_2$ of two closed proper subsets $X_1, X_2$ of $X$._</li>
 <p>To this point we haven't proved anything new, we've only conceptualized the problem, trying to more formally define "irreducibility". We have yet to define the complexity $c(f)$ of a function although our idea is that $c(f)$ should reflect a property of $graph(f)$. Dependancy on the graph of $f$ allows us to compare compositions $f=h\circ g$ and maybe develop comparisons between $c(f)$, $c(g)$, $c(h)$, etc..</p>
 <p>But the point is that we have a strategy now, and we can consult the literature by looking for techniques to prove the irreducibility of topological spaces. This is a general problem, and we can even begin with the more specialized case of algebraic geometry.</p>
 <p>In algebraic geometry, if a variety is irreducible then what does that mean <em>in concrete terms</em> for the equations defining the variety? For hypersurfaces it means the variety can be described by two equations instead of one. For example a polynomial $p(x)$ is reducible if $p(x)=q_1(x) . q_2(x)$ for nontrivial polynomials $q_1, q_2$. What's interesting for polynomials is that the degrees of the products are strictly smaller, namely $$deg(p) = deq(q_1)+deg(q_2).$$</p>
-<p>The above definition implies the standard algebraic geometry definition of irreducible algebraic varieties $V$ via the topology of prime ideals in the spectrum $Spec(V)$ of $V$.</p>
-<p>But this is the beginning of another post. 
--JHM.</p>
+<p>But let's hypothesize that the complexity of evaluating a degree $d$ polynomial is $d$. Then the complexity of computing $p=q_1 q_2$ is <em>not</em> $deg(p)$ but actually $$\max\{ deg(q_1), deg(q_2) \}.$$ This is assuming that the product $p=q_1 . q_2$ has constant time complexity, which is reasonable for real or complex numbers. So this is elementary examples of how topological reducibility relates to computational complexity. And this seems to be the beginning of maybe something more interesting.</p>
+<p>-JHM.</p>
 
 </div>
 </div>
