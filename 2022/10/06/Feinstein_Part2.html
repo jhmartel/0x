@@ -171,7 +171,7 @@ This is true, but a trivial example since solutions to such equations are very i
 <p>"<em>This squaring of the error at each iteration step – the so-called quadratic convergence of Newton–Raphson's method – has the effect that the number of correct digits in the result roughly doubles for every iteration, a property that becomes extremely valuable when the numbers involved have many digits (e.g. in the large integer domain)</em>"{end quote}</p>
 <p>It's simple enough to recall the idea behind Newton's method. At an initial point $x_n$ we evaluate the $x$-intercept of the tangent line at $(x_n, f(x_n))$, which tangent line has equation $$\frac{x-x_n}{y-(1/x_n-a)} =-x_n^2. $$ Therefore the $x$-intercept is obtained by $$x_{n+1}:=-x_n^2(0-1/x_n+a)+x_n=x_n(2-ax_n).$$</p>
 <p>We remark that there is something arbitrary in our choice of auxiliary function $f(x)=\frac{1}{x}-a$, namely all we really needed was a function $F$ such that $F(a^{-1})=0$) prescribed zero and have well-behaved gradient descent into that zero. That's what is obtained by the analytic expression $f(x)=1/x-a$, and using Newton's calculus we find the slope of the tangent line everywhere as $-1/x^2$ by which, again, via calculation that we have recursive formula for a quadratically fast converging approximation.</p>
-<p>Here we face the same difficulty as outlined by Blum-Cucker-Shub-Smale in computational decidability problems.</p>
+<p>Here we face the same difficulty as outlined by Blum-Cucker-Shub-Smale in their real complexity book.</p>
 <p>[To be continued ... -JHM]</p>
 
 </div>
