@@ -98,7 +98,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      8 min read
+      9 min read
     
 </span></p>
 
@@ -167,6 +167,11 @@ This is true, but a trivial example since solutions to such equations are very i
 <p>So after Euclid, everything is reduced to the question <em>How is divisibility decided</em> ? I.e., how to decide the function <em>"isDivisible(a,b)"</em>. There's a discussion of the decidability <a href="https://cstheory.stackexchange.com/questions/16788/whats-the-most-efficient-algorithm-for-divisibility">here</a>. Also interesting is the relation to Newton's method, sometimes called Newton-Raphson division.</p>
 <p>Remark. The efficiency of the Newton-Raphson is not immediately relevant to the question, since it efficiently finds a solution, yet our decidability problem is related to determining whether $x=t.a^{-1}$ is integral. The question would then become whether Newton's method is sufficiently accurate to distinguish integral versus rational values!</p>
 <p>For example, to solve $ax=t$ requires $x=t.a^{-1}$. But the value of $a^{-1}$ can be expressed as finding the zero of the function $0=f(x)=\frac{1}{x}-a$, which has derivative $f'(x)=\frac{-1}{x^2}$. Applying Newton's method to finding approximate zeros $x_n$, we find approximate quotient equal to the product $t.x_n$ and we must decide whether $t.x_n$ is <em>integral</em>.</p>
+<p>Reviewing the Wikipedia article on <a href="https://en.wikipedia.org/wiki/Division_algorithm#Newton%E2%80%93Raphson_division">Newton-Raphson</a> has interesting remark on the quadratic convergence of Newton's method. To quote:</p>
+<p>"<em>This squaring of the error at each iteration step – the so-called quadratic convergence of Newton–Raphson's method – has the effect that the number of correct digits in the result roughly doubles for every iteration, a property that becomes extremely valuable when the numbers involved have many digits (e.g. in the large integer domain)</em>"{end quote}</p>
+<p>It's simple enough to recall the idea behind Newton's method. At an initial point $x_n$ we evaluate the $x$-intercept of the tangent line at $(x_n, f(x_n))$, which tangent line has equation $$\frac{x-x_n}{y-(1/x_n-a)} =-x_n^2. $$ Therefore the $x$-intercept is obtained by $$x_{n+1}:=-x_n^2(0-1/x_n+a)+x_n=x_n(2-ax_n).$$</p>
+<p>We remark that there is something arbitrary in our choice of auxiliary function $f(x)=\frac{1}{x}-a$, namely all we really needed was a function $F$ such that $F(a^{-1})=0$) prescribed zero and have well-behaved gradient descent into that zero. That's what is obtained by the analytic expression $f(x)=1/x-a$, and using Newton's calculus we find the slope of the tangent line everywhere as $-1/x^2$ by which, again, via calculation that we have recursive formula for a quadratically fast converging approximation.</p>
+<p>Here we face the same difficulty as outlined by Blum-Cucker-Shub-Smale in computational decidability problems.</p>
 <p>[To be continued ... -JHM]</p>
 
 </div>
