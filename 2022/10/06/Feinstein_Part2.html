@@ -126,13 +126,13 @@ window.onload = wrap_img;
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="More-Remarks-on-Craig-Alan-Feinstein's-P-versus-NP-argument."><em>More Remarks on Craig Alan Feinstein's P versus NP argument.</em><a class="anchor-link" href="#More-Remarks-on-Craig-Alan-Feinstein's-P-versus-NP-argument."> </a></h1><p>CAF's paper [Dialogue] contains some interesting remarks on precisely <em>what</em> is the argument being made by CAF that $P \neq NP$.</p>
+<h1 id="More-Remarks-on-Craig-Alan-Feinstein's-P-versus-NP-argument."><em>More Remarks on Craig Alan Feinstein's P versus NP argument.</em><a class="anchor-link" href="#More-Remarks-on-Craig-Alan-Feinstein's-P-versus-NP-argument."> </a></h1><p>In previous articles here and here we have been reviewing Craig Alan Feinstein's proposed solution to the $P$ versus $NP$ problem, and he has been poorly received by the so-called experts. But we continue to find his papers interesting, and this post is mainly about his <a href="https://arxiv.org/pdf/1605.08639.pdf"><em>Dialogue Concerning The Two Chief World Views</em></a> which contains some interesting remarks on precisely <em>what</em> is the argument being made by CAF that $P \neq NP$.</p>
 <ol>
 <li>The first point is that given a finite subset $X \subset \bf{Z}$, there are indeed exponentially many expressions in $2^X$. This is obvious. But generically there are also $2^{\#(X)}$ <em>distinct values</em> in the image $\epsilon: 2^X \to \bf{Z}$ where $\epsilon(Y) = \sum_{y\in Y} y$ is the natural addition map defined on subsets $Y \in 2^X$. </li>
 </ol>
 <p>This point is made as rebuttal to the objection that if $X$ is bounded a priori, then it's known that there are <em>polynomial many</em> <em>distinct values</em> of the image $2^X \to \bf{Z}$. [Reference needed]. We think this is important observation, but one which might require more evidence or proof. Can we more formally prove that <em>arbitrary</em> subsets $X \subset \bf{Z}$ almost surely have exponentially many distinct values in the image $\epsilon: 2^X \to \bf{Z}$?</p>
 <p>If $X$ is in fact a subset of the powers of $2$, namely $$ \{1, 2^2, 2^4, 2^8\}$$ then there's large gaps between the elements, and we think it's clear that the image is exponential. What's also interesting in these cases is that it's also evident that there is a <em>negative solution</em> to the SUBSET-SUM problem.</p>
-<p>And this raises the second interesting point in [CAF]:</p>
+<p>And this raises the second interesting point in CAF's paper:</p>
 <ol>
 <li>The algorithms which are competing with the "meet in the middle" algorithm (which has $O(2^{n/2})$ time-step complexity) must also have the ability to deterministically return a <em>negative answer</em> to SUBSET-SUM(X) if there are no zero subset sums for the given input $X$. </li>
 </ol>
@@ -143,7 +143,9 @@ window.onload = wrap_img;
 <p>This suggests the following question:</p>
 <p><strong>_What is the computational time-step complexity of deterministically deciding the injectivity of a linear map $T: V_1 \to V_2$._</strong></p>
 <p>What would it mean if the complexity of injectivity of linear maps was essentially $O(dim(V_1))$, or can it be decreased?</p>
-<p>What does category theory say about injectivity? Does the strange Yoneda Lemma have any application? I know the logician's find that an important <em>representation theorem</em> for certain categories defined over Sets or something, but I never quite understood it.</p>
+<p>What does category theory say about injectivity?</p>
+<p>Does the strange Yoneda Lemma have any application? I know the logician's find that an important <em>representation theorem</em> for certain categories defined over Sets or something, but I never quite understood it.</p>
+<p>[To be continued ... -JHM]</p>
 
 </div>
 </div>
