@@ -7,7 +7,7 @@
 <title>Deciding Injectivity and C.A.Feinstein’s Proposed Negative Solution to P vs NP. | JHM Lab.</title>
 <meta name="generator" content="Jekyll v4.1.1" />
 <meta property="og:title" content="Deciding Injectivity and C.A.Feinstein’s Proposed Negative Solution to P vs NP." />
-<meta name="author" content="JHM[link text](https://)" />
+<meta name="author" content="JHM" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="We continue to review and reflect on questions suggested by Craig Alan Feinstein’s proposed negative solution to P versus NP. We are specifically reflecting on a signed subset sum problem, which is effectively a linearization of the unsigned subset sum. The question then reduces to deciding the injectivity of a map, namely from a large dimensional finite object to a much smaller dimensional but infinite object, namely integers. This raises the question of what is the computational complexity of deciding injectivity of maps? Is it really ever possible to deterministically decide the injectivity of a map without necessarily running through every evaluation? Along the way we discuss several aspects of CAF’s work." />
 <meta property="og:description" content="We continue to review and reflect on questions suggested by Craig Alan Feinstein’s proposed negative solution to P versus NP. We are specifically reflecting on a signed subset sum problem, which is effectively a linearization of the unsigned subset sum. The question then reduces to deciding the injectivity of a map, namely from a large dimensional finite object to a much smaller dimensional but infinite object, namely integers. This raises the question of what is the computational complexity of deciding injectivity of maps? Is it really ever possible to deterministically decide the injectivity of a map without necessarily running through every evaluation? Along the way we discuss several aspects of CAF’s work." />
@@ -19,7 +19,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Deciding Injectivity and C.A.Feinstein’s Proposed Negative Solution to P vs NP." />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"JHM[link text](https://)"},"dateModified":"2022-10-06T00:00:00-05:00","datePublished":"2022-10-06T00:00:00-05:00","description":"We continue to review and reflect on questions suggested by Craig Alan Feinstein’s proposed negative solution to P versus NP. We are specifically reflecting on a signed subset sum problem, which is effectively a linearization of the unsigned subset sum. The question then reduces to deciding the injectivity of a map, namely from a large dimensional finite object to a much smaller dimensional but infinite object, namely integers. This raises the question of what is the computational complexity of deciding injectivity of maps? Is it really ever possible to deterministically decide the injectivity of a map without necessarily running through every evaluation? Along the way we discuss several aspects of CAF’s work.","headline":"Deciding Injectivity and C.A.Feinstein’s Proposed Negative Solution to P vs NP.","mainEntityOfPage":{"@type":"WebPage","@id":"https://jhmartel.github.io/fp/2022/10/06/Feinstein_Part2.html"},"url":"https://jhmartel.github.io/fp/2022/10/06/Feinstein_Part2.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"JHM"},"dateModified":"2022-10-06T00:00:00-05:00","datePublished":"2022-10-06T00:00:00-05:00","description":"We continue to review and reflect on questions suggested by Craig Alan Feinstein’s proposed negative solution to P versus NP. We are specifically reflecting on a signed subset sum problem, which is effectively a linearization of the unsigned subset sum. The question then reduces to deciding the injectivity of a map, namely from a large dimensional finite object to a much smaller dimensional but infinite object, namely integers. This raises the question of what is the computational complexity of deciding injectivity of maps? Is it really ever possible to deterministically decide the injectivity of a map without necessarily running through every evaluation? Along the way we discuss several aspects of CAF’s work.","headline":"Deciding Injectivity and C.A.Feinstein’s Proposed Negative Solution to P vs NP.","mainEntityOfPage":{"@type":"WebPage","@id":"https://jhmartel.github.io/fp/2022/10/06/Feinstein_Part2.html"},"url":"https://jhmartel.github.io/fp/2022/10/06/Feinstein_Part2.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/fp/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://jhmartel.github.io/fp/feed.xml" title="JHM Lab." /><link rel="shortcut icon" type="image/x-icon" href="/fp/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -94,11 +94,11 @@ window.onload = wrap_img;
         Oct 6, 2022
       </time>• 
           <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-            <span class="p-author h-card" itemprop="name">JHM[link text](https://)</span></span>
+            <span class="p-author h-card" itemprop="name">JHM</span></span>
        • <span class="read-time" title="Estimated read time">
     
     
-      9 min read
+      10 min read
     
 </span></p>
 
@@ -173,6 +173,83 @@ This is true, but a trivial example since solutions to such equations are very i
 <p>We remark that there is something arbitrary in our choice of auxiliary function $f(x)=\frac{1}{x}-a$, namely all we really needed was a function $F$ such that $F(a^{-1})=0$) prescribed zero and have well-behaved gradient descent into that zero. That's what is obtained by the analytic expression $f(x)=1/x-a$, and using Newton's calculus we find the slope of the tangent line everywhere as $-1/x^2$ by which, again, via calculation that we have recursive formula for a quadratically fast converging approximation.</p>
 <p>Here we face the same difficulty as outlined by Blum-Cucker-Shub-Smale in their real complexity book.</p>
 <p>[To be continued ... -JHM]</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We might compare two algorithms for determining divisibility. The first algorithm is naive, deterministic, and originates in Eudoxus and Archimedes axiom. It runs like this:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="k">def</span> <span class="nf">isDivisible</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
+  <span class="n">k</span><span class="o">=</span><span class="mi">0</span>
+  <span class="k">while</span> <span class="n">k</span><span class="o">*</span><span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">:</span>
+    <span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span>
+  <span class="k">if</span> <span class="n">k</span><span class="o">*</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">:</span>
+    <span class="k">return</span> <span class="kc">True</span>
+  <span class="k">elif</span> <span class="n">k</span><span class="o">*</span><span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">:</span>
+    <span class="k">return</span> <span class="kc">False</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">isDivisible</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">39</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">isDivisible</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">48</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">isDivisible</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">49</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">isDivisible</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">59</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">isDivisible</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">69</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>False
+False
+True
+False
+False
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The point of the function isDivisible(a,b) is that it is guaranteed to return an answer, given enough steps. The Eudoxus-Archimedes method of exhaustion guarantees this fundamental property.</p>
 
 </div>
 </div>
