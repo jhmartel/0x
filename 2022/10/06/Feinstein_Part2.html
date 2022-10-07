@@ -179,7 +179,7 @@ This is true, but a trivial example since solutions to such equations are very i
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We might compare two algorithms for determining divisibility. The first algorithm is naive, deterministic, and originates in Eudoxus and Archimedes axiom. It runs like this:</p>
+<p>We might compare two algorithms for determining divisibility. The first algorithm is naive, deterministic, and originates in <a href="https://en.wikipedia.org/wiki/Archimedean_property">Eudoxus and Archimedes axiom</a>. It runs like this:</p>
 
 </div>
 </div>
@@ -220,6 +220,11 @@ This is true, but a trivial example since solutions to such equations are very i
 <span class="nb">print</span><span class="p">(</span><span class="n">isDivisible</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">49</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">isDivisible</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">59</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">isDivisible</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">69</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">isDivisible</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">isDivisible</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">isDivisible</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">isDivisible</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">isDivisible</span><span class="p">(</span><span class="mi">19</span><span class="p">,</span> <span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
 </pre></div>
 
     </div>
@@ -237,6 +242,11 @@ False
 True
 False
 False
+True
+True
+True
+False
+False
 </pre>
 </div>
 </div>
@@ -249,7 +259,8 @@ False
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The point of the function isDivisible(a,b) is that it is guaranteed to return an answer, given enough steps. The Eudoxus-Archimedes method of exhaustion guarantees this fundamental property.</p>
+<p>What's notable about the function isDivisible(a,b) is that it is guaranteed to return an answer given enough steps or iterates. The Eudoxus-Archimedes method of exhaustion guarantees this fundamental property. It is somewhat exhaustive search, iterating patiently through $k$, $k+1$, $k+2$, etc., but which vanishes at some definite (but arbitrarily large step).</p>
+<p>There is a faster algorithm for the floating point approximation. In the following code we implement a faster algorithm, however it's not necessarily deterministic, and in fact does not really <em>decide</em> whether $a$ divides $b$, but gives a floating point number which is indicative of whether there is divisibility.</p>
 
 </div>
 </div>
@@ -271,8 +282,6 @@ False
   <span class="k">else</span><span class="p">:</span>
     <span class="k">pass</span>
   <span class="k">return</span> <span class="n">x</span>
-
-
 
 <span class="c1">#the second function returns the arithmetic quotient b/a. </span>
 <span class="c1"># but the algorithm is not yet deterministic about returning a TRUE when</span>
@@ -298,6 +307,11 @@ False
 <div class=" highlight hl-python"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">div</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">div</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">81</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">div</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1225</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">div</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">div</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">div</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">div</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">div</span><span class="p">(</span><span class="mi">19</span><span class="p">,</span> <span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
 </pre></div>
 
     </div>
@@ -313,6 +327,11 @@ False
 <pre>2.666666666666667
 9.0
 244.99999999999997
+1365.0000000000002
+818.9999999999999
+585.0
+2730.3333333333335
+215.52601618967765
 </pre>
 </div>
 </div>
