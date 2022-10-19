@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Colloquium. Welcome to Optimal Transport | JHM Lab.</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Colloquium. Welcome to Optimal Transport" />
+<meta name="author" content="JHM" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Welcome to the basic ideas of optimal transport. From Monge to Kantorovich." />
+<meta property="og:description" content="Welcome to the basic ideas of optimal transport. From Monge to Kantorovich." />
+<link rel="canonical" href="https://jhmartel.github.io/fp/fastpages/jupyter/2022/10/19/Colloquium_MRU.html" />
+<meta property="og:url" content="https://jhmartel.github.io/fp/fastpages/jupyter/2022/10/19/Colloquium_MRU.html" />
+<meta property="og:site_name" content="JHM Lab." />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-10-19T00:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Colloquium. Welcome to Optimal Transport" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"JHM"},"dateModified":"2022-10-19T00:00:00-05:00","datePublished":"2022-10-19T00:00:00-05:00","description":"Welcome to the basic ideas of optimal transport. From Monge to Kantorovich.","headline":"Colloquium. Welcome to Optimal Transport","mainEntityOfPage":{"@type":"WebPage","@id":"https://jhmartel.github.io/fp/fastpages/jupyter/2022/10/19/Colloquium_MRU.html"},"url":"https://jhmartel.github.io/fp/fastpages/jupyter/2022/10/19/Colloquium_MRU.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/fp/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://jhmartel.github.io/fp/feed.xml" title="JHM Lab." /><link rel="shortcut icon" type="image/x-icon" href="/fp/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/fp/">JHM Lab.</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/fp/about/">About Me</a><a class="page-link" href="/fp/search/">Search</a><a class="page-link" href="/fp/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Colloquium. Welcome to Optimal Transport</h1><p class="page-description">Welcome to the basic ideas of optimal transport. From Monge to Kantorovich.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-10-19T00:00:00-05:00" itemprop="datePublished">
+        Oct 19, 2022
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">JHM</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      6 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/fp/categories/#fastpages">fastpages</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/fp/categories/#jupyter">jupyter</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-justify-center">
+          <div class="px-2">
+
+    <a href="https://github.com/jhmartel/fp/tree/master/_notebooks/2022-10-19-Colloquium_MRU.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/fp/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/jhmartel/fp/master?filepath=_notebooks%2F2022-10-19-Colloquium_MRU.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/fp/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/jhmartel/fp/blob/master/_notebooks/2022-10-19-Colloquium_MRU.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/fp/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+          <div class="px-2">
+  <a href="https://deepnote.com/launch?url=https%3A%2F%2Fgithub.com%2Fjhmartel%2Ffp%2Fblob%2Fmaster%2F_notebooks%2F2022-10-19-Colloquium_MRU.ipynb" target="_blank">
+      <img class="notebook-badge-image" src="/fp/assets/badges/deepnote.svg" alt="Launch in Deepnote"/>
+  </a>
+</div>
+
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2022-10-19-Colloquium_MRU.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a href="https://colab.research.google.com/github/jhmartel/fp/blob/master/_notebooks/2022-10-19-Colloquium_MRU.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" /></a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Colloquium-Talk:-Welcome-to-Optimal-Transport"><em>Colloquium Talk: Welcome to Optimal Transport</em><a class="anchor-link" href="#Colloquium-Talk:-Welcome-to-Optimal-Transport"> </a></h1><p>Here is the rough content of our presentation October 18, 2022 at MRU. EA 1026.</p>
+<p>Optimal Transport starts with question: how to get from $x$ to $y$? Or specifically, how to get unit mass $\delta_x$ from a productive source to a unit mass $\delta_y$ at consumption target? Here is instance where we have too many choices! So we begin to consider Hamiltonian Principle, and looking for ground states of energies, or, cost minimizers.</p>
+<p>To motivate transport between Borel-Radon measures. We did not emphasize the continuity and stability of OT like we wanted to. But Borel-Radon measures and weak_$*$ convergence and the continuity properties are very important for applications to topology. So we imagine a distribution $\sigma$ of productive sources and a given target $\tau$ of consumptive targets, and the question we are asking is "<em>How to get from $\sigma$ to $\tau$?</em>"</p>
+<p>Now as we'll describe the OT program requires a choice of $\sigma$, $\tau$, and a choice of cost $c: X\times Y \to {\bf{R}} \cup\{ +\infty\}$.</p>
+<h1 id="Monge,-Deblais-et-Reblais"><em>Monge, Deblais et Reblais</em><a class="anchor-link" href="#Monge,-Deblais-et-Reblais"> </a></h1><p>Let's go through history and start with Monge [(1761)] where he's literally moving volumes of earth for Napoleon. The Monge Problem is $$(MP) : ~~ \inf_{T} \int ||x- T(x)||d\sigma(x)$$ where the infimum is over all maps $T: {\bf{R}}^n \to {\bf{R}}^n$ satisfying $T\#\sigma = \tau$ (if any such maps exist at all!) Given some basic regularity on $T$, i.e. Lipschitz, then we can infer the Monge-Ampere equation $$det(DT(x)) = \frac{g(T(x))}{f(x)}$$ but this equation is effectively useuless in practice.</p>
+<p>Okay, so our point is this: that Monge started with a very difficult problem, namely with the unfortunate cost $c(x,y)=d^1(x,y) = ||x-y||$. The fact that this cost is <strong>not</strong> strictly convex <strong>is</strong> problematic in practice. Moreover the fact that $x\mapsto ||x||$ is not differentiable at $x=0$ is also extremely problematic in practice. In otherwords, the $L^1$ norm is a very difficult choice of cost, especially to begin with. As we will explain below, in a certain sense the most canonical cost is actually the quadratic cost $c(x,y)=d^2(x,y)/2 = ||x-y||^2/2$.</p>
+<h1 id="Kantorovich's-Linearization"><em>Kantorovich's Linearization</em><a class="anchor-link" href="#Kantorovich's-Linearization"> </a></h1><p>After Monge, we next consider Leonid Kantorovich, and this is big jump in history. We say that Kantorovich basically <em>linearized</em> the whole problem, replacing the rather intractable space of maps $T: X \to Y$ with the space of Borel-Radon measures $\pi$ on the product $X\times Y$, and the pushforward condition $T\# \sigma = \tau$ being replaced with two constraints $$pr_X \# \pi \leq \sigma, ~~~ pr_Y \# \pi =\tau.$$ Here $pr_X$ and $pr_Y$ are the canonical projections from $X\times Y$ to $X,Y$, respectively. Let $SC(\sigma, \tau)$ represent this set of semicoupling measures from the source $\sigma$ to target $\tau$. The important point is that $SC(\sigma, \tau)$ is a nonempty, convex, weak-$*$ compact subset of Borel-Radon measures on $X\times Y$.</p>
+<p>Next Kantorovich observes that for continuous costs $c: X\times Y \to {\bf{R}} \cup \{+\infty\}$ we obtain continuous linear functionals on $SC$ defined by $$\pi \mapsto \int c(x,y) ~d\pi(x,y).$$ 
+So for every choice of source, target, and cost, we find the Monge-Kantorovich program: $$(MK): ~~~ \min_{\pi\in SC(\sigma, \tau)} \int c(x,y) ~ d\pi(x,y).$$ From this program we see that indeed the minimum <em>is</em> attained, being a linear function on a convex compact set.</p>
+<p>At this stage we would like to focus on <em>finitely supported</em> source and targets, namely $$\sigma = \delta_{x_1} +\cdots+\delta_{x_n}$$ and $$\tau = \delta_{y_1} +\cdots+\delta_{y_n}.$$</p>
+<p>Then the set of measure-preserving mappings from $\sigma$ to $\tau$ corresponds to bijective maps from the n-element sets, i.e. basically corresponding to a permutation from $X$ to $Y$. However Kantorovich introduces the set of bistochastic $n\times n$ bistochastic matrices $$BS(n) = \{(a_{ij}) \} $$ where $a_{ij}$ satisfes $$ a_{ij} \geq 0,~~~ \sum_i a_{ij} = 1 = \sum_j a_{ij}~~ $$ for every choice fo indexes $i,j$. In otherwords all the couplings from $X$ to $Y$ corresponds to an invertible stochastic transformation, where the sum of every column and the sum of every row is equal to unity.</p>
+<p>The key point about $BS(n)$ is the so-called Choquet-Birkhoff-von Neumman theorem that the set of extreme points of $BS(n)$ is exactly the $n!$ set of permutation matrices $extreme(BS(n)) \approx Sym_n$. This means every linear functional on $BS(n)$ is minimized at a permutation matrix, i.e. represented by a bijection map $X \to Y$. Equivalently the optimal coupling will not "split" any mass. The above remarks are intended to give some idea of the structure of the set of semicouplings $SC$. It's somehow accessible.</p>
+<p>So again the Monge perspective is to minimize over the bijection maps $T: X\to Y$, i.e. permutations $T: \underline{n} \to \underline{n}$. The linearized Kantorovich perspective to study the convex set $BS(n)$ which consists of multivalued type maps between $\underline{n}$ and $\underline{n}$. Then we seek to minimize a linear function over a convex set (as opposed to minimizing over the discrete set of extreme points).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Kantorovich's-Dual-Max-Program"><em>Kantorovich's Dual Max Program</em><a class="anchor-link" href="#Kantorovich's-Dual-Max-Program"> </a></h1><p>The next step is to introduce Kantorovich's dual max program. How can we motivate this amazing step? Abruptly we can just introduce the transporters point of view, which consists of setting prices $-\phi(x)$ on the source $x\in X$, and prices $\psi(y)$ on the target $y\in Y$. The prices are competitive if and only if they satisfy the important inequality $$-\phi(x) + \psi(y) \leq c(x,y)$$ pointwise for all $x\in X$, $y\in Y$. The Kantorovich program looks to maximize the surplus over all pairs of potentials $\phi, \psi$ on $X, Y$, respectively. Specifically: $$(MAX)~:~~\sup_{\phi, \psi~} \left( -\int \phi(x)d\sigma(x) + \int \psi(y) d\tau(y) \right),$$ where the supremum is taken over all potentials satisfying the above inequality $-\phi+\psi \leq c$. This inequality implies immediately that (MAX) is less than or equal to (MK), i.e. $$(MAX) \leq (MK).$$ However the amazing fact underlying optimal transportation is that the max equals the min, and there is <em>no duality gap</em>. This implies that $c$-optimal semicouplings are supported on the set where equality is attained $$-\phi(x)+\psi(y) \leq c(x,y)$$ with <em>equality</em> if and only if $(x,y)\in spt(\pi)$. This motivates the definition of $c$-subdifferentials $\partial^c \phi(x)$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="(Twist)-Condition-and-Uniqueness"><em>(Twist) Condition and Uniqueness</em><a class="anchor-link" href="#(Twist)-Condition-and-Uniqueness"> </a></h1><h1 id="Basic-Regularity"><em>Basic Regularity</em><a class="anchor-link" href="#Basic-Regularity"> </a></h1><h1 id="Topics-Briefly-Touched-On:"><em>Topics Briefly Touched On:</em><a class="anchor-link" href="#Topics-Briefly-Touched-On:"> </a></h1><ul>
+<li><p>Kantorovich's dual program enables a dimension reduction! We don't really need to search out the $dim(X) \times dim(Y)$ space of semicouplings, but instead the optimal transports are defined by basically $dim(Y)$ parameters, or equivalently $dim(X)$ parameters.</p>
+</li>
+<li><p>We did not cover McCann's displacement convexity, the qualitative curvature descriptions, that $R_{ij} \geq 0$ if and only if entropy is concave along displacement interpolations.</p>
+</li>
+<li><p>The singularity $Z$ and the basic Brouwer No-Retract theorem. We interpret semicouplings from $X$ to $\partial X$ as basically representing deformation retracts.</p>
+</li>
+<li><p>We briefly elaborated how $c(x,y)=d^2(x,y)/2=||x-y||^2/2$ is the canonical cost, or equivalently $c(x,y)=\langle x ,y \rangle$. However there is no real canonical cost from ${\bf{R}}^n \to {\bf{R}}^k$.</p>
+</li>
+<li><p>Challenging to construct costs between arbitrary surfaces, e.g. $T^2 \times S^2 \to \bf{R}$ or $S_g \times S^2 \to \bf{R}$ where $S_g$ is a genus $g$ hyperbolic surface. In fact more interesting is constructing costs from $X$ to $AG_0(S^2)$ using the Dold-Thom theorem.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="jhmartel/fp"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/fp/fastpages/jupyter/2022/10/19/Colloquium_MRU.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/fp/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/fp/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/fp/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Optimal Transport, Topology of Singularities, Physics.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
