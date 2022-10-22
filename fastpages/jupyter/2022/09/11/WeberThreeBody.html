@@ -175,17 +175,22 @@ $$F_{\text{net} 1}=F_{21}+F_{31}=m_1 \frac{dv_1}{dt}.$$ Here we want to be extre
 <p>We have the states $state[i]$ for $i=1,2,3$. Each state has position, velocity, and acceleration relative to the centre-of-mass $O$:</p>
 $$state[i]=[r_i, v_i, a_i, q_i, m_i].$$<p>Here $q_i$ represents the electric charge, and $m_i$ the inertial mass.</p>
 <p>The force on $state[i]$ caused by the other states $state[j]$ depends on the relative <em>radial</em> positions, velocities, and accelerations,  namely via:</p>
-$$r_{ij}:=|r_i - r_j|  $$<p>and 
-$$v_{ij}:=v_i - v_j  $$ and 
-$$a_{ij}:=a_i -a_j $$ and
-$$r'_{ij}:= {\hat{\bf{r}}}_{ij} \cdot v_{ij}  $$ and 
-
-$$r''_{ij}:=\frac{ {v_{ij} \cdot v_{ij}} - ({\hat{r}}_{ij} \cdot v_{ij})^2 +r_{ij} \cdot a_{ij}} {r_{ij}}.$$
-</p>
+<ol>
+<li>${\bf{r}}_{ij} := r_i - r_j$</li>
+<li>$r_{ij}:=|r_i - r_j|  $  </li>
+<li>$v_{ij}:=v_i - v_j  $ </li>
+<li>$a_{ij}:=a_i -a_j $ </li>
+<li>$r'_{ij}:= {\hat{\bf{r}}}_{ij} \cdot v_{ij} $ </li>
+<li>$r''_{ij}:=\frac{ {v_{ij} \cdot v_{ij}} - ({\hat{r}}_{ij} \cdot v_{ij})^2 +{\bf{r_{ij}}} \cdot a_{ij}} {r_{ij}}.$</li>
+</ol>
 <p>This last identity for $r''_{ij}$ is very important for our calculations. If we directly substitute this formula into Weber's force law and Newton's 2nd Law we get:</p>
 $$m_i a_i= f_i(r_{ij}, v_{ij}) + \sum_{j} \frac{q_i q_j}{r_{ij}^2 c^2} ~ {\hat{\bf{r}}}_{ij}~ ( r_{ij} \cdot a_{ij}), $$<p>where $f_i$ is defined as</p>
-$$f_i(r_{ij}, v_{ij}):=\sum_j \frac{q_i q_j}{r^2_{ij}} \hat{\bf{r}}_{ij} \left( 1-\frac^2}{2 c^2} + \frac{1}{c^2} [ v_{ij}\cdot v_{ij} -  ({\hat{\bf{r}}}_{ij} \cdot v_{ij})^2      ]\right) $$<p>for $1\leq i , j \leq 3$.</p>
+$$f_i(r_{ij}, v_{ij}):=\sum_j \frac{q_i q_j}{r^2_{ij}} {\hat{\bf{r}}}_{ij} \left( 1-\frac^2}{2 c^2} + \frac{1}{c^2} [ v_{ij} \cdot v_{ij} -  ({\hat{\bf{r}}}_{ij} \cdot v_{ij})^2      ]\right) $$<p>for $1\leq i , j \leq 3$.</p>
 <p>Using the above formulas we rewrite $r'_{ij} = \hat{\bf{r}}_{ij} \cdot v_{ij}$, and therefore everything in $f_i$ can be computed directly from $ \{ {\hat{\bf{r}}}_{ij}\}$ and $\{v_{ij}\}$.</p>
+<p>Moreover the acceleration term $r_{ij}\cdot a_{ij} = r_{ij} \cdot(a_i - a_j)$ does involve the vector $a_i$ directly, but only the image of $a_i$ under the projection. Thus we could write the Newton Law as $$m_i a_i = F_{\text{effective}}+ \sum_j \frac{q_iq_j}{r_{ij}c^2} {\hat}}_{ij}
+(}}_{ij}}\cdot a_i), 
+$$
+ and where $F_{\text{effective}}$ is the effective force. (We're being somewhat vague here).</p>
 <p>These are all the terms that enter into the calculation of Weber's force law. It's more complicated than Newton's Gravitational equations, which depends only on the relative positions $\{r_{ij}\}$. Notice that $r_{ij}$, $r'_{ij}$, $r''_{ij}$ are scalar-valued, and the terms $r_i$, $v_i$, $v_{ij}$, and $a_{ij}$ are vector-valued.</p>
 <p>Now the auxiliary function $f_i$ is ready-made for python's odeint. But the second right hand term is more interesting, as it involves the relative acceleration term directly, where $a_{ij}:=a_i - a_j$ by definition. We are looking to solve for $a_i$, for all $i$. The challenge is to:</p>
 <ol>
