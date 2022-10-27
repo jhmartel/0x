@@ -230,12 +230,84 @@ Thus we have a change of coordinates $$r'_i := r_i - R,$$ where $r_1', r_2', etc
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
-Requirement already satisfied: gekko in /usr/local/lib/python3.7/dist-packages (1.0.5)
+Collecting gekko
+  Downloading gekko-1.0.5-py3-none-any.whl (12.2 MB)
+     |████████████████████████████████| 12.2 MB 5.9 MB/s 
 Requirement already satisfied: numpy&gt;=1.8 in /usr/local/lib/python3.7/dist-packages (from gekko) (1.21.6)
+Installing collected packages: gekko
+Successfully installed gekko-1.0.5
 </pre>
 </div>
 </div>
 
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">gekko</span> <span class="kn">import</span> <span class="n">GEKKO</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">c</span><span class="o">=</span><span class="mf">1.0</span>
+
+<span class="k">def</span> <span class="nf">rho</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+  <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="c1"># Component of Weber force which contains only position and velocities. </span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">state</span><span class="p">):</span>
+  <span class="n">c</span><span class="o">=</span><span class="mf">1.0</span>
+  <span class="n">x</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="n">state</span>
+  <span class="n">N</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+  <span class="n">aux</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+  <span class="n">aux</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">aux</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+      <span class="k">if</span> <span class="n">i</span><span class="o">==</span><span class="n">j</span><span class="p">:</span>
+        <span class="k">pass</span>
+      <span class="k">else</span><span class="p">:</span>
+        <span class="n">r</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>  <span class="c1"># r_ij, vector.</span>
+        <span class="n">rhat</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">rho</span><span class="p">(</span><span class="n">r</span><span class="p">),</span> <span class="n">r</span><span class="p">)</span> <span class="c1"># rhat, unit vector.</span>
+        <span class="n">Coulomb_factor</span> <span class="o">=</span> <span class="p">(</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">k</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">k</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">rho</span><span class="p">(</span><span class="n">r</span><span class="p">)</span><span class="o">**-</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># Coulomb factor, only term involving q values.</span>
+        <span class="n">dv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">])</span> <span class="c1"># dv= v_{ij}, vector.</span>
+        <span class="n">r_prime</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">rhat</span><span class="p">,</span> <span class="n">dv</span><span class="p">)</span> <span class="c1"># r&#39; = rhat \cdot dv, scalar.</span>
+        <span class="n">s0</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">((</span><span class="n">r_prime</span><span class="o">/</span><span class="n">c</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="p">(</span><span class="n">rho</span><span class="p">(</span><span class="n">dv</span><span class="p">)</span><span class="o">/</span><span class="n">c</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>  
+        <span class="n">effective_Weber_factor</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">s0</span>
+        <span class="n">aux</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">aux</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Coulomb_factor</span><span class="o">*</span><span class="n">effective_Weber_factor</span><span class="p">,</span> <span class="n">rhat</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">aux</span> 
+
+
+<span class="k">def</span> <span class="nf">cm_frame</span><span class="p">(</span><span class="n">state</span><span class="p">):</span>
+  <span class="n">x</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="n">state</span>
+  <span class="n">N</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1"># N-body system</span>
+  <span class="n">N1</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="c1"># number of coordinates, expect N1 == 9. </span>
+  <span class="n">output</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span><span class="n">N1</span><span class="p">))</span>
+  <span class="n">output</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span>
+  <span class="n">M</span><span class="o">=</span><span class="mi">0</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">M</span> <span class="o">=</span> <span class="n">M</span> <span class="o">+</span> <span class="n">k</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+  
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+      <span class="k">if</span> <span class="n">i</span><span class="o">==</span><span class="n">j</span><span class="p">:</span>
+        <span class="k">pass</span>
+      <span class="k">else</span><span class="p">:</span>
+        <span class="n">dr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+        <span class="n">output</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">output</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">((</span><span class="mi">1</span><span class="o">/</span><span class="n">M</span><span class="p">)</span><span class="o">*</span><span class="n">k</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">dr</span><span class="p">)</span>
+  
+  <span class="k">return</span> <span class="n">output</span><span class="p">,</span> <span class="n">k</span>
+</pre></div>
+
+    </div>
 </div>
 </div>
 
@@ -282,6 +354,8 @@ Requirement already satisfied: numpy&gt;=1.8 in /usr/local/lib/python3.7/dist-pa
         <span class="n">aux</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">aux</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">factor_Coulomb</span><span class="o">*</span><span class="n">factor_Weber</span><span class="p">,</span> <span class="n">rhat</span><span class="p">)</span>
   <span class="k">return</span> <span class="n">aux</span> 
 
+<span class="k">def</span> <span class="nf">rho</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+  <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
 
 <span class="c1"># main function defining the effective Weber force.</span>
 <span class="k">def</span> <span class="nf">ef</span><span class="p">(</span><span class="n">state</span><span class="p">):</span>
@@ -296,16 +370,12 @@ Requirement already satisfied: numpy&gt;=1.8 in /usr/local/lib/python3.7/dist-pa
         <span class="k">pass</span>
       <span class="k">else</span><span class="p">:</span>
         <span class="n">r</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>  <span class="c1"># r_ij, vector.</span>
-        <span class="n">rho</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">r</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span> <span class="c1"># rho = |r_ij|, scalar.</span>
-        <span class="n">rhat</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">rho</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span> <span class="c1"># rhat, unit vector.</span>
-        <span class="n">Coulomb_factor</span> <span class="o">=</span> <span class="p">(</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">k</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">k</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">rho</span><span class="o">**-</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># Coulomb factor, only term involving q values.</span>
+        <span class="n">rhat</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">rho</span><span class="p">(</span><span class="n">r</span><span class="p">),</span> <span class="n">r</span><span class="p">)</span> <span class="c1"># rhat, unit vector.</span>
+        <span class="n">Coulomb_factor</span> <span class="o">=</span> <span class="p">(</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">k</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">k</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">rho</span><span class="p">(</span><span class="n">r</span><span class="p">)</span><span class="o">**-</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># Coulomb factor, only term involving q values.</span>
         <span class="n">dv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">])</span> <span class="c1"># dv= v_{ij}, vector.</span>
         <span class="n">r_prime</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">rhat</span><span class="p">,</span> <span class="n">dv</span><span class="p">)</span> <span class="c1"># r&#39; = rhat \cdot dv, scalar.</span>
-        <span class="n">da</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">6</span><span class="p">:</span><span class="mi">9</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">6</span><span class="p">:</span><span class="mi">9</span><span class="p">])</span> <span class="c1">#da = a_{ij}, vector</span>
-        <span class="n">s0</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">r_prime</span><span class="o">/</span><span class="n">c</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="c1">#velocity term.</span>
-        <span class="n">s1</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">dv</span><span class="p">,</span> <span class="n">dv</span><span class="p">)</span><span class="o">-</span> <span class="n">r_prime</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">c</span><span class="o">**-</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># scalar, looks like function of velocity, but is part of the acceleration component.</span>
-        <span class="n">s2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">6</span><span class="p">:</span><span class="mi">9</span><span class="p">])</span><span class="o">*</span><span class="p">(</span><span class="n">c</span><span class="o">**-</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># scalar, nonsymmetric depending only on j-th index.</span>
-        <span class="n">effective_Weber_factor</span> <span class="o">=</span> <span class="n">s0</span> <span class="o">+</span> <span class="n">s1</span> <span class="o">-</span> <span class="n">s2</span>  <span class="c1"># scalar, the minus sign for subtraction is important!</span>
+        <span class="n">s0</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">((</span><span class="n">r_prime</span><span class="o">/</span><span class="n">c</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="p">(</span><span class="n">rho</span><span class="p">(</span><span class="n">dv</span><span class="p">)</span><span class="o">/</span><span class="n">c</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>  
+        <span class="n">effective_Weber_factor</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">s0</span>
         <span class="n">aux</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">aux</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Coulomb_factor</span><span class="o">*</span><span class="n">effective_Weber_factor</span><span class="p">,</span> <span class="n">rhat</span><span class="p">)</span>
   <span class="k">return</span> <span class="n">aux</span> 
 
@@ -451,6 +521,24 @@ Requirement already satisfied: numpy&gt;=1.8 in /usr/local/lib/python3.7/dist-pa
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;&lt;ipython-input-1-344b02daef9a&gt;&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">92</span>
+<span class="ansi-red-fg">    k[i][0] - k[i]x[i]</span>
+                  ^
+<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
