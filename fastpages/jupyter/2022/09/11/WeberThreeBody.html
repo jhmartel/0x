@@ -98,7 +98,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      4 min read
+      5 min read
     
 </span></p>
 
@@ -163,7 +163,7 @@ window.onload = wrap_img;
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Remark:"><strong>Remark</strong>:<a class="anchor-link" href="#Remark:"> </a></h1><p>This article is not yet readable. We've hit a technical difficulty which need to first solve, namely how to integrate ODEs of the form $x''=f(x,x', x'')$ on python. Typically odeint integrates equations of the form $x''=f(x)$ or $x''=f(x,x')$. But the Weber force involves interaction between all the particles their relative accelerations, so applying Newton's 2nd Law gives us equations of motion of the form $$m_i a_i = m_i \frac{dv_i'}{dt}=\sum_j F_{ij}$$ where the force depends on the acceleration of $a_i$ and the particles $a_j$. In the literature this is known as a "Differential Algebraic Equation" (DAE). So we've been looking for python packages which have DAE solvers. It does not appear to be well-known subject.</p>
+<h1 id="Remark:"><strong>Remark</strong>:<a class="anchor-link" href="#Remark:"> </a></h1><p>This article is not yet readable. We've hit a technical difficulty which need to first solve, namely how to integrate ODEs of the form $x''=f(x,x', x'')$ on python. Typically odeint integrates equations of the form $x''=f(x)$ or $x''=f(x,x')$. But the Weber force involves interaction between all the particles their relative accelerations, so applying Newton's 2nd Law gives us equations of motion of the form $$m_i a_i = m_i v'_i=\sum_j F_{ij}$$ where the force depends on the acceleration of $a_i$ and the particles $a_j$. In the literature this is known as a "Differential Algebraic Equation" (DAE). So we've been looking for python packages which have DAE solvers. It does not appear to be well-known subject.</p>
 <h1 id="Introduction:-Weber's-Force."><strong>Introduction</strong>: Weber's Force.<a class="anchor-link" href="#Introduction:-Weber's-Force."> </a></h1><p>Our goal is to study the $N$-body problem on python according to Weber's electrodynamic law. In fact $N=3$ would be good start, and many author's have studied the $2$-body problem, even us in our <a href="https://jhmartel.github.io/fp/fastpages/jupyter/2022/02/10/LetterToAssisWeberPotentials.html">first post</a> on this blog.</p>
 <p>The Weber potential belongs to relational mechanics, being given by a force $F_{12}$ between two charged particles satisfying Newton's action-reaction principle, so $F_{12}=-F_{21}$, and the force is also <em>radial</em> being along the straight line segment joining the centre of the particles. However what is further strange about Weber's potential is that the force $F$ depends on the relative positions, velocity, and accelerations of the particles!</p>
 <p>So let us consider a three body system with particles having inertial masses $m_1, m_2, m_3$ and such that they have positions $r_1, r_2, r_3$ relative to the centre of mass $O=O_{CM}$ of the system. We will assume that the calculations are performed in the centre of mass frame.</p>
@@ -171,21 +171,33 @@ window.onload = wrap_img;
 <p>Now if we directly apply Newton's 2nd Law we get:
 $$F_{\text{net} 1}=F_{21}+F_{31}=m_1 \frac{dv_1}{dt}.$$ Here we want to be extremely careful in interpreting these terms. The velocity $v_1$ is the velocity of the particle $m_1$ with respect to the centre-of-mass, i.e. we have $v_1=v_{1O}$. The difficulty with the second order differential equation obtained from Newton's 2nd Law is that $r_{12}''$ is an acceleration term that has some component in common with $\frac{dv_1}{dt}$. The term $r_{12}''$ is very different from $r_1$. Indeed we view $r_1$ and $dr_1/dt=v_1$ as vectors (a position and velocity vector). However the radial $r_{12}$ and $r_{12}'$, $r_{12}''$ are <em>scalar-valued</em> functions!</p>
 <p>To use python's odeint solver, we either need to rewrite the expression defining Newton's 2nd Law, or we need to directly define an integration method which integrates the equation <em>as is</em>.</p>
-<p>What are the terms that enter into the ODE?</p>
-<p>We have the states $state[i]$ for $i=1,2,3$. Each state has position, velocity, and acceleration relative to the centre-of-mass $O$:</p>
-$$state[i]=[r_i, v_i, a_i, q_i, m_i].$$<p>Here $q_i$ represents the electric charge, and $m_i$ the inertial mass.</p>
-<p>The force on $state[i]$ caused by the other states $state[j]$ depends on the relative <em>radial</em> positions, velocities, and accelerations,  namely via:</p>
-<ol>
-<li>${\bf{r}}_{ij} := r_i - r_j$</li>
-<li>$r_{ij}:=|r_i - r_j|  $  </li>
-<li>$v_{ij}:=v_i - v_j  $ </li>
-<li>$a_{ij}:=a_i -a_j $ </li>
-<li>$r'_{ij}:= {\hat{\bf{r}}}_{ij} \cdot v_{ij} $ </li>
-<li>$r''_{ij}:=\frac{ {v_{ij} \cdot v_{ij}} - ({\hat{r}}_{ij} \cdot v_{ij})^2 +{\bf{r_{ij}}} \cdot a_{ij}} {r_{ij}}.$</li>
-</ol>
-<p>This last identity for $r''_{ij}$ is very important for our calculations. If we directly substitute this formula into Weber's force law and Newton's 2nd Law we get:</p>
-$$m_i a_i= f_i(r_{ij}, v_{ij}) + \sum_{j} \frac{q_i q_j}{r_{ij}^2 c^2} ~ {\hat{\bf{r}}}_{ij}~ ( r_{ij} \cdot a_{ij}), $$<p>where $f_i$ is defined as</p>
-$$f_i(r_{ij}, v_{ij}):=\sum_j \frac{q_i q_j}{r^2_{ij}} {\hat{\bf{r}}}_{ij} \left( 1-\frac^2}{2 c^2} + \frac{1}{c^2} [ v_{ij} \cdot v_{ij} -  ({\hat{\bf{r}}}_{ij} \cdot v_{ij})^2      ]\right) $$<p>for $1\leq i , j \leq 3$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Formulas-and-Computation:"><em>Formulas and Computation:</em><a class="anchor-link" href="#Formulas-and-Computation:"> </a></h1><p>What are the terms that enter into the ODE?</p>
+<p>In this setting a <em>state</em> has the form $$\{(x_i, v_i, m_i, q_i)\}_i$$ for a finite collection of particles having position $x_i$, velocity $v_i$, and mass $m_i$ and electric charge $q_i$. In our computations it's convenient to separate the spatial variables $[x_i, v_i]$ from the mass charge $[m_i, q_i]$ for each $i^{th}$ particle in the system.</p>
+<p>We suppose our system is isolated, and therefore the net force acting on the $i^{th}$ particle is the sum of the forces $F_{ij}$ over all indexes $j$. The pairwise particle force $F_{ij}$ is evaluated by Weber's force law. The basic notation is:</p>
+<ul>
+<li>${\bf{r}}_{ij} := r_i - r_j ~~~......... ~\text{vector}$ </li>
+<li>$r_{ij}:=|r_i - r_j|    ~~~......... ~\text{scalar}$</li>
+<li>$v_{ij}:=v_i - v_j   ~~~......... ~\text{vector}$</li>
+<li>$a_{ij}:=a_i -a_j  ~~~......... ~\text{vector}$</li>
+<li>$r'_{ij}:= {\hat{\bf{r}}}_{ij} \cdot v_{ij} ~~~......... ~\text{scalar}$</li>
+<li>$r_{ij}~r''_{ij}:={v_{ij} \cdot v_{ij}} - ({\hat{r}}_{ij} \cdot v_{ij})^2 +{\bf{r_{ij}}} \cdot a_{ij}. ~~~......... ~\text{scalar}$ </li>
+</ul>
+<p>This last identity for $r''_{ij}$ is important for our calculations. If we directly substitute this formula into Weber's force law and Newton's 2nd Law, then the net force on the $i^{th}$ particle yields:</p>
+$$m_i a_i= f_i(r_{ij}, v_{ij}) + \sum_{j} \frac{q_i q_j}{r_{ij}^2 c^2} ~ {\hat{\bf{r}}}_{ij}~ ( r_{ij} \cdot a_{ij}), $$<p>where $f_i$ is defined as:</p>
+$$f_i(\{r_{ij}, v_{ij}\}):=\sum_j \frac{q_i q_j}{c^2 r^2_{ij}} {\hat{\bf{r}}}_{ij} \left( c^2-\frac{3}{2}({\hat{\bf{r}}}_{ij} \cdot v_{ij})^2 + |v_{ij}|^2 \right) $$<p>for $1\leq i , j \leq 3$.</p>
+<p>For every $i$, we want to isolate the acceleration terms $$m_i a_i -\sum_{j} \frac{q_i q_j}{c^2r_{ij}^2} ~ {\hat{\bf{r}}}_{ij}~ ( r_{ij} \cdot a_{ij}) $$ as much as possible, and this leads to our solving Implicit ODEs or so-called DAEs. Ideally we would avoid the DAE solvers as much as possible, and would prefer to have all acceleration terms $\{a_i\}_i$ isolated. But it's not clear a priori whether this is possible.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>Using the above formulas we rewrite $r'_{ij} = \hat{\bf{r}}_{ij} \cdot v_{ij}$, and therefore everything in $f_i$ can be computed directly from $ \{ {\hat{\bf{r}}}_{ij}\}$ and $\{v_{ij}\}$.</p>
 <p>Moreover the acceleration term $r_{ij}\cdot a_{ij} = r_{ij} \cdot(a_i - a_j)$ does involve the vector $a_i$ directly, but only the image of $a_i$ under the projection. Thus we could write the Newton Law as $$m_i a_i = F_{\text{effective}}+ \sum_j \frac{q_iq_j}{r_{ij}c^2} {\hat}}_{ij}
 (}}_{ij}}\cdot a_i), 
