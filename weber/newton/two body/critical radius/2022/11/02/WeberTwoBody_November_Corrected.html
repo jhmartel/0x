@@ -9,8 +9,8 @@
 <meta property="og:title" content="Integrating Newton-Weber Equations for Two Body Electrical Systems." />
 <meta name="author" content="JHM" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="We continue to investigate Weber’s force law, especially in the two body isolated system. In this post we record the current status of our python code for integrating the Newton-Weber equations of motion. We model the orbits of the stable (-1)+(-1) molecule." />
-<meta property="og:description" content="We continue to investigate Weber’s force law, especially in the two body isolated system. In this post we record the current status of our python code for integrating the Newton-Weber equations of motion. We model the orbits of the stable (-1)+(-1) molecule." />
+<meta name="description" content="We continue to investigate Weber’s force law, especially in the two body isolated system. In this post we record the current status of our python code for integrating the Newton-Weber equations of motion. We model the orbits of the stable (-1)+(-1) molecule within the Weber critical radius." />
+<meta property="og:description" content="We continue to investigate Weber’s force law, especially in the two body isolated system. In this post we record the current status of our python code for integrating the Newton-Weber equations of motion. We model the orbits of the stable (-1)+(-1) molecule within the Weber critical radius." />
 <link rel="canonical" href="https://jhmartel.github.io/fp/weber/newton/two%20body/critical%20radius/2022/11/02/WeberTwoBody_November_Corrected.html" />
 <meta property="og:url" content="https://jhmartel.github.io/fp/weber/newton/two%20body/critical%20radius/2022/11/02/WeberTwoBody_November_Corrected.html" />
 <meta property="og:site_name" content="JHM Lab." />
@@ -19,7 +19,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Integrating Newton-Weber Equations for Two Body Electrical Systems." />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"JHM"},"dateModified":"2022-11-02T00:00:00-05:00","datePublished":"2022-11-02T00:00:00-05:00","description":"We continue to investigate Weber’s force law, especially in the two body isolated system. In this post we record the current status of our python code for integrating the Newton-Weber equations of motion. We model the orbits of the stable (-1)+(-1) molecule.","headline":"Integrating Newton-Weber Equations for Two Body Electrical Systems.","mainEntityOfPage":{"@type":"WebPage","@id":"https://jhmartel.github.io/fp/weber/newton/two%20body/critical%20radius/2022/11/02/WeberTwoBody_November_Corrected.html"},"url":"https://jhmartel.github.io/fp/weber/newton/two%20body/critical%20radius/2022/11/02/WeberTwoBody_November_Corrected.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"JHM"},"dateModified":"2022-11-02T00:00:00-05:00","datePublished":"2022-11-02T00:00:00-05:00","description":"We continue to investigate Weber’s force law, especially in the two body isolated system. In this post we record the current status of our python code for integrating the Newton-Weber equations of motion. We model the orbits of the stable (-1)+(-1) molecule within the Weber critical radius.","headline":"Integrating Newton-Weber Equations for Two Body Electrical Systems.","mainEntityOfPage":{"@type":"WebPage","@id":"https://jhmartel.github.io/fp/weber/newton/two%20body/critical%20radius/2022/11/02/WeberTwoBody_November_Corrected.html"},"url":"https://jhmartel.github.io/fp/weber/newton/two%20body/critical%20radius/2022/11/02/WeberTwoBody_November_Corrected.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/fp/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://jhmartel.github.io/fp/feed.xml" title="JHM Lab." /><link rel="shortcut icon" type="image/x-icon" href="/fp/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -90,7 +90,7 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Integrating Newton-Weber Equations for Two Body Electrical Systems.</h1><p class="page-description">We continue to investigate Weber's force law, especially in the two body isolated system. In this post we record the current status of our python code for integrating the Newton-Weber equations of motion. We model the orbits of the stable (-1)+(-1) molecule.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-11-02T00:00:00-05:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">Integrating Newton-Weber Equations for Two Body Electrical Systems.</h1><p class="page-description">We continue to investigate Weber's force law, especially in the two body isolated system. In this post we record the current status of our python code for integrating the Newton-Weber equations of motion. We model the orbits of the stable (-1)+(-1) molecule within the Weber critical radius.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-11-02T00:00:00-05:00" itemprop="datePublished">
         Nov 2, 2022
       </time>• 
           <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -98,7 +98,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      9 min read
+      8 min read
     
 </span></p>
 
@@ -169,8 +169,9 @@ window.onload = wrap_img;
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Newton-Weber-Equations-in-Isolated-Two-Body-Systems-and-the-Critical-Radius:"><em>Newton-Weber Equations in Isolated Two-Body Systems and the Critical Radius:</em><a class="anchor-link" href="#Newton-Weber-Equations-in-Isolated-Two-Body-Systems-and-the-Critical-Radius:"> </a></h1><p>We have not posted to JHM Labs blog in a week, and have been continuing our work with Weber's force, and specifically the two-body system $(-1) + (-1)$. Our interest in Weber's force law applied to two-body systems of identically charged particles is to numerically verify Weber and Assis' claim that two identical particles possess a <em>critical radius</em> where the otherwise repulsive force becomes <em>attractive</em>! This is such a <em>key</em> element of Weber's force law that we <em>must</em> make it absolutely clear. In other words it's possible for two identical negatively charged particles to become a stable molecule of net charge $-2=-1-1$. This distance is the critical radius. Thus like charges repel outside the critical radius as expected by the dominant Coulomb interaction force. But given enough energy these same particles can pass through the critical radius and become a stable "molecule" in Weber's terminology. This is amazing prediction, and has been the primary focus of our investigations into these Newton-Weber equations.</p>
-<p>For an isolated two-body system of identically charged particles, the correct formula for the critical radius $r_c$ is not that given by Assis in his lectures <a href="https://youtu.be/tpLQkZlA6Q8?t=1432">here</a>. The error in Assis' derivation is that the acceleration terms $a_1$ and $a_2$ are actually <em>dependant</em> in an isolated system, having to satisfy $$m_1 a_1 + m_2 a_2 = 0.$$ This means the coefficient on $a_1$ in the Newton-Weber equations is <em>not</em> $$m_1 - \frac{q_i q_j}{c^2~r_{ij}}$$ but actually $$ m_1 - \frac{q_i q_j}{c^2~r_{ij}} \left( 1+ \frac{m_1}{m_2}\right).$$ When we have $q_i q_j=1.0$ and $m_1 = m_2 =1.0$ and $c^2 = 1.0$, this implies the formula for the critical radius is $$r_c =2.0$$ and <em>not</em> equal to $1.0$ as the first formula would suggest. This caused us some confusion in our earlier reports [here], [here], [here].</p>
+<h1 id="Newton-Weber-Equations-in-Isolated-Two-Body-Systems-and-the-Critical-Radius:"><em>Newton-Weber Equations in Isolated Two-Body Systems and the Critical Radius:</em><a class="anchor-link" href="#Newton-Weber-Equations-in-Isolated-Two-Body-Systems-and-the-Critical-Radius:"> </a></h1><p>Our goal is to simulate Weber's prediction of the stable $(-1)+(-1)$ molecule.</p>
+<p>Weber's electrical force law predicts that it's possible for two identical negatively charged particles to become a stable molecule of net charge $-2=-1-1$. This distance is the critical radius. It takes $E=mc^2$ much energy to bring these two particles from infinity to within the critical radius and become stable molecule.</p>
+<p>This is such a <em>key</em> element of Weber's force law that we <em>must</em> make it absolutely clear.</p>
 
 </div>
 </div>
