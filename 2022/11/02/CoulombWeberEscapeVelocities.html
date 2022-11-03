@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Brief Remark on Coulomb vs Weber Escape Velocities. | JHM Lab.</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Brief Remark on Coulomb vs Weber Escape Velocities." />
+<meta name="author" content="JHM" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="We continue to investigate Weber’s force law in the two body isolated system. In this post we briefly remark on the difference in escape velocities as computed by Coulomb and Weber’s force law. Elementary post." />
+<meta property="og:description" content="We continue to investigate Weber’s force law in the two body isolated system. In this post we briefly remark on the difference in escape velocities as computed by Coulomb and Weber’s force law. Elementary post." />
+<link rel="canonical" href="https://jhmartel.github.io/fp/2022/11/02/CoulombWeberEscapeVelocities.html" />
+<meta property="og:url" content="https://jhmartel.github.io/fp/2022/11/02/CoulombWeberEscapeVelocities.html" />
+<meta property="og:site_name" content="JHM Lab." />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-11-02T00:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Brief Remark on Coulomb vs Weber Escape Velocities." />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"JHM"},"dateModified":"2022-11-02T00:00:00-05:00","datePublished":"2022-11-02T00:00:00-05:00","description":"We continue to investigate Weber’s force law in the two body isolated system. In this post we briefly remark on the difference in escape velocities as computed by Coulomb and Weber’s force law. Elementary post.","headline":"Brief Remark on Coulomb vs Weber Escape Velocities.","mainEntityOfPage":{"@type":"WebPage","@id":"https://jhmartel.github.io/fp/2022/11/02/CoulombWeberEscapeVelocities.html"},"url":"https://jhmartel.github.io/fp/2022/11/02/CoulombWeberEscapeVelocities.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/fp/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://jhmartel.github.io/fp/feed.xml" title="JHM Lab." /><link rel="shortcut icon" type="image/x-icon" href="/fp/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/fp/">JHM Lab.</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/fp/about/">About Me</a><a class="page-link" href="/fp/search/">Search</a><a class="page-link" href="/fp/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Brief Remark on Coulomb vs Weber Escape Velocities.</h1><p class="page-description">We continue to investigate Weber's force law in the two body isolated system. In this post we briefly remark on the difference in escape velocities as computed by Coulomb and Weber's force law. Elementary post.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-11-02T00:00:00-05:00" itemprop="datePublished">
+        Nov 2, 2022
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">JHM</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      2 min read
+    
+</span></p>
+
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-justify-center">
+          <div class="px-2">
+
+    <a href="https://github.com/jhmartel/fp/tree/master/_notebooks/2022-11-02-CoulombWeberEscapeVelocities.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/fp/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/jhmartel/fp/master?filepath=_notebooks%2F2022-11-02-CoulombWeberEscapeVelocities.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/fp/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/jhmartel/fp/blob/master/_notebooks/2022-11-02-CoulombWeberEscapeVelocities.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/fp/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+          <div class="px-2">
+  <a href="https://deepnote.com/launch?url=https%3A%2F%2Fgithub.com%2Fjhmartel%2Ffp%2Fblob%2Fmaster%2F_notebooks%2F2022-11-02-CoulombWeberEscapeVelocities.ipynb" target="_blank">
+      <img class="notebook-badge-image" src="/fp/assets/badges/deepnote.svg" alt="Launch in Deepnote"/>
+  </a>
+</div>
+
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2022-11-02-CoulombWeberEscapeVelocities.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a href="https://colab.research.google.com/github/jhmartel/fp/blob/master/_notebooks/2022-11-02-CoulombWeberEscapeVelocities.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" /></a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Coulomb-vs-Weber-Law:-An-Experiment-Based-On-Escape-Velocities:"><em>Coulomb vs Weber Law: An Experiment Based On Escape Velocities:</em><a class="anchor-link" href="#Coulomb-vs-Weber-Law:-An-Experiment-Based-On-Escape-Velocities:"> </a></h1><p>Wilhelm Weber proposed a dynamic generalization of Coulomb's electrostatic force law which also included Ampere's circuit law and Faraday-Volta induction. Despite Weber's amazing achievements, along with Gustav Kirchoff, his electrical force law is not widely known among physicists today. Why? The Maxwellian field viewpoint is still dominant among the preferences of modern day phyiscs, and Weber is an instananeous action at a distance.</p>
+<p>In this post we consider the question of comparing escape velocities for electrical particles, specifically an isolated pair of oppositely charged particles $(+)$ and $(-)$. In our setting the particles have identical inertial masses $m_1=m_2=1.0$ and opposite electrical charge $q_1q_2 =-1.0$.</p>
+<p>Now the simple question we examine is computing escape velocities, which we define as velocities $v_{esc}$ of the particles which eventually escape to infinity, i.e. the boundary of the potential $U=0$. With respect to the Coulomb potential we have $U=\frac{q_1q_2}{r}$ and the equation defining the escape velocity is defined by: $$U+T = 0 = \frac{q_1q_2}{r} + \frac{1}{2} \mu {v^2}_{esc}.$$ This implies $$\frac{v^2_{esc}}{2c^2} = \frac{-q_1 q_2}{\mu c^2 r}.$$ The peculiar choice of notation will be clarified below.</p>
+<p>For the Weber potential we find the escape velocity $r'$ satisfies the equation $$U + T = 0 = \frac{q_1q_2}{r} (1-\frac^2}{2c^2}) + \frac{1}{2} \mu {r'^2}.$$ But solving for $r'^2/2c^2$ yields $$\frac{r'^2}{2c^2} = \frac{1}{1 - \frac{\mu c^2 r}{q_1 q_2}},$$ which is evidently $\leq 1.0$ whenever $q_1 q_2 &lt; 0$.</p>
+<p>The difference between the quantities $\frac{v^2_{esc}}{2c^2}$ and $\frac{r'^2}{2c^2}$  is like the difference between $\frac{1}{x} - \frac{1}{x+1}$ for $x&gt;0$ where we have $x:=\frac{-\mu c^2}{q_1 q_2} r$ and evidently $x\geq 0$ by our choice of $q_1 q_2 &lt; 0$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="A-Very-Simple-Graph:"><em>A Very Simple Graph:</em><a class="anchor-link" href="#A-Very-Simple-Graph:"> </a></h1><p>Let's compare the Coulomb and Weber escape velocities:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p><div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">y0</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">x</span>
+<span class="c1">#print(&#39;Values of x: &#39;, x)</span>
+<span class="c1">#print(&#39;Values of y: &#39;, y)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;Coulomb Escape Velocity&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="s2">&quot;g&quot;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;Weber Escape Velocity&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Coulomb vs Weber Escape Velocities&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Radial distance r&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Energies (1/2)*(r&#39;/c)**2&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+</p>
+    </details>
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+" />
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Weber's formula for the escape velocity is: $$\frac{r'^2}{2c^2} = \frac{1}{1 - \frac{\mu c^2 r}{q_1 q_2}}.$$ As the distance $r&gt;0$ approaches $r \to 0^+$ we see the escape velocity limits to unity, which represents $$r'^2 = 2c^2.$$ The $2$ is a convention, but this <em>is</em> a speed of light upper bound for the escape velocities. So we observe:</p>
+<ol>
+<li><p>Weber predicts that the speed of light is the limiting escape velocity for two body systems of opposite charge.</p>
+</li>
+<li><p>The Coulomb escape velocity diverges to $+\infty$ as the particles approach $r\to 0^+$. This suggests that Coulomb requires <em>superluminal</em> escape velocities at distances $r$ satisfying $\frac{-q_1 q_2}{\mu c^2 r} \geq 1,$ or equivalently $$0 &lt; r &lt; \frac{-q_1 q_2}{\mu c^2}. $$</p>
+</li>
+</ol>
+<p><strong>Conclusion?</strong></p>
+<p>If one can experimentally witness the <em>escape</em> of opposite charge particles below the speed of light, as is expected, for "relatively close" particles, then this would in itself disqualify the Coulomb fact (and this is no surprise). But can we quantify what exactly the Weber force law predicts? If the formula is correct then there ought to be fairly good correspondance between the predictions.</p>
+<p>[Incomplete: add concrete physical apparatus]</p>
+<p>-JHM</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="jhmartel/fp"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/fp/2022/11/02/CoulombWeberEscapeVelocities.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/fp/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/fp/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/fp/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Optimal Transport, Topology of Singularities, Physics.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
