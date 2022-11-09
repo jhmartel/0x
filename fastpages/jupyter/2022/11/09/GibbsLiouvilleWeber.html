@@ -174,10 +174,10 @@ window.onload = wrap_img;
 
 $$ \frac{d}{dt}(x,v)=(x',v')=\begin{pmatrix} (\mu - \frac{\alpha}{c^2 x})^{-1} &amp; 0 \\ 0 &amp; (\mu - \frac{\alpha}{c^2 x})^{-1}  \end{pmatrix} J \nabla H.$$
 </p>
-<p>Now we need compute the divergence of this vector field, recalling the formula $$div(fJ\nabla H) = \nabla f \cdot J \nabla H$$ since $div(J \nabla H)=0$.</p>
-<p>The gradient of the function $$f(x,v):=(\mu - \frac{\alpha}{c^2 x})^{-1}$$ is found to be</p>
+<p>Now we need compute the divergence of this vector field, recalling the formula $$div(\tilde{\mu}~.J\nabla H) = \nabla \tilde{\mu} \cdot J \nabla H$$ since $div(J \nabla H)=0$.</p>
+<p>The gradient of the function $$\tilde{\mu}(x,v):=(\mu - \frac{\alpha}{c^2 x})^{-1}$$ is found to be</p>
 <p>
-$$\nabla f = \begin{pmatrix} \partial f / \partial x  \\ \partial f / \partial v  \end{pmatrix} = \begin{pmatrix} -f^2 . \frac{\alpha}{c^2} \frac{1}{x^2}  \\ 0 \end{pmatrix}.$$
+$$\nabla \tilde{\mu} = \begin{pmatrix} \partial \tilde{\mu} / \partial x  \\ \partial \tilde{\mu} / \partial v  \end{pmatrix} = \begin{pmatrix} -{\tilde{\mu}}^2 . \frac{\alpha}{c^2 x^2}  \\ 0 \end{pmatrix}.$$
 </p>
 <p>Finally we find $$div = \frac{v}{x} \frac{1}{(\frac{\mu c^2 x}{\alpha}-1)}.$$</p>
 <p>Setting $\beta = \frac{\alpha}{\mu c^2}$ it's easier to write $$div = \frac{v}{x(\frac{x}{\beta} -1)}.$$</p>
@@ -189,7 +189,7 @@ $$\nabla f = \begin{pmatrix} \partial f / \partial x  \\ \partial f / \partial v
 </li>
 </ul>
 <p>This means that <em>if</em> any Gibbs entropy is going to be defined for the system, then we need a stable invariant reference measure on the state space. And what our calculation demonstrates is that this measure is <em>not</em> the usual $dx dv$ measure. Instead we look for a density $\rho = f dx dv$ on the state space which <em>is</em> invariant with respect to the Hamilton-Weber evolution.</p>
-<h1 id="Solving-for-the-Density-$f$:"><em>Solving for the Density $f$:</em><a class="anchor-link" href="#Solving-for-the-Density-$f$:"> </a></h1><p>The naive Gibbs-Liouville theorem is not true with respect to Weber-Hamilton equations. This raises the question: if we know the divergence of the vector field, is it possible to determine a reference measure on the state-space which <em>is</em> invariant with respect to time evolution?</p>
+<h1 id="Solving-for-the-Density-$f$:"><em>Solving for the Density $f$:</em><a class="anchor-link" href="#Solving-for-the-Density-$f$:"> </a></h1><p>Here we are searching for a density $f$ describing a measure $\rho=f dxdv$ which is invariant with respect to the Hamilton Weber flow.</p>
 <p>Formally the divergence of $X$ is the Lie derivative $L_X(vol)$ of the volume form.</p>
 <p>We are seeking a volume form $\rho = f.vol$ such that $L_X(f.vol)=0$ is identically zero. Using the Cartan formula $$L_X = \iota_X d + d \iota_X$$ the vanishing equation becomes $$L_X (f.vol) = d(f \iota_X vol) =0.$$</p>
 <p>In coordinates if $X=X_x \partial_x + X_v \partial_v$ in our basic setting, then $$\iota_X vol = \iota_X dxdv = X_x dv - X_v dx.$$ Therefore $$L_X (f.dxdv)=d(fX_x dv - fX_v dx).$$ Now here we need to explicitly compute $X_{x,x}=$ and $X_{v,v} = $. The basic equation $L_x (f.dxdv)=0$ then becomes $$ f(X_{x,x}+ X_{v,v}) + f_x X_x + f_v X_v=0. $$ This is our basic equation.</p>
@@ -197,8 +197,8 @@ $$\nabla f = \begin{pmatrix} \partial f / \partial x  \\ \partial f / \partial v
 
 $$X_{x,x}+X_{v,v} = \frac{v}{x}\frac{1}{(1-\mu c^2 x/\alpha)}.$$
 </p>
-<p>The key equation $L_X(f.dxdv)=0$ is satisfied if $f_v=0$ and $f_x$ satisfies $$\frac{f_x}{f} = \frac{v}{x} \frac{\alpha}{\mu c^2 x}.$$</p>
-<p>This is a logarithmic derivative which implies $$f=f(x,v)=exp \left( \frac{-\alpha v}{\mu c^2 x} \right)$$ is a solution satisfying $L_X(f dxdv)=0$. The argument shows that $f$ is only unique up to multiplicative factor assuming that $f_v=0$, i.e. $f$ independant of $v$.</p>
+<p>The key equation $L_X(f.dxdv)=0$ is satisfied if $f_v=0$ and $f_x$ satisfies $$\frac{f_x}{f} = \frac{1}{x} \frac{\alpha}{\mu c^2 x}.$$</p>
+<p>This is a logarithmic derivative which implies $$f=f(x,v)=exp \left( \frac{-\alpha }{\mu c^2 x} \right)$$ is a solution satisfying $L_X(f dxdv)=0$. The argument shows that $f$ is only unique up to multiplicative factor assuming that $f_v=0$, i.e. $f$ independant of $v$.</p>
 <p>Therefore we obtain an invariant measure for the Hamilton evolution!</p>
 <p>Evidently the density $$\rho(x,v):=f(x,v).dxdv$$ blows up at $x=0$ when the sign $\alpha$ is negative $\alpha = q_1 q_2 &lt; 0$. This reflects the fact that the divergence $X_{x,x}+X_{v,v}$ of the Hamiltonian flow is strongly expanding with respect to the flat $dxdv$ measure, which nevertheless is <em>not</em> the appropriate measure for the open $xv$-state space with $x&gt;0$.</p>
 <ul>
