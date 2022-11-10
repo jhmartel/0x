@@ -98,7 +98,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      13 min read
+      14 min read
     
 </span></p>
 
@@ -175,22 +175,23 @@ window.onload = wrap_img;
 <ul>
 <li><em>"When arbitrary electric forces act upon a conductor of arbitrary form from the outside, a distribution of free electricity on the surface of the conductor is always possible -- but only one of them -- for which the electric forces that originate from that distribution of free electricity will likewise be in equilibrium with the electric forces at all points of the interior of the conductor that act from the outside."</em></li>
 </ul>
-<p>Notice the occurence of terms like "<em>from the outside</em>", "<em>on the surface</em>", "<em>of the interior</em>". Moreover Poisson seems to restrict his theorem to the case of "arbitrary <em>electric</em> forces acting from the outside". But in practice we can imagine the external forces have non electric origin.</p>
+<p>Notice the occurence of terms like "<em>from the outside</em>", "<em>on the surface</em>", "<em>of the interior</em>". Moreover Poisson seems to restrict his theorem to the case of "arbitrary <em>electric</em> forces acting from the outside". But in practice we can imagine the external forces have non electric origin. For example, Weber applies Poisson's theorem for steady currents where the external force arises from the electrochemical force of a battery (Voltaic pile).</p>
 <p>Here's the formal statement of Poisson's theorem:</p>
 <ul>
 <li>"If we have a conductor volume $C$, and a net external force $F_{ext}$ acting on $C$, then there exists a unique surface charge distribution $\sigma$ on the boundary $\partial C$  such that $$F_{ext}(x)+F_\sigma(x) =0~~~\text{for every}~~x\in C."$$ </li>
 </ul>
 <p>Remarks.</p>
 <ol>
-<li><p>The main issue is that the inside of $C$ and the interior volume bounded by $C$ are being confused, especially in the case when the conductor $C$ is a very thin volume, e.g. thin hollow spherical shell $"O"$.</p>
+<li><p>The main issue is that in applicationsthe inside of $C$ and the interior volume bounded by $C$ are being confused, especially in the case when the conductor $C$ is a very thin volume, e.g. thin hollow spherical shell $"O"$.</p>
 </li>
 <li><p>Poisson claims that the net force $F_{net}(x)=0$ vanishes for $x\in C$ inside the conductor. Confusion arises when the <em>inside</em> of the conductor is mistakenly identified with the interior volume bounded by $C$. Thus Poisson needs clarify whether $F_{net}(x)=0$ for all $x\in C$ <strong>or</strong> for all $x\in V_i$. We think Poisson proves the case for all $x\in C$.</p>
 </li>
 <li><p>We find most questions about Faraday cages assume that the net force vanishes for all points in the interior volume $V_i$. And this confused us for some time, since it's evidently easy to mistake the "inside of $C$" with the outer volume $V_i$ which is bounded by $C$. Except strictly speaking topology proves that the boundary $ \partial V_i$ is not equal to $\partial C$ but only a subset of $\partial C$.</p>
 </li>
-<li><p>The most important aspect of Poisson's theorem is from our position it's proof via minimal energy principle, or least action principle, as developed by Lord Kelvin (William Thompson) and George Green (1830s--1850s). And here enters important divergence theorems which need be strictly applied to the correct <em>topological</em> boundaries and volumes.</p>
+<li><p>The most important aspect of Poisson's theorem from our position is the proof via minimum energy principle, or least action principle, as developed by Lord Kelvin (William Thompson) and George Green (1830s--1850s). This is elaborated by Hammond (see below).</p>
 </li>
 </ol>
+<p>And here enters important divergence theorems which need be strictly applied to the correct <em>topological</em> boundaries and volumes.</p>
 <p>The surface charge $\sigma$ is obtained via the normal derivative of the potential $\phi$ along the boundary, i.e. $\frac{\partial \phi}{\partial n}$, which is by definition equal to $\nabla \phi \cdot {\bf{n}} dS$ where $\bf{n}$ is the "outer" normal of the surface.</p>
 <p>EDIT: The equation $F_{ext}+F_\sigma = 0$ is interesting, and we've been reviewing Hammond's textbook "Energy Methods in Electrostatics", and especially Ch.4 on Energy Theorems. He makes emphasis on George Green's essays on mathematical analysis of electricity papers, which actually are very readable and very well written. We especially like how Green tackles the question of evaluating divergence theorems when the differentials involved in the potentials diverge to infinity. His attention to singular values is very much interesting!</p>
 <p>The analysis begins with Green's first formula, which is the divergence theorem combined with a product formula. For the conductor $C$ we obtain the identity</p>
@@ -290,6 +291,16 @@ window.onload = wrap_img;
 <li><p><a href="https://www.physicsforums.com/threads/mathematical-derivation-of-the-faraday-cage-from-the-maxwell-equations.119927/">Physics Forum Question with Very Unsatisfactory Answers</a>. See the erroneous answer invoking Gauss' law. There is no way to deduce a vanishing electric field from a locally vanishing charge density.</p>
 </li>
 </ul>
+<p><a href="https://physics.stackexchange.com/questions/537560/why-is-the-charge-distribution-on-the-outer-surface-of-a-hollow-conducting-spher">https://physics.stackexchange.com/questions/537560/why-is-the-charge-distribution-on-the-outer-surface-of-a-hollow-conducting-spher</a></p>
+<p><a href="https://physics.stackexchange.com/questions/694637/how-is-the-electric-field-inside-a-hollow-conducting-sphere-zero">https://physics.stackexchange.com/questions/694637/how-is-the-electric-field-inside-a-hollow-conducting-sphere-zero</a></p>
+<p><a href="https://physics.stackexchange.com/questions/729232/field-inside-hollow-conducting-sphere?rq=1">https://physics.stackexchange.com/questions/729232/field-inside-hollow-conducting-sphere?rq=1</a></p>
+<p><a href="https://physics.stackexchange.com/questions/694637/how-is-the-electric-field-inside-a-hollow-conducting-sphere-zero">https://physics.stackexchange.com/questions/694637/how-is-the-electric-field-inside-a-hollow-conducting-sphere-zero</a></p>
+<p><a href="https://physics.stackexchange.com/questions/617489/electric-field-inside-a-cavity-faraday-cage">https://physics.stackexchange.com/questions/617489/electric-field-inside-a-cavity-faraday-cage</a></p>
+<p><a href="https://physics.stackexchange.com/questions/192266/electric-field-inside-hollow-conducting-bodies">https://physics.stackexchange.com/questions/192266/electric-field-inside-hollow-conducting-bodies</a></p>
+<p>There's alot of different answers, but always ending with a nonexplanation, simply the claim that the resultant electric fields cancel to zero.</p>
+<p>There is also appeal to Gauss' theorem, but this describes only the divergence of the gradient of the potential, and not the gradient itself.</p>
+<p>It's true that there is distinction between the empty region, where the electric field is zero because there is no charge distribution in the conductor in the absence of an external field.</p>
+<p>If one brings a test charge $+q$ near the conductor, then the free electricity inside the conductor will rearrange into the minimal position, generating a net zero force in the interior of the conductor. But there again will be a net electric field in the exterior of the conductor! This can be argued by the method of images. The test charge $+q$ induces a charge in the conductor equivalent formally to the effective field of an image charge $-q_i$. The net field is therefore the sum of the potentials generated by these point sources $+q$ and $-q_i$. And in this construction the conductor becomes an equipotential surface, but we also see that the electric field is nonzero within the interior volume of the conductor!</p>
 <p>For example, they say that Faraday built a cubical room lined with metal sheets, like surrounding the walls of your house with aluminum foil, and exposed the room to electrical discharges from the outside volume. Faraday claims to have monitored the interior volume of the cube with an electrometer and detected no electric forces either at the boundary walls or anywhere in the interior of the room. This claim might appear to contradict our arguments above, but let's reserve our judgement and examine the situation more closely.</p>
 <h1 id="Mathematics-of-Faraday-Cage?"><em>Mathematics of Faraday Cage?</em><a class="anchor-link" href="#Mathematics-of-Faraday-Cage?"> </a></h1><p>Apparently the authors of [this paper] were shocked to find no readily available references or mathematical explanations of Faraday's cage. Consider the misleading and erroneous answers supplied in the above Physics Form link.</p>
 <p>A sketch of the mathematics behind the cage is roughly: we are looking for harmonic functions $\phi$ on the conductor and its surroundings. The assumption is that $\phi$ is constant throughout the conductor and therefore $\nabla \phi=0$. And the gradient vanishing says there is no electric force.</p>
