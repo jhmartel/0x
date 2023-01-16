@@ -158,12 +158,6 @@ window.onload = wrap_img;
 <span class="k">def</span> <span class="nf">poly</span><span class="p">(</span><span class="n">S</span><span class="p">):</span> 
   <span class="k">return</span> <span class="nb">sum</span><span class="p">([</span><span class="n">x</span><span class="o">**</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">S</span><span class="p">])</span>
 
-<span class="c1"># example subsets.</span>
-<span class="n">S</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">7</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">13</span><span class="p">];</span> <span class="n">p</span> <span class="o">=</span> <span class="n">poly</span><span class="p">(</span><span class="n">S</span><span class="p">);</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The subset S =&quot;</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="s2">&quot;generates polynomial p =&quot;</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
-<span class="n">S1</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span> <span class="n">p1</span> <span class="o">=</span> <span class="n">poly</span><span class="p">(</span><span class="n">S1</span><span class="p">);</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The subset S1 =&quot;</span><span class="p">,</span> <span class="n">S1</span><span class="p">,</span> <span class="s2">&quot;generates polynomial p1 =&quot;</span><span class="p">,</span> <span class="n">p1</span><span class="p">)</span>
-<span class="n">S2</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">12</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="o">-</span><span class="mi">9</span><span class="p">,</span> <span class="mi">6</span><span class="p">];</span> <span class="n">p2</span> <span class="o">=</span> <span class="n">poly</span><span class="p">(</span><span class="n">S2</span><span class="p">);</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The subset S2 =&quot;</span><span class="p">,</span> <span class="n">S2</span><span class="p">,</span> <span class="s2">&quot;generates polynomial p2 =&quot;</span><span class="p">,</span> <span class="n">p2</span><span class="p">)</span>
-<span class="n">S3</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="o">-</span><span class="mi">19</span><span class="p">,</span> <span class="mi">6</span><span class="p">];</span> <span class="n">p3</span> <span class="o">=</span> <span class="n">poly</span><span class="p">(</span><span class="n">S3</span><span class="p">);</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The subset S3 =&quot;</span><span class="p">,</span> <span class="n">S3</span><span class="p">,</span> <span class="s2">&quot;generates polynomial p3 =&quot;</span><span class="p">,</span> <span class="n">p3</span><span class="p">)</span>
-
 <span class="c1"># returns the constant coefficient for small powers of p=poly(S):</span>
 <span class="k">def</span> <span class="nf">cc</span><span class="p">(</span><span class="n">S</span><span class="p">):</span>
   <span class="n">p</span><span class="o">=</span><span class="n">poly</span><span class="p">(</span><span class="n">S</span><span class="p">);</span> <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">S</span><span class="p">);</span> <span class="n">output</span><span class="o">=</span><span class="p">[];</span>
@@ -187,23 +181,6 @@ window.onload = wrap_img;
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>The subset S = [-1, -7, 17, 3, 13] generates polynomial p = x**17 + x**13 + x**3 + 1/x + x**(-7)
-The subset S1 = [-2, 1, 3] generates polynomial p1 = x**3 + x + x**(-2)
-The subset S2 = [-12, 25, -8, 20, -9, 6] generates polynomial p2 = x**25 + x**20 + x**6 + x**(-8) + x**(-9) + x**(-12)
-The subset S3 = [-3, 12, -8, 21, -19, 6] generates polynomial p3 = x**21 + x**12 + x**6 + x**(-3) + x**(-8) + x**(-19)
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
     
 
@@ -214,8 +191,11 @@ The subset S3 = [-3, 12, -8, 21, -19, 6] generates polynomial p3 = x**21 + x**12
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="n">S0</span><span class="o">=</span> <span class="p">[</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">17</span><span class="p">];</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">cc</span><span class="p">(</span><span class="n">S0</span><span class="p">));</span> <span class="nb">print</span><span class="p">(</span><span class="n">existsZeroSum</span><span class="p">(</span><span class="n">S0</span><span class="p">))</span>
+<div class=" highlight hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
+  <span class="n">randomS</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">)];</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Random S =&quot;</span><span class="p">,</span> <span class="n">randomS</span><span class="p">,</span> <span class="s2">&quot;has a zero subset sum:&quot;</span><span class="p">,</span> <span class="n">existsZeroSum</span><span class="p">(</span><span class="n">randomS</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -228,8 +208,18 @@ The subset S3 = [-3, 12, -8, 21, -19, 6] generates polynomial p3 = x**21 + x**12
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[0, 0, 0, 0]
-False
+<pre>Random S = [112, -5, 69, 25, 39, 191] has a zero subset sum: True 
+
+Random S = [-119, -82, 28, -93, 131, 102] has a zero subset sum: True 
+
+Random S = [176, 141, -68, 50, -51, 192] has a zero subset sum: False 
+
+Random S = [148, -153, -42, -39, 93, 18] has a zero subset sum: False 
+
+Random S = [-73, 7, 135, 40, -169, -50] has a zero subset sum: False 
+
+Random S = [-94, 156, -124, 105, 99, -81] has a zero subset sum: True 
+
 </pre>
 </div>
 </div>
