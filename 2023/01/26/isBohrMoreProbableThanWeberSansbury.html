@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Bohr versus Weber-Sansbury Planetary Model of Hydrogen | JHM Lab.</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Bohr versus Weber-Sansbury Planetary Model of Hydrogen" />
+<meta name="author" content="JHM" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="[Chaos Post: Everything Under Construction] A simple question with non obvious answer. Which model is more probable, Bohr’s or Sansbury’s? It’s a billion dollar question. This post has alot of words but not enough calculations. We need to figure out the correct KDK integration scheme for Weber’s potential, and this is work in progress. Remember that nobody has seen the atom, and it is essentially unseeable since it does not radiate energy to the environment. But it’s perhaps more structured than classical and quantum theories allow." />
+<meta property="og:description" content="[Chaos Post: Everything Under Construction] A simple question with non obvious answer. Which model is more probable, Bohr’s or Sansbury’s? It’s a billion dollar question. This post has alot of words but not enough calculations. We need to figure out the correct KDK integration scheme for Weber’s potential, and this is work in progress. Remember that nobody has seen the atom, and it is essentially unseeable since it does not radiate energy to the environment. But it’s perhaps more structured than classical and quantum theories allow." />
+<link rel="canonical" href="https://jhmartel.github.io/fp/2023/01/26/isBohrMoreProbableThanWeberSansbury.html" />
+<meta property="og:url" content="https://jhmartel.github.io/fp/2023/01/26/isBohrMoreProbableThanWeberSansbury.html" />
+<meta property="og:site_name" content="JHM Lab." />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-01-26T00:00:00-06:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Bohr versus Weber-Sansbury Planetary Model of Hydrogen" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"JHM"},"dateModified":"2023-01-26T00:00:00-06:00","datePublished":"2023-01-26T00:00:00-06:00","description":"[Chaos Post: Everything Under Construction] A simple question with non obvious answer. Which model is more probable, Bohr’s or Sansbury’s? It’s a billion dollar question. This post has alot of words but not enough calculations. We need to figure out the correct KDK integration scheme for Weber’s potential, and this is work in progress. Remember that nobody has seen the atom, and it is essentially unseeable since it does not radiate energy to the environment. But it’s perhaps more structured than classical and quantum theories allow.","headline":"Bohr versus Weber-Sansbury Planetary Model of Hydrogen","mainEntityOfPage":{"@type":"WebPage","@id":"https://jhmartel.github.io/fp/2023/01/26/isBohrMoreProbableThanWeberSansbury.html"},"url":"https://jhmartel.github.io/fp/2023/01/26/isBohrMoreProbableThanWeberSansbury.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/fp/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://jhmartel.github.io/fp/feed.xml" title="JHM Lab." /><link rel="shortcut icon" type="image/x-icon" href="/fp/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/fp/">JHM Lab.</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/fp/about/">About Me</a><a class="page-link" href="/fp/search/">Search</a><a class="page-link" href="/fp/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Bohr versus Weber-Sansbury Planetary Model of Hydrogen</h1><p class="page-description">[Chaos Post: Everything Under Construction] A simple question with non obvious answer. Which model is more probable, Bohr's or Sansbury's? It's a billion dollar question. This post has alot of words but not enough calculations. We need to figure out the correct KDK integration scheme for Weber's potential, and this is work in progress. Remember that nobody has seen the atom, and it is essentially unseeable since it does not radiate energy to the environment. But it's perhaps more structured than classical and quantum theories allow.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2023-01-26T00:00:00-06:00" itemprop="datePublished">
+        Jan 26, 2023
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">JHM</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      7 min read
+    
+</span></p>
+
+    
+
+    
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2023-01-26-isBohrMoreProbableThanWeberSansbury.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a href="https://colab.research.google.com/github/jhmartel/fp/blob/master/_notebooks/2023-01-26-isBohrMoreProbableThanWeberSansbury.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" /></a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We have a strange but very interesting question. It would appear to have a trivial answer, but look again. The question:</p>
+<p><strong><em>Is Bohr's planetary model of the hydrogen atom $[+1, -1]$ really more probable than Sansbury-Weber's model of $[[+2, -1], [+1, -2]]$?</em></strong></p>
+<p>Ultimately we are comparing the Bohr and Sansbury models for hydrogen, helium, lithium, etc., but we must begin with the simplest case, namely hydrogen.</p>
+<p><em>Notation: $[+n]$ refers to $n$-particle system of $n$ equal $[+1]$ charges and having sufficient energy to break through the critical radius, and therefore $[+n]$ represents an $n$-body molecule of identical electric particles.</em></p>
+<p><em>For example the system $[-1, -1]$ is naturally repulsive in isolated environment, but becomes a system $[-2]$ only if sufficient work is done by the environment on the system. We have written on this elsewhere, namely Weber's amazing prediction that electrons are attractive within the critical radius and an energy $E=\mu c^2$ is required, where $\mu$ is the reduced inertial mass of the system.</em></p>
+<p>All these questions appear to lead to thermodynamics. <em>Why?</em></p>
+<p>The question of which states or models are more probable is effectively an energy and statistical question. It's generally understood from thermodynamics that more probable states are those with lower potential energies (i.e. with less capacity for work). There is urgent need for precise statements.</p>
+<p>Thermodynamics is the question relating the changes in potential $\Delta U$ with changes in "capacity for work" and "heat flux with the environment". It's a complicated question and we are cautious against unwitting import of false ideas. Somehow what's lacking is the amazing idea that heat and temperature represents average random kinetic.</p>
+<h1 id="Which-states-are-we-going-to-observe?"><em>Which states are we going to observe?</em><a class="anchor-link" href="#Which-states-are-we-going-to-observe?"> </a></h1><p>Truly if the states are isolated, then they are not observable at all, at least not by energy radiation. For if they were radiating they would be transferring some energy from the system to the environment.</p>
+<p>Abstractly we need to study the energy landscapes of all these systems. The potential energy in our study is Weber's electrodynamic potential and which satisfies a conservation of energy with respect to both isolated and non-isolated systems in a form.</p>
+<p>The system will use it's own potential energy, to do work on itself to morphologically change it's state. And the environment is here necessary to absorb this energy. The system will relax to a lower state, but the environment will have absorbed and gained to a higher state. It seems natural enough to assume that this dynamic process will continue until we have achieved an energy balance and no more net radiation.</p>
+<p>We are repeating to ourselves the idea of "spontaneous reduction to ground states" as some natural principle of least action, or least internal energy. In otherwords, a system reacts to its environment to minimize the internal potential energy. Both states will have attained minimal internal potential energy.</p>
+<p>It's necessary to consider the environment, because if we look at unconstrained negative energy gradient $-\nabla E$ on the isolated system, then the gradient might descend to zero or negative infinity and radiate away all its energy. System collapses.</p>
+<p>Instead we remember the environment $X$ and the idea that all energy is conserved and there is radiation until an energy balance is achieved between $S$ and $X$. If the environment itself has a capacity (a ceiling) possibly infinite of how much energy it can absorb, then the system $S$ need not radiate away to zero.</p>
+<p>In our calculations between Bohr and Sansbury, it's possible that studying the isolated systems will not be sufficient. They each have their own energy landscapes. But without any environment interactions, is it possible to decide which configurations are more probable? Can the absolute energies really be compared to each other? And besides, for a given configuration, what is the most probable state?</p>
+<p>In strict two-body system like $[+1, -1]$ there is no direct radiation from $[+1]$ to $[-1]$ because there is no energy balance necessary between $[+1]$ and $[-1]$ (single-particle systems do not have any relational energies -- the particles do have absolute vis viva kinetic energies relative to any coordinate system, but no pure relational kinetic energy!). Therefore there is no energy transfer between the states. When the particles begin interacting in the two-body system $[+1, -1]$ then there is exchange between potential and relative kinetic energies of the system. However this does not occur as radiation but rather a change of state.</p>
+<p>In a system like $[[+2, -1], [+1, -2]]$, it's possible that the system have zero net radiation (effectively isolated and stable) whilst the subsystems $[+2, -1]$ and $[+1, -2]$ undergoes a continuous exchange of radiation while maintaining a total energy balance. This is Sansbury's insight.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Reduction-to-Ground-State:-What-is-the-idea-here?"><em>Reduction to Ground State: What is the idea here?</em><a class="anchor-link" href="#Reduction-to-Ground-State:-What-is-the-idea-here?"> </a></h1><p>Does it really pass that every system collapses and radiates away it's energy? No, this is the idea from Sansbury, that a system can have zero net radiation ! And this is what's happening inside the electrical molecules.</p>
+<p>When two particles exist in a nonisolated system. Weber argues: if system $X$ has energy $A$, and from the outside environment some amount $a$ of kinetic energy is transferred to the system, then once the system is again considered isolated, it would seem evident that the total energy becomes $A+a$.</p>
+<p>Weber responds to Helmholtz' and Tait's criticisms coupled with Maxwell and Neumann's results. Weber has comprehensive philosophical approach. He reasons that interactions are the equivalent to loss or gain of vis viva, and these energies are in fact dependant on one another. Thereby we find the dependance of the interaction force on the vis viva of the bodies, in contrast to Coulomb-Poisson which has no such dependance.</p>
+<p>Early arguments formulating tentative forms of the conservation of energy hindered the acceptance of Weber's work, especially because of Helmholtz' erroneous critiques [ref]. But all these criticisms led to Weber devising an argument which demonstrates the effective equivalence and necessity of:</p>
+<ul>
+<li>Coulomb-Poisson force law (electrostatics)</li>
+<li>Conservation of Energy</li>
+<li>Weber's force law (electrodynamics). </li>
+</ul>
+<p>Weber proved that his dynamic force law is effectively the <em>only</em> extension of the Coulomb-Poisson electrostatic law which does indeed satisfy a conservation of energy principle. [Insert sketch]</p>
+<h1 id="END-OF-POST-[JHM]."><strong><em>END OF POST [JHM].</em></strong><a class="anchor-link" href="#END-OF-POST-[JHM]."> </a></h1>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p><div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">c</span><span class="o">=</span><span class="mf">1.0</span><span class="p">;</span>
+
+<span class="n">Q0</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">)];</span> <span class="n">q0</span> <span class="o">=</span> <span class="n">q0</span> <span class="o">+</span> <span class="p">[</span><span class="o">+</span><span class="mf">1.0</span><span class="p">];</span> <span class="c1"># positive </span>
+<span class="n">Q1</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">)];</span> <span class="n">q1</span> <span class="o">=</span> <span class="n">q1</span> <span class="o">+</span> <span class="p">[</span><span class="o">-</span><span class="mf">1.0</span><span class="p">];</span> <span class="c1"># negative</span>
+
+<span class="n">Q2</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">1.</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">)];</span> <span class="n">q2</span> <span class="o">=</span> <span class="n">q2</span> <span class="o">+</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">];</span>
+<span class="n">Q3</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">];</span> <span class="n">q3</span> <span class="o">=</span> <span class="n">q3</span> <span class="o">+</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">];</span>
+<span class="n">QQ</span> <span class="o">=</span> <span class="p">[</span><span class="n">Q0</span><span class="p">,</span> <span class="n">Q1</span><span class="p">,</span> <span class="n">Q2</span><span class="p">,</span> <span class="n">Q3</span><span class="p">];</span> <span class="c1">#print(qq)</span>
+
+<span class="c1"># approximate Bohr hydrogen state:</span>
+<span class="c1"># approximate Sansbury hydrogen state:</span>
+
+<span class="k">def</span> <span class="nf">norm</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
+  <span class="n">val</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+  <span class="k">return</span> <span class="p">(</span><span class="n">val</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">epsilon</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span> 
+
+<span class="c1"># pairwise Weber interaction energy</span>
+<span class="k">def</span> <span class="nf">U</span><span class="p">(</span><span class="n">q</span><span class="p">):</span> 
+  <span class="n">q1</span><span class="p">,</span><span class="n">q2</span> <span class="o">=</span> <span class="n">q</span><span class="p">;</span>
+  <span class="n">dq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="n">q2</span><span class="p">,</span><span class="n">q1</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">6</span><span class="p">];</span>
+  <span class="n">dx</span> <span class="o">=</span> <span class="n">dq</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">];</span> <span class="n">dv</span> <span class="o">=</span> <span class="n">dq</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">];</span> <span class="n">rho</span> <span class="o">=</span> <span class="n">norm</span><span class="p">(</span><span class="n">dx</span><span class="p">);</span>
+  <span class="n">rhat</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">rho</span><span class="p">,</span> <span class="n">dx</span><span class="p">)</span>  <span class="c1"># unit vector</span>
+
+  <span class="n">charge_factor</span> <span class="o">=</span> <span class="n">q1</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">q2</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">];</span>
+  <span class="n">Weber_term</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">rhat</span><span class="p">,</span> <span class="n">dv</span><span class="p">)</span> <span class="o">/</span> <span class="n">c</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+  <span class="k">return</span> <span class="p">(</span><span class="n">rho</span><span class="o">**-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">Weber_term</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">charge_factor</span>
+
+<span class="c1"># pairwise relative motion energy</span>
+<span class="k">def</span> <span class="nf">T</span><span class="p">(</span><span class="n">q</span><span class="p">):</span>
+  <span class="n">q1</span><span class="p">,</span> <span class="n">q2</span> <span class="o">=</span> <span class="n">q</span>
+  <span class="n">dq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="n">q2</span><span class="p">,</span><span class="n">q1</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">6</span><span class="p">];</span>
+  <span class="n">dx</span> <span class="o">=</span> <span class="n">dq</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">];</span> <span class="n">dv</span> <span class="o">=</span> <span class="n">dq</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">];</span> <span class="n">rho</span> <span class="o">=</span> <span class="n">norm</span><span class="p">(</span><span class="n">dx</span><span class="p">);</span>
+  <span class="n">rhat</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">rho</span><span class="p">,</span> <span class="n">dx</span><span class="p">)</span>  <span class="c1"># unit vector</span>
+
+  <span class="n">mu</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="c1"># reduced mass insert formula.</span>
+  <span class="k">return</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">)</span><span class="o">*</span><span class="n">mu</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">rhat</span><span class="p">,</span> <span class="n">dv</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="c1"># array of pairwise evaluating T,U:</span>
+<span class="c1">#Tij = [T([var0, var1]) for var0 in qq for var1 in qq if var0 != var1]; sumT = (0.5)*sum(Tij); print(sumT);</span>
+<span class="c1">#Uij = [U([var0, var1]) for var0 in qq for var1 in qq if var0 != var1]; sumU = (0.5)*sum(Uij); print(sumU);</span>
+
+<span class="c1"># what are Sansbury&#39;s metastable states quantitatively? </span>
+<span class="c1"># can we simulate the work required to draw two energy surfaces together??</span>
+<span class="c1"># as we lower the energy via negative gradient flow...</span>
+<span class="c1"># what is the critical radius? how to numerical test the critical radius region?</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+</p>
+    </details>
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p><div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">numdifftools</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+</p>
+    </details>
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p><div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">numdifftools</span> <span class="k">as</span> <span class="nn">nd</span>
+  
+<span class="k">def</span> <span class="nf">weber</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
+  <span class="k">return</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">t</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
+  <span class="k">return</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span><span class="o">*</span><span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="k">def</span> <span class="nf">e</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
+  <span class="k">return</span> <span class="n">weber</span><span class="p">(</span><span class="n">r</span><span class="p">)</span><span class="o">+</span><span class="n">t</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+
+<span class="n">r_sample</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">]</span>
+
+<span class="n">grad_weber</span> <span class="o">=</span> <span class="n">nd</span><span class="o">.</span><span class="n">Gradient</span><span class="p">(</span><span class="n">weber</span><span class="p">)(</span><span class="n">r_sample</span><span class="p">)</span>  
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;potential gradient direction to increase the capacity for work at (r, r&#39;) =&quot;</span><span class="p">,</span><span class="n">r_sample</span><span class="p">,</span> <span class="s2">&quot;is&quot;</span><span class="p">,</span> <span class="n">grad_weber</span><span class="p">)</span>
+
+<span class="n">grad_kinetic</span> <span class="o">=</span> <span class="n">nd</span><span class="o">.</span><span class="n">Gradient</span><span class="p">(</span><span class="n">t</span><span class="p">)(</span><span class="n">r_sample</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;kinetic gradient is:&quot;</span><span class="p">,</span> <span class="n">grad_kinetic</span><span class="p">)</span>
+
+<span class="n">grad_energy</span> <span class="o">=</span> <span class="n">nd</span><span class="o">.</span><span class="n">Gradient</span><span class="p">(</span><span class="n">e</span><span class="p">)(</span><span class="n">r_sample</span><span class="p">);</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;negative energy gradient is:&quot;</span><span class="p">,</span> <span class="o">-</span><span class="n">grad_energy</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;unit normalized negative energy gradient is:&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">norm</span><span class="p">(</span><span class="n">grad_energy</span><span class="p">),</span> <span class="o">-</span> <span class="n">grad_energy</span><span class="p">)</span> <span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+</p>
+    </details>
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p><div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="c1"># Hydrogen state space:</span>
+
+<span class="c1"># i prefer hexagon sample spaces, need efficient construction.</span>
+<span class="k">def</span> <span class="nf">cube</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+  <span class="n">line</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">N</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+  <span class="n">prod</span> <span class="o">=</span> <span class="p">[[</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">line</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">line</span> <span class="k">for</span> <span class="n">z</span> <span class="ow">in</span> <span class="n">line</span><span class="p">]</span>
+  <span class="k">return</span> <span class="n">prod</span>
+
+<span class="k">def</span> <span class="nf">hex</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="mi">7</span><span class="p">):</span>
+  <span class="n">e1</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span>
+  <span class="n">e2</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.</span><span class="p">,</span><span class="mf">0.</span><span class="p">]</span>
+  <span class="n">sample</span> <span class="o">=</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">n1</span><span class="p">,</span><span class="n">e1</span><span class="p">)</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">n2</span><span class="p">,</span><span class="n">e2</span><span class="p">))</span> <span class="k">for</span> <span class="n">n1</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">n2</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+  <span class="k">return</span> <span class="n">sample</span>
+
+<span class="n">statespace</span> <span class="o">=</span> <span class="p">[[[</span><span class="n">x1</span><span class="p">,</span><span class="n">v1</span><span class="p">],[</span><span class="n">x2</span><span class="p">,</span><span class="n">v2</span><span class="p">],[</span><span class="n">x3</span><span class="p">,</span><span class="n">v3</span><span class="p">]]</span> <span class="k">for</span> <span class="n">x1</span> <span class="ow">in</span> <span class="n">cube</span><span class="p">()</span> <span class="k">for</span> <span class="n">v1</span> <span class="ow">in</span> <span class="n">cube</span><span class="p">()</span> <span class="k">for</span> <span class="n">x2</span> <span class="ow">in</span> <span class="n">cube</span><span class="p">()</span> <span class="k">for</span> <span class="n">v2</span> <span class="ow">in</span> <span class="n">cube</span><span class="p">()</span> <span class="k">for</span> <span class="n">x3</span> <span class="ow">in</span> <span class="n">cube</span><span class="p">()</span> <span class="k">for</span> <span class="n">v3</span> <span class="ow">in</span> <span class="n">cube</span><span class="p">()];</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">statespace</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">cube</span><span class="p">()))</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">27</span><span class="o">*</span><span class="mi">27</span><span class="o">*</span><span class="mi">27</span> <span class="o">==</span> <span class="mi">3</span><span class="o">**</span><span class="mi">9</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+</p>
+    </details>
+</div>
+    
+
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="jhmartel/fp"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/fp/2023/01/26/isBohrMoreProbableThanWeberSansbury.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/fp/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="https://jhmartel.github.io/fp/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/fp/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Optimal Transport, Topology of Singularities, Physics.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
