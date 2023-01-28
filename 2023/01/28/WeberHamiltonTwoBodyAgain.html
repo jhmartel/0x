@@ -98,7 +98,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      2 min read
+      3 min read
     
 </span></p>
 
@@ -146,39 +146,11 @@ v'
 <p>This equation allows us to integrate the evolution for given initial conditions.</p>
 <p>But here's the problem: it doesn't immediately apply for $N$-body systems, even the three body or six body like we ultimately want to study. Yet the point remains that the Hamiltonian's for these systems are maintained by sums of two-body Hamiltonians. So fundamentally our analysis in the two-body case is valid, but it needs to be aggregated averaged with a net sum.</p>
 <p><em>That's the key point, the variables ${r</em>{ij}, r'<em>{ij}}$ are not pairwise independant, there are some relations between them. Is this false or true?</em></p>
-<p>Ideally we would like to treat the variables $\{r_{ij}, r'_{ij}\}_{ij}$ as independant Cartesian-type variables. But this cannot readily be maintained. (True or false?)</p>
+<p>Ideally we would like to treat the variables $\{r_{ij}, r'_{ij}\}_{ij}$ as independant Cartesian-type variables. But this cannot readily be maintained. It leads to the problem of evaluating partial derivatives with respect to the relational variables $r_{ij}$ and not the absolute Cartesian coordinates $x_i, x_j$. We tell ourselves that Newton invented Calculus for the express purpose of integrating his equations of motion. So too here we need to develop a calculus to integrate the relational equations of motion, and this has surely already been done somewhere sometime. But the question is simply to interpret the Hamiltonian derivatives $$\frac{\partial H}{ \partial r_{ij}}, ~~~ \frac{\partial H}{ \partial r'_{ij}}$$ in terms of the absolute Cartesian coordinates. Stay tuned. [-JHM]</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>We can approximate the diagonal matrix $\begin{pmatrix}
-\mu - 1/c^2x &amp; 0 \\
-0 &amp; \mu
-\end{pmatrix}^{-1}$</p>
-<p>Remark: It's necessary to demonstrate that $(x',v')$ is indeed orthogonal to $\nabla H$. This is a direct calculation.</p>
-
-</div>
-</div>
-</div>
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-    
-
 </div>
 
 
