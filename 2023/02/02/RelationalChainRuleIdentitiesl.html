@@ -139,8 +139,18 @@ $$H=H(r_{ij}, \nu_{ij}) = \sum_{i,j} \frac{q_i q_j}{r_{ij}} (1-\frac{\nu_{ij}^2}
 <p>
 $$\frac{\partial r_{ij}}{\partial r_{kl}} = \sum_{m, p} \frac{\partial r_{ij}}{\partial x_{m}^p} \frac{\partial x_m^p}{\partial r_{kl}} =\sum_{m,p} \frac{\partial r_{ij}}{\partial x_m^p} (\frac{\partial r_{kl}}{\partial x_m^p})^{-1}.$$
 </p>
-<p>So what can we say about evaluating $\frac{\partial r_{ij}}{\partial x_{m}^p}$?</p>
-<p>We evaluate: $$\frac{\partial r_{ij}}{\partial x_{m}^p} = \frac{1}{r_{ij}} \frac{\partial (r^2_{ij}~/2)}{\partial x_{m}^p} = \frac{1}{r_{ij}}  \frac{\partial (x^p_i - x^p_j)^2/2)}{\partial x_{m}^p} = r_{ij}^{-1} \cdot x_{ij}^p \cdot (\pm 1)$$ if $m=i$ or $m=j$ respectively, and equal to zero otherwise.</p>
+<p>So what can we say about evaluating $\partial r_{ij}/ \partial x_{m}^p$?</p>
+<p>We find $$\frac{\partial r_{ij}}{\partial x_{m}^p} = 
+\frac{1}{r_{ij}} \frac{\partial (r^2_{ij}~/2)}{\partial x_{m}^p} = 
+\frac{1}{r_{ij}}  \frac{\partial}{\partial x_{m}^p} (x^p_i - x^p_j)^2/2= r_{ij}^{-1} \cdot x_{ij}^p \cdot (\delta_{mi}-\delta_{mj}).$$</p>
+<ul>
+<li><p>Thus we find $ \partial r_{ij} / \partial r_{kl} = 0$ if $\{i,j\}$ and $\{k,l\}$ are disjoint.</p>
+</li>
+<li><p>[Incomplete] If $\{i,j\} = \{i, k\}$, then we have $$ \partial r_{ij} / \partial r_{ik} = \sum_p \frac{r_{ik}}{r_{ij}}\frac{x_{ij}^p}{x_{ik}^p}$$</p>
+</li>
+<li><p>If $\{i,j\} = \{k,l\}$, then we have $ \partial r_{ij} / \partial r_{kl} =  \partial r_{ij} / \partial r_{ij} = 2\times 3 = 6.$</p>
+</li>
+</ul>
 <p>What can we say about $\frac{\partial \nu_{ij}}{\partial x_{m}^p}$ and $ \frac{\partial \nu_{ij}}{\partial v_{m}^p}$ ?</p>
 <p>This gets tedious. [Insert evaluation. Incomplete].</p>
 
