@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Foundations of Special Relativity and Light Propagation in Vacuum. A Critical Review (3/4). | JHM Lab.</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Foundations of Special Relativity and Light Propagation in Vacuum. A Critical Review (3/4)." />
+<meta name="author" content="JHM" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="In Part 3/4 of our critical review of SR we examine the homogeneous wave equation and its properties under Lorentz transformations." />
+<meta property="og:description" content="In Part 3/4 of our critical review of SR we examine the homogeneous wave equation and its properties under Lorentz transformations." />
+<link rel="canonical" href="https://jhmartel.github.io/fp/2023/02/17/SR_Part3.html" />
+<meta property="og:url" content="https://jhmartel.github.io/fp/2023/02/17/SR_Part3.html" />
+<meta property="og:site_name" content="JHM Lab." />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-02-17T00:00:00-06:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Foundations of Special Relativity and Light Propagation in Vacuum. A Critical Review (3/4)." />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"JHM"},"dateModified":"2023-02-17T00:00:00-06:00","datePublished":"2023-02-17T00:00:00-06:00","description":"In Part 3/4 of our critical review of SR we examine the homogeneous wave equation and its properties under Lorentz transformations.","headline":"Foundations of Special Relativity and Light Propagation in Vacuum. A Critical Review (3/4).","mainEntityOfPage":{"@type":"WebPage","@id":"https://jhmartel.github.io/fp/2023/02/17/SR_Part3.html"},"url":"https://jhmartel.github.io/fp/2023/02/17/SR_Part3.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/fp/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://jhmartel.github.io/fp/feed.xml" title="JHM Lab." /><link rel="shortcut icon" type="image/x-icon" href="/fp/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/fp/">JHM Lab.</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/fp/about/">About Me</a><a class="page-link" href="/fp/search/">Search</a><a class="page-link" href="/fp/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Foundations of Special Relativity and Light Propagation in Vacuum. A Critical Review (3/4).</h1><p class="page-description">In Part 3/4 of our critical review of SR we examine the homogeneous wave equation and its properties under Lorentz transformations.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2023-02-17T00:00:00-06:00" itemprop="datePublished">
+        Feb 17, 2023
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">JHM</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      5 min read
+    
+</span></p>
+
+    
+
+    
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2023-02-17-SR_Part3.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a href="https://colab.research.google.com/github/jhmartel/fp/blob/master/_notebooks/2023-02-17-SR_Part3.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" /></a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Homogeneous-Wave-Equation,-Lorentz-Transformations-and-SR"><em>Homogeneous Wave Equation, Lorentz Transformations and SR</em><a class="anchor-link" href="#Homogeneous-Wave-Equation,-Lorentz-Transformations-and-SR"> </a></h1><p>In Parts 1 and 2 of this series we focussed on Minkowski space, linear algebra of Lorentz transformations, and the null cone. These discussions were mainly based on the photon model of light.</p>
+<p>In Part 3 we consider the wave model of light, and specifically properties of Lorentz transformations and the homogeneous wave equation (HWE).</p>
+<p>Briefly, Einstein's attempted proof of Claims (i) and (ii) that the Lorentz formulae resolves all the apparent contradictions of (A12) is based on the idea of light propagating a constant speed $c$ which is identical for all observers. From Einstein's spherical wavefront argument, we see that Einstein understood (A12) as implying that light pulses propagate in geometrically spherical wave fronts in <em>every</em> inertial reference frame $K$. In terms of the HWE this implies that there exists a Lorentz invariant class of radial solutions to (HWE). As we discuss below, radial solutions exist canonically for any single reference frame $K$. However the arguments from Parts 1 and 2 demonstrate that no Lorentz invariant set of radial solutions can exist simultaneously for all reference frames $K'$.</p>
+<h1 id="d'Alembert-$\square$-is-Unique-Lorentz-Invariant-2nd-Order-Linear-Differential-Operator"><em>d'Alembert</em> $\square$ <em>is Unique Lorentz Invariant 2nd Order Linear Differential Operator</em><a class="anchor-link" href="#d'Alembert-$\square$-is-Unique-Lorentz-Invariant-2nd-Order-Linear-Differential-Operator"> </a></h1><p>In Part 1 we briefly mentioned an interesting result of Elton-Arminjon on the Minkowski metric $$h=d\xi^2 + d\eta^2 + d \zeta^2 - c^2 \tau^2$$ being the unique Lorentz invariant symmetric quadratic form on ${\bf{R}}^4$ (modulo homothety). Their proof has useful corollary in terms of the HWE.</p>
+<p>Let $\square$ be d'Alembert's wave operator. Then $\square$ is a second order homogeneous linear differential operator, in coordinates having the form $$\square = \frac{\partial^2}{\partial \xi^2} +\frac{\partial^2}{\partial \eta^2}+\frac{\partial^2}{\partial \zeta^2}-\frac{1}{c^2}\frac{\partial^2}{\partial \tau^2}.$$</p>
+<p>Informally we view $\square$ as essentially dual to Minkowski's form $h$. Somewhat more rigorously, we find Elton-Arminjon's argument proves the following:</p>
+<ul>
+<li>Lemma: Let $C$ be the algebra of polynomial functions on ${\bf{R}}^4$, and let $\rho^*$ be the contragredient representation of the Lorentz group on $C$. Then d'Alembert's wave operator $\square$ is the unique Lorentz invariant second order linear differential operator on $C$ modulo homothety.</li>
+</ul>
+<p>It follows that Einstein's Claim (i) that different inertial frames $K, K'$ are related by Lorentz transformations also implies that d'Alembert's operator $\square$ is essentially the unique second order operator defined simultaneously for all inertial observers. This means the HWE is the only Lorentz invariant second order equation on ${\bf{R}}^4$.</p>
+<p>The Lorentz invariance of the HWE implies that solutions to the HWE are Lorentz <em>covariant</em>. To be precise, if $\phi=\phi(x,y,z,t)$ is a regular function satisfying the HWE, namely
+$$ \phi_{xx}+\phi_{yy}+\phi_{zz}-\frac{1}{c^2}\phi_{tt}=0, $$ and if $\lambda$ is a Lorentz transform with $$(\xi, \eta, \zeta, \tau)=\lambda.(x,y,z,t),$$ then $$\phi':=\lambda^*(\phi)=\phi\circ\lambda^{-1}$$ is again a solution of the HWE: $$\phi_{\xi \xi}+\phi_{\eta \eta}+\phi_{\zeta \zeta}-\frac{1}{c^2}\phi_{\tau \tau}=0.$$ This is verified by elementary computation.</p>
+<p>The above discussion is completely elementary. More significant is the interpretation of (A12) in terms of the HWE.</p>
+<h1 id="Radius-is-Not-a-Lorentz-Invariant-Variable"><em>Radius is Not a Lorentz Invariant Variable</em><a class="anchor-link" href="#Radius-is-Not-a-Lorentz-Invariant-Variable"> </a></h1><p>We understand (A12) as declaring that there exists a distinguished Lorentz invariant class of solutions to HWE which correspond to spherical light waves. However we argue that this contradicts the properties of HWE. Specifically <em>there does not exist a Lorentz invariant set of radial solutions to the HWE.</em></p>
+<p>Indeed the spatial radius variable $r^2=x^2+y^2+z^2$ is not a Lorentz invariant variable. This was discussed in Part 2, but we can give another explanation in terms of Lie groups.</p>
+<p>In group theoretic terms, a solution $\phi=\phi(x,t)$ of HWE is said to be <em>radial by an observer $K$</em> iff $\phi(Ax,t)=\phi(x,t)$ for every rigid motion $A\in SO(3)$ in the space variables $x,y,z$ of $K$. Implicitly this requires a Lie group representation $\rho$ of $SO(3)$ into the Lorentz group $G\simeq O(3,1)$. But this choice of maximal compact subgroup is noncanonical. Different inertial observers $K, K'$ generally choose different orthogonal symmetry groups, e.g. according to their own physical sum of squares formula $\xi^2+\eta^2+\zeta^2$.</p>
+<p>Of course the Minkowski form $h$ is invariant and canonical, but any decomposition into "spatial" and "time" components requires <em>arbitrary observer dependant choices</em>, and these choices cannot be Lorentz invariant.</p>
+<p>For example, while the open set of timelike vectors $\{h(v) &lt; 0\}$ is invariantly defined, there is no Lorentz invariant choice of timelike vector. Likewise among the spacelike set $\{h(v)&gt;0\}$ there is no Lorentz invariant choice of orthogonal three-dimensional frame.</p>
+<p>Furthermore, for the motion of light pulses according to (A12) the Minkowski element vanishes identically, and the only canonical tensor element becomes the constant zero element. After a Lorentz change of variables we find a new solution $\phi'$ as above, but this solution need not be radial in the inertial frame $K'$. Indeed the rigid $K$-space motion $A$ will not generally preserve the space coordinates $\xi, \eta, \zeta$ of $K'$. Thus we find $A$-motions nontrivially depend on the $K'$-time variable $\tau$. This again reflects the nonexistence of a Lorentz invariant radius.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Conclusion"><em>Conclusion</em><a class="anchor-link" href="#Conclusion"> </a></h1><p>This concludes our mathematical analysis of the foundations of SR, especially Einstein's Assumptions (A12) and his attempted resolution via Lorentz formulae and Claims (i) and (ii).</p>
+<p>Ultimately the Lorentz transformations do not have the necessary properties to maintain (A12). The so-called Law of Propagation of Light (A2) is not a Lorentz invariant law, and therefore does not itself satisfy the Principle of Restricted Relativity as supposed by Einstein in his Assumption (A1).</p>
+<p>In our final Part 4 of this series, we present some potential objections to our arguments and attempt to anticipate some criticisms. However we must maintain that all the above arguments are <em>mathematically correct</em>. Any constructive comments or feedback are welcome at the author's address jhmLabs a.t. gmail dot com.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="jhmartel/fp"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/fp/2023/02/17/SR_Part3.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/fp/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="https://jhmartel.github.io/fp/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/fp/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Optimal Transport, Topology of Singularities, Physics.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
