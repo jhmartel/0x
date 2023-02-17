@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Foundations of Special Relativity and Light Propagation in Vacuum. A Critical Review (4/4). | JHM Lab.</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Foundations of Special Relativity and Light Propagation in Vacuum. A Critical Review (4/4)." />
+<meta name="author" content="JHM" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="In Part 4/4 of our critical review of SR we consider some objections and responses to our arguments." />
+<meta property="og:description" content="In Part 4/4 of our critical review of SR we consider some objections and responses to our arguments." />
+<link rel="canonical" href="https://jhmartel.github.io/fp/2023/02/17/SR_Part4.html" />
+<meta property="og:url" content="https://jhmartel.github.io/fp/2023/02/17/SR_Part4.html" />
+<meta property="og:site_name" content="JHM Lab." />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-02-17T00:00:00-06:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Foundations of Special Relativity and Light Propagation in Vacuum. A Critical Review (4/4)." />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"JHM"},"dateModified":"2023-02-17T00:00:00-06:00","datePublished":"2023-02-17T00:00:00-06:00","description":"In Part 4/4 of our critical review of SR we consider some objections and responses to our arguments.","headline":"Foundations of Special Relativity and Light Propagation in Vacuum. A Critical Review (4/4).","mainEntityOfPage":{"@type":"WebPage","@id":"https://jhmartel.github.io/fp/2023/02/17/SR_Part4.html"},"url":"https://jhmartel.github.io/fp/2023/02/17/SR_Part4.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/fp/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://jhmartel.github.io/fp/feed.xml" title="JHM Lab." /><link rel="shortcut icon" type="image/x-icon" href="/fp/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/fp/">JHM Lab.</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/fp/about/">About Me</a><a class="page-link" href="/fp/search/">Search</a><a class="page-link" href="/fp/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Foundations of Special Relativity and Light Propagation in Vacuum. A Critical Review (4/4).</h1><p class="page-description">In Part 4/4 of our critical review of SR we consider some objections and responses to our arguments.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2023-02-17T00:00:00-06:00" itemprop="datePublished">
+        Feb 17, 2023
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">JHM</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      5 min read
+    
+</span></p>
+
+    
+
+    
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2023-02-17-SR_Part4.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a href="https://colab.research.google.com/github/jhmartel/fp/blob/master/_notebooks/2023-02-17-SR_Part4.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" /></a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In Part 1,2,3 of this series, we have presented our critical mathematical review of the foundations of SR.</p>
+<ul>
+<li><p>Part 1:</p>
+<ul>
+<li>Difficulties and Apparent Incompatibilities in the assumptions (A12) of SR. </li>
+<li>Einstein proposes Lorentz formulae in attempt to resolve these incompatibilities, requiring two claims. </li>
+<li>We find the law of propagation of photons particle is <em>underdetermined</em> by (A12) contrary to Riemannian intuition.</li>
+<li>The geodesic variational equation is trivial on the null cone.</li>
+<li>Therefore while the speed of light is $c$, the velocity of light is completely unconstrained on the null cone.</li>
+</ul>
+</li>
+<li><p>Part 2:</p>
+<ul>
+<li>We examine Einstein's proof of the compatibility of (A12) and his appeal to spherical light waves. </li>
+<li>We claim to identify two critical errors in Einstein's classical argument: misidentification of the equation of a sphere, and the erroneous assumption that quadratic summands are numerically Lorentz invariant. </li>
+<li>We illustrated with trivial computations on ${\bf{R}}^{1,1}$.</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Part 3:<ul>
+<li>We examined the homogeneous wave equation (HWE) and its properties uner Lorentz transformations. </li>
+<li>d'Alembert operator is essentially the unique Lorentz invariant second order linear operatort.</li>
+<li>Radius is not a Lorentz invariant variable.</li>
+<li>There does not exist a Lorentz invariant set of so-called "radial solutions" to HWE. </li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As we have discussed in previous Parts, our objections apply simultaneously to the wave and particle models of light. These objections will be elaborated below.</p>
+<h1 id="Objections-and-Responses"><em>Objections and Responses</em><a class="anchor-link" href="#Objections-and-Responses"> </a></h1><p>Given the critical nature of this series, we here respond to some potential objections.</p>
+<h2 id="1.">1.<a class="anchor-link" href="#1."> </a></h2><p>One might object that all our arguments reduce to the observation that spheres in the frame $K$ are transformed to ellipsoids in $K'$ as is well-known.</p>
+<p>But we remind the reader that Lorentz contraction is assumed to affect <em>material</em> objects, even independantly of the nature of the material. So material spheres in $K$ become material ellipsoids in $K'$, where the eccentricity of the $K'$-ellipsoid is nontrivial and independant of the material nature of the sphere. However we respond that light spheres are <em>immaterial</em> and not themselves subject to Lorentz contraction. And indeed if light spheres were subject to the same contraction effects as material spheres, then (A2) would definitely be false.</p>
+<h2 id="2.">2.<a class="anchor-link" href="#2."> </a></h2><p>Critics may object that (A12) only requires the consistent <em>measurement</em> of $c$ in arbitrary reference frames $K, K'$. This would replace the law (A2) with some rule of thumb for measurements.</p>
+<p>But this immediately leads to a well-known experimental difficulty at the core of special relativity, namely the impossibility of measuring the <em>one way</em> speed of light. Indeed space and time measurements are always dependant on material objects and often non local, having sources and receivers separated by large distances. The impossibility of synchronizing non local clocks leads to the impossibility of measuring the one-way velocity of light. That all measurements of $c$ only succeed in measuring the <em>two way</em> or "round trip" velocities of light where source and receiver coincide is discussed in [Zhang 1997] and [Perez 2011].  See also Veritasium's video "Why the Speed of Light Can't be Measured".</p>
+<p>Moreover in studying the two-way velocity of light, one needs further postulate that the velocity $c$ is constant (uniform) throughout its two-way journey, as Einstein argued. But this assumption is admittedly arbitrary and unverifiable.</p>
+<h2 id="3.">3.<a class="anchor-link" href="#3."> </a></h2><p>Wolfgang Rindler's very interesting textbook attempts "<em>in spite of its historical and heuristic importance</em>, [...] <em>to de-emphasize the logical role of the law of light propagation [(A2)] as a pillar of special relativity.</em>"</p>
+<p>Rindler claims that "<em>a second axiom [(A2)] is needed only[!] to determine the value of a constant $c$ of the dimensions of a velocity that occurs naturally in the theory. But this could come from any number of branches of physics</em> -- <em>we need only think of the energy formula</em> $E=mc^2$, <em>or de Broglie's velocity relation</em> $u v =c^2$."</p>
+<p>Rindler's objection is interesting, and our response is simply that the above quoted formulas are <em>equivalent</em> to (A2), and not independant in any logical or physical sense.</p>
+<p>[Incomplete]</p>
+<h2 id="4.">4.<a class="anchor-link" href="#4."> </a></h2><p>A fourth objection might criticize our argument for not properly accounting for the so-called wave-particle duality of light, e.g. Bohr complementarity. Our presentation has addressed both corpuscular and undulatory models, showing that (A12) is underdetermined in both cases. The incompatibility of (A12) with both the wave and particle model has been highlighted by A.K.T. Assis [Section 7.2.4, pp.133] from his "Relational Mechanics":</p>
+<ul>
+<li>"<em>we can only conclude that for Einstein the velocity of light is constant not only whatever the state of motion of the emitting body [source], but also whatever the state of motion of the receiving body (detector) and of the observer."</em></li>
+</ul>
+<p>For waves in physical medium, the velocity of emission is independant of the velocity of the source, since waves are transmitted <em>by</em> the medium and their velocities a property <em>of</em> the medium. Furthermore for both particles and waves, it is known that velocity is dependant on the velocity of the receiver.</p>
+<p>According to (A2), light is postulated to exhibit properties unlike both waves and particles. Thus we argue that (A2) contradicts the supposed complementarity and wave-particle duality, i.e. (A2) requires light to behave contrary to both the wave and particle interpretations.</p>
+<h2 id="5.">5.<a class="anchor-link" href="#5."> </a></h2><p>[Insert discussion on GPS] Common objection. Details needed.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Sansbury-Fizeau-Experiment:-Is-Light-Even-Something-That-Travels-At-All?"><em>Sansbury-Fizeau Experiment: Is Light Even Something That Travels At All?</em><a class="anchor-link" href="#Sansbury-Fizeau-Experiment:-Is-Light-Even-Something-That-Travels-At-All?"> </a></h1><p>We have discussed this in previous posts at JHM Labs. The purpose of this discussion is to positively demonstrate that there are alternatives beyond SR. Thus we sharply criticize SR, but we also provide a substitute and a new path forward.</p>
+<p>From our perspective, there is an extremely important experiment of Fizeau-Sansbury which needs be performed, and which results might be quite shocking to the standard physicist worldview.</p>
+<p>Stay Tuned!</p>
+<p>-JHM.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="jhmartel/fp"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/fp/2023/02/17/SR_Part4.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/fp/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="https://jhmartel.github.io/fp/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/fp/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Optimal Transport, Topology of Singularities, Physics.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
