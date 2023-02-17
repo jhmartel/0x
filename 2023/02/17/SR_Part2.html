@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Foundations of Special Relativity and Light Propagation in Vacuum. A Critical Review (2/4). | JHM Lab.</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Foundations of Special Relativity and Light Propagation in Vacuum. A Critical Review (2/4)." />
+<meta name="author" content="JHM" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="In Part 2/4 of our critical review of SR we discuss the errors in Einstein’s famous spherical wavefront proof. Ultimately we argue that the Law of Propagation of Light (A2) is not Lorentz invariant, contrary to Einstein’s claims. The error is subtle." />
+<meta property="og:description" content="In Part 2/4 of our critical review of SR we discuss the errors in Einstein’s famous spherical wavefront proof. Ultimately we argue that the Law of Propagation of Light (A2) is not Lorentz invariant, contrary to Einstein’s claims. The error is subtle." />
+<link rel="canonical" href="https://jhmartel.github.io/fp/2023/02/17/SR_Part2.html" />
+<meta property="og:url" content="https://jhmartel.github.io/fp/2023/02/17/SR_Part2.html" />
+<meta property="og:site_name" content="JHM Lab." />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-02-17T00:00:00-06:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Foundations of Special Relativity and Light Propagation in Vacuum. A Critical Review (2/4)." />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"JHM"},"dateModified":"2023-02-17T00:00:00-06:00","datePublished":"2023-02-17T00:00:00-06:00","description":"In Part 2/4 of our critical review of SR we discuss the errors in Einstein’s famous spherical wavefront proof. Ultimately we argue that the Law of Propagation of Light (A2) is not Lorentz invariant, contrary to Einstein’s claims. The error is subtle.","headline":"Foundations of Special Relativity and Light Propagation in Vacuum. A Critical Review (2/4).","mainEntityOfPage":{"@type":"WebPage","@id":"https://jhmartel.github.io/fp/2023/02/17/SR_Part2.html"},"url":"https://jhmartel.github.io/fp/2023/02/17/SR_Part2.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/fp/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://jhmartel.github.io/fp/feed.xml" title="JHM Lab." /><link rel="shortcut icon" type="image/x-icon" href="/fp/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/fp/">JHM Lab.</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/fp/about/">About Me</a><a class="page-link" href="/fp/search/">Search</a><a class="page-link" href="/fp/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Foundations of Special Relativity and Light Propagation in Vacuum. A Critical Review (2/4).</h1><p class="page-description">In Part 2/4 of our critical review of SR we discuss the errors in Einstein's famous spherical wavefront proof. Ultimately we argue that the Law of Propagation of Light (A2) is not Lorentz invariant, contrary to Einstein's claims. The error is subtle.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2023-02-17T00:00:00-06:00" itemprop="datePublished">
+        Feb 17, 2023
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">JHM</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      6 min read
+    
+</span></p>
+
+    
+
+    
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2023-02-17-SR_Part2.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a href="https://colab.research.google.com/github/jhmartel/fp/blob/master/_notebooks/2023-02-17-SR_Part2.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" /></a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Apparent-Difficulties-in-SR-and-Einstein's-Attempted-Resolution"><em>Apparent Difficulties in SR and Einstein's Attempted Resolution</em><a class="anchor-link" href="#Apparent-Difficulties-in-SR-and-Einstein's-Attempted-Resolution"> </a></h1><p>In the previous article (Part 1/4) we reviewed the basic assumptions of SR, represented in assumptions we call (A1) and (A2).</p>
+<ul>
+<li><p>(A1) that the laws of physics are the same in all nonaccelerated reference frames, i.e. if $K'$ is a coordinate system moving uniformly (and devoid of rotation) with respect to a coordinate system $K$, then natural phenomena run their course with respect to $K'$ according to exactly the same laws as with respect to $K$.</p>
+</li>
+<li><p>(A2) that light in vacuum propagates along straight lines with constant velocity $c = 300,000 ~km/sec$.</p>
+</li>
+</ul>
+<p>The conjunction $(A12):=(A1) \wedge (A2)$ leads to intellectual difficulties, as Einstein himself admits. But these difficulties are only <em>apparent incompatibilities</em> according to Einstein which are resolved by postulating the Lorentz transformations. The assertion that Lorentz formulae resolve all apparent difficulties in (A12) follows from two claims:</p>
+<ul>
+<li>Claim (i): that inertial frames $K, K'$ are related by Lorentz transformations. </li>
+</ul>
+<ul>
+<li>Claim (ii): that the law of propagation of light (A2) is Lorentz invariant. I.e. if  (A2)  is satisfied in  $K$ , then  (A2)  is satisfied in every Lorentz translate  $K′=\lambda.K$.</li>
+</ul>
+<p>The key issue is verifying whether (A2) really follows from the Claims (i) and (ii). This is the subject of Einstein's spherical wave front argument which we examine below.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Critique-of-Einstein's-Proof-of-the-Compatibility-of-(A12)-with-Lorentz-Transformations"><em>Critique of Einstein's Proof of the Compatibility of (A12) with Lorentz Transformations</em><a class="anchor-link" href="#Critique-of-Einstein's-Proof-of-the-Compatibility-of-(A12)-with-Lorentz-Transformations"> </a></h1><p>We were led to reviewing Einstein's SR by reading the articles of S.J. Crothers and R. Bryant, which allege that Einstein's spherical wave proof contains significant errors.</p>
+<p>Einstein's argument looks to derive Claim (ii) as a mathematical consequence of Claim (i). The starting point is the fundamental property of Lorentz transformations, that the quadratic expression $$x^2+y^2+z^2 = c^2 t^2$$ is invariant with respect to Lorentz transforms. In other words, the null cone $N$ is Lorentz <em>covariant</em>. Thus if $$(\xi, \eta, \zeta, \tau)=\lambda. (x,y,z,t)$$ for a Lorentz transform $\lambda$, then we have</p>
+<ul>
+<li>[Eq1] $$\xi^2 + \eta^2+\zeta^2 = c^2 \tau^2.$$  </li>
+</ul>
+<p>But what does the expression [Eq1] represent?</p>
+<p>Here is Einstein's first error: his argument <em>misidentifies</em> [Eq1] with "the equation of a sphere." The error is subtle. But the fact is that [Eq1] is strictly speaking a three-dimensional cone in the four independant variables $\xi, \eta, \zeta, \tau$. The cone indeed contains many spherical two-dimensional subsets, but our point is that <em>a second independant equation</em> is necessary to specify these spheres. And these independant equations cannot be chosen Lorent invariantly!</p>
+<p>Penrose in his textbook with Rindler is quite careful here. The Penrose approach is to projectivize [Eq1] and obtain a <em>projective sphere</em> with a uniquely defined Lorentz invariant conformal structure.</p>
+<p>But again we must emphasize that there is no canonical metric invariant with respect to the Lorentz group on the projectivization. In otherwords, the null sphere has a Lorentz invariant conformal structure, but it does not have a Lorentz invariant Riemannian structure.</p>
+<p>For instance the standard round sphere $S$ centred at the origin simultaneously satisfies [Eq1] and additionally the equation $$\frac{1}{2}d(\xi^2+\eta^2+\zeta^2)=\xi d\xi+\eta d\eta +\zeta d\zeta=0.$$ In short, the round sphere requires that <em>two</em> quadratic forms $\xi^2+\eta^2+\zeta^2$ and $c^2\tau^2$ be <em>simultaneously constant</em>.</p>
+<p>This leads us to Einstein's second error, which is the failure to observe that the Lorentz invariance of the quadratic form $h=x^2+y^2+z^2-c^2t^2$ in no way implies the Lorentz invariance of $h_1:=x^2+y^2+z^2$ and $h_2:=c^2 t^2$.</p>
+<p>Indeed the quadratic forms $h_1, h_2$ are degenerate, with nontrivial radicals $rad(h_1)=\{x=y=z=0\}$ and $rad(h_2)=\{t=0\}.$ The radicals are linear subspaces of ${\bf{R}}^4$. But if $h_1, h_2$ are invariant, then $rad(h_1)$ and $rad(h_2)$ are also nontrivial invariant subspaces. This contradicts the fact that the standard linear representation of the Lorentz group acts irreducibly on ${\bf{R}}^4$.</p>
+<p>To summarize the two errors in Einstein's famous argument:</p>
+<ul>
+<li><p>the cone $\xi^2 + \eta^2+\zeta^2 = c^2 \tau^2$ is misidentified as the equation of a sphere.</p>
+</li>
+<li><p>the Lorentz invariance of $\xi^2 + \eta^2+\zeta^2 = c^2 \tau^2$ does not imply the Lorentz invariance of the forms $\xi^2 + \eta^2+\zeta^2$ and $c^2 \tau^2$.</p>
+</li>
+</ul>
+<p>In otherwords, the numerical equality between $\xi^2 + \eta^2+\zeta^2$ and $c^2\tau^2$ is always maintained, but the actual values attained by the expressions is <em>not</em> Lorentz invariant.</p>
+<p>We are repeating ourselves because this is somewhat subtle point which is easily overlooked.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Elementary-Computations-in-${\bf{R}}^{1,1}$"><em>Elementary Computations in</em> ${\bf{R}}^{1,1}$<a class="anchor-link" href="#Elementary-Computations-in-${\bf{R}}^{1,1}$"> </a></h1><p>To illustrate the above ideas, it's convenient to examine some elementary computations in two variables. Thus we consider ${\bf{R}^2}$ with $(x,t)$ and $(\xi, \tau)$ coordinates.</p>
+<p>For numerical convenience we set $c:=1$.</p>
+<p>Thus $h=x^2-t^2$ is a quadratic form on ${\bf{R}}^2$ invariant with respect to the one-dimensional Lorentz group $G=SO(1,1)_0$ generated by $$a_\theta:=\begin{pmatrix} \cosh \theta &amp; \sinh \theta \\
+\sinh \theta &amp; \cosh \theta
+\end{pmatrix}$$ for $\theta\in {\bf{R}}$.</p>
+<p>In two dimensions the null cone $$N=\{x^2-t^2=0\}$$ projectivizes to a $0$-dimensional sphere consisting of two projective points represented by the affine lines $x-t=0$ and $x+t=0$.</p>
+<p>The round $0$-dimensional sphere $\{x^2=1\}$ consists of two vectors in the null cone, namely $$\begin{pmatrix} 1 \\ 1\end{pmatrix}, ~~~\begin{pmatrix} -1 \\ 1\end{pmatrix}.$$</p>
+<p>Left translating these vectors by $a_\theta$ we find the translates $$\begin{pmatrix} \xi \\ \tau \end{pmatrix}=\begin{pmatrix} \cosh \theta+\sinh \theta \\ \cosh \theta+\sinh \theta \end{pmatrix}~~\text{and} \begin{pmatrix} -\cosh \theta+\sinh \theta \\ \cosh \theta-\sinh \theta \end{pmatrix}.$$</p>
+<p>But evidently $$\xi^2 \neq x^2=1^2=1$$ and $$\tau^2 \neq t^2=1$$ when $\theta\neq 0$. Thus the quadratic forms $h_1=x^2$ and $h_2=t^2$ <em>are not</em> $a_\theta$-invariant. Likewise we find the image of the unit sphere $x^2=1$ does not correspond to a spatial sphere in $(\xi, \tau)$ coordinates.</p>
+<p>These trivial computations have the effect of falsifying the alleged Lorentz invariance of spherical lightwaves. However the ``slope" of $\begin{pmatrix} 1 \\ 1\end{pmatrix}$ and $$a_\theta.\begin{pmatrix} 1 \\ 1\end{pmatrix}=\begin{pmatrix} \cosh \theta+\sinh \theta \\ \cosh \theta+\sinh \theta \end{pmatrix}$$ is identically equal to $c=1$ in accordance with (A2).</p>
+<p>To further illustrate earlier comments on the nonexistence of canonical parameters on $N$, consider that for any $C^1$ monotonic function 
+$$ f: {\bf{R}} \to {\bf{R}} $$ we obtain a curve $$\epsilon(t)=\epsilon_f(t)=\begin{pmatrix} f(t) \\ f(t)   \end{pmatrix}=f(t) \begin{pmatrix} 1 \\ 1 \end{pmatrix}$$ for $t\in {\bf{R}}$.</p>
+<p>Then $\epsilon_f(t)$ is supported on a straight line in $N$, and the "photon" $\epsilon_f$ can be said <em>to propagate in a straight line with constant speed</em> $c=1$.</p>
+<p>It might be said that $\epsilon_f$ is <em>not uniform</em> in the parameter $t$, but we argue that there exists no <em>Lorentz invariant</em> definition of "uniform parameter" on the null cone.</p>
+<p>This is related to our discussion in Part 1 on Levi-Civita's attempt to derive a geodesic equation for light propagation, i.e. the hypothesis that light travels with zero acceleration. We reasoned that this is an arbitrary additional hypothesis, and not a consequence of the formal assumptions (A12).</p>
+<p>In the remaining Parts 3/4 and 4/4 of this article, we consider the homogeneous wave equations and Lorentz transformations. As we have previously indicated, we find (A12) incompatible with <em>both</em> the wave and particle models of light.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="jhmartel/fp"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/fp/2023/02/17/SR_Part2.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/fp/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="https://jhmartel.github.io/fp/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/fp/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Optimal Transport, Topology of Singularities, Physics.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
