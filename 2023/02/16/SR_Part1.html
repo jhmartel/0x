@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Foundations of Special Relativity and Light Propagation in Vacuum. A Critical Review (1/4). | JHM Lab.</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Foundations of Special Relativity and Light Propagation in Vacuum. A Critical Review (1/4)." />
+<meta name="author" content="JHM" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="We are beginning to publish our essay on Special Relativity (SR). The essay is a critical review of the foundations of SR. We present the paper in several parts. In this first part, we simply address the basic assumptions of SR, Lorentz transformations, and the null cone." />
+<meta property="og:description" content="We are beginning to publish our essay on Special Relativity (SR). The essay is a critical review of the foundations of SR. We present the paper in several parts. In this first part, we simply address the basic assumptions of SR, Lorentz transformations, and the null cone." />
+<link rel="canonical" href="https://jhmartel.github.io/fp/2023/02/16/SR_Part1.html" />
+<meta property="og:url" content="https://jhmartel.github.io/fp/2023/02/16/SR_Part1.html" />
+<meta property="og:site_name" content="JHM Lab." />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-02-16T00:00:00-06:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Foundations of Special Relativity and Light Propagation in Vacuum. A Critical Review (1/4)." />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"JHM"},"dateModified":"2023-02-16T00:00:00-06:00","datePublished":"2023-02-16T00:00:00-06:00","description":"We are beginning to publish our essay on Special Relativity (SR). The essay is a critical review of the foundations of SR. We present the paper in several parts. In this first part, we simply address the basic assumptions of SR, Lorentz transformations, and the null cone.","headline":"Foundations of Special Relativity and Light Propagation in Vacuum. A Critical Review (1/4).","mainEntityOfPage":{"@type":"WebPage","@id":"https://jhmartel.github.io/fp/2023/02/16/SR_Part1.html"},"url":"https://jhmartel.github.io/fp/2023/02/16/SR_Part1.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/fp/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://jhmartel.github.io/fp/feed.xml" title="JHM Lab." /><link rel="shortcut icon" type="image/x-icon" href="/fp/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/fp/">JHM Lab.</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/fp/about/">About Me</a><a class="page-link" href="/fp/search/">Search</a><a class="page-link" href="/fp/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Foundations of Special Relativity and Light Propagation in Vacuum. A Critical Review (1/4).</h1><p class="page-description">We are beginning to publish our essay on Special Relativity (SR). The essay is a critical review of the foundations of SR. We present the paper in several parts. In this first part, we simply address the basic assumptions of SR, Lorentz transformations, and the null cone.  </p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2023-02-16T00:00:00-06:00" itemprop="datePublished">
+        Feb 16, 2023
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">JHM</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      7 min read
+    
+</span></p>
+
+    
+
+    
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2023-02-16-SR_Part1.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a href="https://colab.research.google.com/github/jhmartel/fp/blob/master/_notebooks/2023-02-16-SR_Part1.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" /></a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Assumptions-of-SR"><em>Assumptions of SR</em><a class="anchor-link" href="#Assumptions-of-SR"> </a></h1><p>We begin with Einstein's introduction to his theory of Special Relativity (SR):</p>
+<p><em>"There is hardly a simpler law in physics than that according to which light is propagated in empty space. Every child at school knows, or believes he knows, that this propagation takes place in straight lines with velocity $c=300,000 ~km/sec$. Who would imagine that this simple law has plunged the conscientiously thoughtful physicist into the greatest intellectual difficulties?"</em></p>
+<p>The elaboration of these intellectual difficulties arising from this seemingly "simple law" is the subject of our discussion today.</p>
+<p>What are these difficulties? Namely to reconcile the following axiomatic assumptions of SR:</p>
+<ul>
+<li><p>(A1) that the laws of physics are the same in all nonaccelerated reference frames, i.e. if $K'$ is a coordinate system moving uniformly (and devoid of rotation) with respect to a coordinate system $K$, then natural phenomena run their course with respect to $K'$ according to exactly the same laws as with respect to $K$.</p>
+</li>
+<li><p>(A2) that light in vacuum propagates along straight lines with constant velocity $c\approx 300,000 ~km/sec$.</p>
+</li>
+</ul>
+<h1 id="Apparent-Difficulties-in-(A12)"><em>Apparent Difficulties in (A12)</em><a class="anchor-link" href="#Apparent-Difficulties-in-(A12)"> </a></h1><p>The difficulties arise from the conjunction (A1) and (A2), which we denote by (A12). 
+
+$$(A12):=(A1) \wedge (A2).$$
+</p>
+<p>If Assumption (A2) is indeed a Law of nature, then according to (A1) this law of propagation should be invariant in every inertial reference frame. But (A12) appears contradictory to the principles of classical mechanics, e.g. Fizeau law of addition of velocities.</p>
+<p>Einstein alleges that these difficulties are only <em>apparent incompatibilities</em>, all of which are reconciled by postulating Lorentz-Fitzgerald formulae for length contractions and time dilations.</p>
+<p>The assertion that the Lorentz formulae reconcile these difficulties contains two claims:</p>
+<ul>
+<li><p>(i) that inertial frames $K, K'$ are related by Lorentz transformations.</p>
+</li>
+<li><p>(ii) that the law of propagation of light (A2) is <em>Lorentz invariant.</em> I.e. if $(A2)$ is satisfied in $K$, then $(A2)$ is satisfied in every Lorentz translate $K'=\lambda.K$.</p>
+</li>
+</ul>
+<p>We critically examine these claims below. In what follows we will address both <em>wave</em> and <em>particle</em> models of light. Ultimately we argue that (A12) is incompatible with <em>both</em> models, i.e. incompatible with Bohr's complementarity principle.</p>
+<h1 id="Lorentz-Transformations"><em>Lorentz Transformations</em><a class="anchor-link" href="#Lorentz-Transformations"> </a></h1><p>The linear algebra of Minkowski space and Lorentz transformations plays a definitive role in SR.</p>
+<p>Lorentz transformations in the setting of SR can be defined as the group of linear transformations $\lambda: {\bf{R}}^{4} \to {\bf{R}}^4$ which satisfy $\lambda^*(h)=h$ where $h=ds^2$ is the Minkowski-Lorentz quadratic form $$h:=ds^2=-c^2dt^2+dx^2+dy^2+dz^2.$$
+Here $c$ is the constant luminal velocity in vacuum posited by (A2).</p>
+<p>The Lorentz invariance of $h$ says $$\xi^2+\eta^2+\zeta^2-c^2 \tau^2$$ is numerically equal to $$x^2+y^2+z^2-c^2 t^2$$ for every Lorentz transform $\lambda$ satisfying $$(\xi, \eta, \zeta, \tau)=\lambda.(x,y,z,t).$$ Thus it is assumed that $h$ is a scalar invariant for all inertial observers.</p>
+<p>The group of Lorentz transformations was hypothesized as an attempt to explain the observed null result of Michelson-Morley's interferometer experiment. The experiment was intended to measure variations of the speed of light relative to the <em>aether</em>. No such variations were discovered, and it was <em>postulated</em> that the usual space and time coordinates $(x,y,z,t)$ and $(\xi, \eta, \zeta, \tau)$ of two inertial observers $K$ and $K'$, respectively, were not related by Galilean transformations, but related by the Lorentz-Fitzgerald formulae. Incredibly and contrary to all expectations, the material arm of the interferometer contracted in the direction of motion and simultaneously the time parameter was contracted by the same ratio, namely the so-called beta factor $\beta = 1/\sqrt{1-v^2/c^2}$.</p>
+<h1 id="Uniqueness-of-Lorentz-Invariant-Quadratic-Forms"><em>Uniqueness of Lorentz Invariant Quadratic Forms</em><a class="anchor-link" href="#Uniqueness-of-Lorentz-Invariant-Quadratic-Forms"> </a></h1><p>It's interesting result of Elton and Arminjon [insert ref] that Minkowski's form $h$ is the <em>only</em> Lorentz invariant quadratic form on ${\bf{R}}^4$ modulo homothety. This has useful consequence for the homogeneous wave equation, as we discuss below.</p>
+<h1 id="Minkowski-Space-and-Null-Cone"><em>Minkowski Space and Null Cone</em><a class="anchor-link" href="#Minkowski-Space-and-Null-Cone"> </a></h1><p>Now we say something about the photon model of light as treated in Levi-Civita's book [III.XI.6, pp.301]. If light satisfies (A2), then in a reference frame $K$, light is <em>something</em> $$\gamma(t)=(x(t),y(t),z(t))$$ that travels through space with time, and whose velocity $\gamma'$ <em>if it could be materially measured as a function of $t$</em> would satisfy</p>
+<ul>
+<li>[Eq1] $$||\gamma'||^2=(dx/dt)^2+(dy/dt)^2+(dz/dt)^2=c^2.$$</li>
+</ul>
+<p>Thus it is argued that light trajectories are constrained to the null cone $$N:=\{h=0\} \subset {\bf{R}}^4$$ of Minkowski's metric $h$. Obviously the null cone $N$ is Lorentz invariant subspace, and defined by the equation $$x^2+y^2+z^2=c^2 t^2$$ in any reference frame $K$ with coordinates $(x,y,z,t)$.</p>
+<h1 id="What-does-[Eq1]-say-about-the-Propagation-of-Light?"><em>What does [Eq1] say about the Propagation of Light?</em><a class="anchor-link" href="#What-does-[Eq1]-say-about-the-Propagation-of-Light?"> </a></h1><p>Again if light is <em>something</em> $\gamma$ that travels, then [Eq1] implies the <em>speed</em> of $\gamma$ is identically equal to $c$ as measured in $K$.</p>
+<p>But the <em>speed</em> of $\gamma$ is independant of the direction of motion of $\gamma$ constrained to $N$.</p>
+<p>Einstein's assumption (A2) attempts to prescribe the velocity by assuming the propagation is along straight lines with constant speed. But again the <em>velocity</em> is still underdetermined, since the direction of the particle is not determined by it's belonging to a straight line.</p>
+<p>We are proposing that the direction and magnitude are not determined uniquely by (A2). Moreover the Lorentz transformations do <em>not</em> satisfy Claim (ii), i.e. (A2) is <em>not</em> Lorentz <em>invariant</em>.</p>
+<p>The problem is that the schoolboy's image of the propagation of light in vacuum is a Riemannian perspective. But this Riemannian perspective is not Lorentz invariant.  Indeed in Riemannian geometry, if a particle is travelling in a straight line and with constant velocity, then the propagation of the particle, namely it's position as a function of time, \emph{is} uniquely determined. However, in Lorentzian geometry, a particle which is travelling in a straight line along the null cone will always have a constant speed, regardless of its trajectory. Supposing that the trajectory is confined to a straight line, there still remains the question of the position of the particle as a function of time. The problem is that the \emph{uniformity} of the straight line propagation is meaningless on the null cone of Lorentzian geometry.</p>
+<h1 id="Levi-Civita's-Variational-Equation-is-Trivial-on-the-Null-Cone"><em>Levi-Civita's Variational Equation is Trivial on the Null Cone</em><a class="anchor-link" href="#Levi-Civita's-Variational-Equation-is-Trivial-on-the-Null-Cone"> </a></h1><p>Here we introduce Levi-Civita's approach as represented in his excellent textbook. Levi-Civita modifies (A2) somewhat by asserting that "<em>the propagation of light is rectilinear, uniform, and with velocity $c$"</em>.</p>
+<p>The term  "uniform" does not feature in Einstein's formulation of (A2), although it speaks to the hidden assumption that the light rays have a canonical parameter describing the \emph{uniform} motion of the light ray. The above remarks are directly related to Levi-Civita's characterization of geometric optics in the following two equations (see [III.XI.16]):</p>
+<ul>
+<li><p>[Eq2] $$\delta \int ds=0 $$ and</p>
+</li>
+<li><p>[Eq3] $$ds^2=0.$$</p>
+</li>
+</ul>
+<p>The first equation [Eq2] says the variational derivative of the functional $\gamma \mapsto \int_\gamma ds$ vanishes on the light trajectories, and the second equation [Eq3] says the trajectory is constrained to the null cone.</p>
+<p>In the Riemannian setting where $ds$ is positive definite, the equation [Eq2] is essentially equivalent to the geodesic equation $\nabla_{\gamma'} \gamma'=0$.</p>
+<p>However in the Lorentzian setting we find \eqref{var} reduces to $0=0$ on the null cone $N$. Thus the usual Riemannian $ds&gt;0$ argument does \emph{not} establish the corresponding "geodesic" equation on $N$. This is acknowledged in Levi-Civita [III.XI.14], but Levi-Civita argues that zero length geodesics are limits of Riemannian geodesics ($ds&gt;0$) and that "there is a process of passing to the limit (in conditions of complete analytical regularity) from ordinary geodesics". Levi-Civita maintains that the variational equation [Eq2] somehow "implies" the geodesic-type equation $\nabla_{\gamma'} \gamma'=0$ for light rays.</p>
+<p>Our viewpoint is that $\nabla_{\gamma'} \gamma'=0$ is an <em>independant</em> hypothesis, and by no means a formal consequence of [Eq2]. This is related to our contention that contrary to Levi-Civita's claims, the variational equation [Eq2] on $N=\{ds=0\}$ is trivial. In Riemannian geometric terms,  we find straight lines on $N$ have <em>no</em> canonical parameterizations, even affine. This reveals a clear distinction between Riemannian straight lines which <em>do</em> have a canonical arclength parameter $ds$, and the null lines $\ell \subset N$ which do <em>not</em> admit canonical $ds$ arclength parameter <em>except the trivial $ds=0$</em>.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="jhmartel/fp"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/fp/2023/02/16/SR_Part1.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/fp/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="https://jhmartel.github.io/fp/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/fp/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Optimal Transport, Topology of Singularities, Physics.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
