@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Fundamentos de Relatividad Especial y Propagacion de la Luz en el Vacio. Una revision critica. | JHM Lab.</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Fundamentos de Relatividad Especial y Propagacion de la Luz en el Vacio. Una revision critica." />
+<meta name="author" content="JHM" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Estamos comenzando a publicar nuestro ensayo sobre la Relatividad Especial (SR). El ensayo es una revision critica de los fundamentos de la RS. Presentamos el articulo en varias partes. En esta primera parte, simplemente abordamos los supuestos basicos de la RS, Transformaciones de Lorentz, y el cono nulo." />
+<meta property="og:description" content="Estamos comenzando a publicar nuestro ensayo sobre la Relatividad Especial (SR). El ensayo es una revision critica de los fundamentos de la RS. Presentamos el articulo en varias partes. En esta primera parte, simplemente abordamos los supuestos basicos de la RS, Transformaciones de Lorentz, y el cono nulo." />
+<link rel="canonical" href="https://jhmartel.github.io/fp/2023/02/16/SR_Part1_es.html" />
+<meta property="og:url" content="https://jhmartel.github.io/fp/2023/02/16/SR_Part1_es.html" />
+<meta property="og:site_name" content="JHM Lab." />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-02-16T00:00:00-06:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Fundamentos de Relatividad Especial y Propagacion de la Luz en el Vacio. Una revision critica." />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"JHM"},"dateModified":"2023-02-16T00:00:00-06:00","datePublished":"2023-02-16T00:00:00-06:00","description":"Estamos comenzando a publicar nuestro ensayo sobre la Relatividad Especial (SR). El ensayo es una revision critica de los fundamentos de la RS. Presentamos el articulo en varias partes. En esta primera parte, simplemente abordamos los supuestos basicos de la RS, Transformaciones de Lorentz, y el cono nulo.","headline":"Fundamentos de Relatividad Especial y Propagacion de la Luz en el Vacio. Una revision critica.","mainEntityOfPage":{"@type":"WebPage","@id":"https://jhmartel.github.io/fp/2023/02/16/SR_Part1_es.html"},"url":"https://jhmartel.github.io/fp/2023/02/16/SR_Part1_es.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/fp/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://jhmartel.github.io/fp/feed.xml" title="JHM Lab." /><link rel="shortcut icon" type="image/x-icon" href="/fp/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/fp/">JHM Lab.</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/fp/about/">About Me</a><a class="page-link" href="/fp/search/">Search</a><a class="page-link" href="/fp/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Fundamentos de Relatividad Especial y Propagacion de la Luz en el Vacio. Una revision critica.</h1><p class="page-description">Estamos comenzando a publicar nuestro ensayo sobre la Relatividad Especial (SR). El ensayo es una revision critica de los fundamentos de la RS. Presentamos el articulo en varias partes. En esta primera parte, simplemente abordamos los supuestos basicos de la RS, Transformaciones de Lorentz, y el cono nulo.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2023-02-16T00:00:00-06:00" itemprop="datePublished">
+        Feb 16, 2023
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">JHM</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      8 min read
+    
+</span></p>
+
+    
+
+    
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2023-02-16-SR_Part1_es.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a href="https://colab.research.google.com/github/jhmartel/fp/blob/master/_notebooks/2023-02-16-SR_Part1_es.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" /></a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Supuestos-de-SR"><em>Supuestos de SR</em><a class="anchor-link" href="#Supuestos-de-SR"> </a></h1><p>Comenzamos con la introducción de Einstein a su teoría de la Relatividad Especial (SR):</p>
+<p><em>"Difícilmente existe una ley más simple en física que aquella según la cual la luz se propaga en el espacio vacío. Todo niño en la escuela sabe, o cree saber, que esta propagación tiene lugar en línea recta con velocidad $c=300.000$ km/sec. ¿Quién podría imaginar que esta simple ley ha hundido al físico concienzudamente reflexivo en las mayores dificultades intelectuales?</em></p>
+<p>La elaboración de estas dificultades intelectuales que surgen de esta aparentemente "ley simple" es el tema de nuestra discusión hoy.</p>
+<p>¿Cuáles son estas dificultades? Es decir, reconciliar los siguientes supuestos axiomáticos de la SR:</p>
+<ul>
+<li><p>(A1) que las leyes de la física son las mismas en todos los marcos de referencia no acelerados, es decir, si $K'$ es un sistema de coordenadas que se mueve uniformemente (y sin rotación) con respecto a un sistema de coordenadas $K$, entonces los fenómenos naturales se ejecutan su curso con respecto a $K'$ según exactamente las mismas leyes que con respecto a $K$.</p>
+</li>
+<li><p>(A2) que la luz en el vacío se propaga a lo largo de líneas rectas con velocidad constante $c\approx 300.000 ~km/sec$.</p>
+</li>
+</ul>
+<h1 id="Dificultades-Aparentes-en-(A12)"><em>Dificultades Aparentes en (A12)</em><a class="anchor-link" href="#Dificultades-Aparentes-en-(A12)"> </a></h1><p>Las dificultades surgen de la conjunción (A1) y (A2), que denotamos por (A12).
+
+$$(A12):=(A1) \wedge (A2).$$
+</p>
+<p>Si la Suposición (A2) es de hecho una Ley de la naturaleza, entonces de acuerdo con (A1) esta ley de propagación debería ser invariable en cada marco de referencia inercial. Pero (A12) parece contradictorio con los principios de la mecánica clásica, p. Ley de Fizeau de la suma de velocidades.</p>
+<p>Einstein alega que estas dificultades son sólo <em>incompatibilidades aparentes</em>, todas las cuales se reconcilian al postular fórmulas de Lorentz-Fitzgerald para contracciones de longitud y dilataciones de tiempo.</p>
+<p>La afirmación de que las fórmulas de Lorentz reconcilian estas dificultades contiene dos afirmaciones:</p>
+<ul>
+<li><p>(i) que los marcos inerciales $K, K'$ están relacionados por transformaciones de Lorentz.</p>
+</li>
+<li><p>(ii) que la ley de propagación de la luz (A2) es _invariante de Lorentz.<em>I.e. si $(A2)$ se cumple en $K$, entonces $(A2)$ se cumple en cada traducción de Lorentz $K'=\lambda.K$.</em></p>
+</li>
+</ul>
+<p>Examinamos críticamente estas afirmaciones a continuación. En lo que sigue, abordaremos los modelos de luz tanto de <em>onda</em> como de <em>partícula</em>. En última instancia, argumentamos que (A12) es incompatible con <em>ambos</em> modelos, es decir, incompatible con el principio de complementariedad de Bohr.</p>
+<h1 id="Transformaciones-de-Lorentz"><em>Transformaciones de Lorentz</em><a class="anchor-link" href="#Transformaciones-de-Lorentz"> </a></h1><p>El álgebra lineal del espacio de Minkowski y las transformaciones de Lorentz juegan un papel definitivo en SR.</p>
+<p>Las transformaciones de Lorentz en el contexto de SR se pueden definir como el grupo de transformaciones lineales $\lambda: {\bf{R}}^{4} \to {\bf{R}}^4$ que satisfacen $\lambda^* (h)=h$ donde $h=ds^2$ es la forma cuadrática de Minkowski-Lorentz $$h:=ds^2=-c^2dt^2+dx^2+dy^2+dz^2.$ ps
+Aquí $c$ es la velocidad luminal constante en el vacío postulada por (A2).</p>
+<p>La invariancia de Lorentz de $h$ dice que $$\xi^2+\eta^2+\zeta^2-c^2 \tau^2$$ es numéricamente igual a $$x^2+y^2+z^ 2-c^2 t^2$$ para cada transformada de Lorentz $\lambda$ que satisface $$(\xi, \eta, \zeta, \tau)=\lambda.(x,y,z,t).$$ Por tanto, se supone que $h$ es un invariante escalar para todos los observadores inerciales.</p>
+<p>Se planteó la hipótesis del grupo de transformaciones de Lorentz como un intento de explicar el resultado nulo observado del experimento del interferómetro de Michelson-Morley. El experimento estaba destinado a medir las variaciones de la velocidad de la luz en relación con el <em>éter</em>. No se descubrieron tales variaciones, y se <em>postuló</em> que las coordenadas habituales de espacio y tiempo $(x,y,z,t)$ y $(\xi, \eta, \zeta, \tau)$ de dos observadores inerciales $K $ y $K'$, respectivamente, no estaban relacionados por transformaciones de Galileo, sino por las fórmulas de Lorentz-Fitzgerald. Increíblemente y contrariamente a todas las expectativas, el brazo material del interferómetro se contrajo en la dirección del movimiento y simultáneamente el parámetro de tiempo se contrajo en la misma proporción, a saber, el llamado factor beta $\beta = 1/\sqrt{1-v ^2/c^2}$.</p>
+<h1 id="Unicidad-de-las-formas-cuadr&#225;ticas-invariantes-de-Lorentz"><em>Unicidad de las formas cuadr&#225;ticas invariantes de Lorentz</em><a class="anchor-link" href="#Unicidad-de-las-formas-cuadr&#225;ticas-invariantes-de-Lorentz"> </a></h1><p>Es un resultado interesante de Elton y Arminjon [insertar referencia] que la forma de Minkowski $h$ es la <em>única</em> forma cuadrática invariante de Lorentz en ${\bf{R}}^4$ módulo de homotecia. Esto tiene una consecuencia útil para la ecuación de onda homogénea, como veremos más adelante.</p>
+<h1 id="Espacio-Minkowski-y-Cono-Nulo"><em>Espacio Minkowski y Cono Nulo</em><a class="anchor-link" href="#Espacio-Minkowski-y-Cono-Nulo"> </a></h1><p>Ahora decimos algo sobre el modelo fotónico de luz como se trata en el libro [III.XI.6, pp.301]. If light satisfies (A2) de Levi-Civita, luego en un marco de referencia $K$, la luz es <em>algo</em> $$\gamma(t)=(x(t),y(t), z(t))$$ que viaja a través del espacio con el tiempo, y cuya velocidad $\gamma'$ <em>si pudiera medirse materialmente como una función de $t$</em> satisfaría</p>
+<ul>
+<li>[Eq1] $$||\gamma'||^2=(dx/dt)^2+(dy/dt)^2+(dz/dt)^2=c^2.$$</li>
+</ul>
+<p>Por lo tanto, se argumenta que las trayectorias de la luz están restringidas al cono nulo $$N:=\{h=0\} \subset {\bf{R}}^4$$ de la métrica $h$ de Minkowski. Obviamente, el cono nulo $N$ es el subespacio invariante de Lorentz, y está definido por la ecuación $$x^2+y^2+z^2=c^2 t^2$$ en cualquier marco de referencia $K$ con coordenadas $( x,y,z,t)$.</p>
+<h1 id="&#191;Qu&#233;-dice-[Eq1]-sobre-la-Propagaci&#243;n-de-la-Luz?"><em>&#191;Qu&#233; dice [Eq1] sobre la Propagaci&#243;n de la Luz?</em><a class="anchor-link" href="#&#191;Qu&#233;-dice-[Eq1]-sobre-la-Propagaci&#243;n-de-la-Luz?"> </a></h1><p>Nuevamente, si la luz es <em>algo</em> $\gamma$ que viaja, entonces [Eq1] implica que la <em>velocidad</em> de $\gamma$ es idénticamente igual a $c$ medida en $K$.</p>
+<p>Pero la velocidad de $\gamma$ es independiente de la dirección de movimiento de $\gamma$ restringida a $N$.</p>
+<p>La suposición de Einstein (A2) intenta prescribir la velocidad asumiendo que la propagación es a lo largo de líneas rectas con velocidad constante. Pero, de nuevo, la <em>velocidad</em> todavía está indeterminada, ya que la dirección de la partícula no está determinada por su pertenencia a una línea recta.</p>
+<p>Proponemos que la dirección y la magnitud no están determinadas únicamente por (A2). Además, las transformaciones de Lorentz <em>no</em> satisfacen la afirmación (ii), es decir, (A2) <em>no</em> es <em>invariante</em> de Lorentz.</p>
+<p>El problema es que la imagen del colegial de la propagación de la luz en el vacío es una perspectiva riemanniana. Pero esta perspectiva riemanniana no es invariante de Lorentz. De hecho, en la geometría de Riemann, si una partícula viaja en línea recta y con velocidad constante, entonces la propagación de la partícula, es decir, su posición en función del tiempo, <em>está</em> determinada de forma única. Sin embargo, en la geometría lorentziana, una partícula que viaja en línea recta a lo largo del cono nulo siempre tendrá una velocidad constante, independientemente de su trayectoria. Suponiendo que la trayectoria se limita a una línea recta, aún queda la cuestión de la posición de la partícula en función del tiempo. El problema es que la <em>uniformidad</em> de la propagación en línea recta no tiene sentido en el cono nulo de la geometría lorentziana.</p>
+<h1 id="La-Ecuaci&#243;n-Variacional-de-Levi-Civita-es-Trivial-en-el-Cono-Nulo"><em>La Ecuaci&#243;n Variacional de Levi-Civita es Trivial en el Cono Nulo</em><a class="anchor-link" href="#La-Ecuaci&#243;n-Variacional-de-Levi-Civita-es-Trivial-en-el-Cono-Nulo"> </a></h1><p>Aquí presentamos el enfoque de Levi-Civita como se representa en su excelente libro de texto. Levi-Civita modifica algo (A2) afirmando que "<em>la propagación de la luz es rectilínea, uniforme y con velocidad $c$"</em>.</p>
+<p>El término "uniforme" no aparece en la formulación de Einstein de (A2), aunque habla de la suposición oculta de que los rayos de luz tienen un parámetro canónico que describe el movimiento uniforme del rayo de luz. Los comentarios anteriores están directamente relacionados con la caracterización de la óptica geométrica de Levi-Civita en las siguientes dos ecuaciones (ver [III.XI.16]):</p>
+<ul>
+<li><p>[Eq2] $$\delta \int ds=0 $$ y</p>
+</li>
+<li><p>[Eq3] $$ds^2=0.$$</p>
+</li>
+</ul>
+<p>La primera ecuación [Eq2] dice que la derivada variacional del funcional $\gamma \mapsto \int_\gamma ds$ desaparece en las trayectorias de la luz, y la segunda ecuación [Eq3] dice que la trayectoria está restringida al cono nulo.</p>
+<p>En el entorno de Riemann donde $ds$ es definida positiva, la ecuación [Eq2] es esencialmente equivalente a la ecuación geodésica $\nabla_{\gamma'} \gamma'=0$.</p>
+<p>Sin embargo en el escenario lorentziano encontramos [Eq2]reduces to $0=0$ on the null cone $N$. Thus the usual Riemannian $ds&gt;0$ argument does \emph{not} establish the corresponding "geodesic" equation on $N$. This is acknowledged in Levi-Civita [III.XI.14], but Levi-Civita argues that zero length geodesics are limits of Riemannian geodesics ($ds&gt;0$) y que "hay un proceso de paso al límite (en condiciones de completa regularidad analítica) desde las geodésicas ordinarias". Levi-Civita sostiene que la ecuación variacional [Eq2] de alguna manera "implica" la ecuación de tipo geodésico $\nabla_{\gamma'} \gamma'=0$ para los rayos de luz.</p>
+<p>Nuestro punto de vista es que $\nabla_{\gamma'} \gamma'=0$ es una hipótesis <em>independiente</em>, y de ninguna manera una consecuencia formal de [Eq2]. Esto está relacionado con nuestra afirmación de que, contrariamente a las afirmaciones de Levi-Civita, la ecuación variacional [Eq2] en $N=\{ds=0\}$ es trivial. En términos geométricos riemannianos, encontramos líneas rectas en $N$ que no tienen parametrizaciones canónicas, ni siquiera afines. Esto revela una clara distinción entre las rectas riemannianas que <em>sí</em> tienen un parámetro canónico de longitud de arco $ds$, y las líneas nulas $\ell \subset N$ que <em>no</em> admiten el parámetro canónico $ds$ de longitud de arco <em>excepto el trivial $ds=0$</em> .</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="jhmartel/fp"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/fp/2023/02/16/SR_Part1_es.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/fp/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="https://jhmartel.github.io/fp/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/fp/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Optimal Transport, Topology of Singularities, Physics.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
