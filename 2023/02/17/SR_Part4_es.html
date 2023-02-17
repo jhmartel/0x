@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Fundamentos de Relatividad Especial y Propagación de la Luz en el Vacío. Una revisión crítica (4/4). | JHM Lab.</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Fundamentos de Relatividad Especial y Propagación de la Luz en el Vacío. Una revisión crítica (4/4)." />
+<meta name="author" content="JHM" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="En la Parte 4/4 de nuestra revisión crítica de la RS, revisamos las proposiciones principales de las tres partes anteriores y consideramos más a fondo algunas objeciones y respuestas a nuestros argumentos." />
+<meta property="og:description" content="En la Parte 4/4 de nuestra revisión crítica de la RS, revisamos las proposiciones principales de las tres partes anteriores y consideramos más a fondo algunas objeciones y respuestas a nuestros argumentos." />
+<link rel="canonical" href="https://jhmartel.github.io/fp/2023/02/17/SR_Part4_es.html" />
+<meta property="og:url" content="https://jhmartel.github.io/fp/2023/02/17/SR_Part4_es.html" />
+<meta property="og:site_name" content="JHM Lab." />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-02-17T00:00:00-06:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Fundamentos de Relatividad Especial y Propagación de la Luz en el Vacío. Una revisión crítica (4/4)." />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"JHM"},"dateModified":"2023-02-17T00:00:00-06:00","datePublished":"2023-02-17T00:00:00-06:00","description":"En la Parte 4/4 de nuestra revisión crítica de la RS, revisamos las proposiciones principales de las tres partes anteriores y consideramos más a fondo algunas objeciones y respuestas a nuestros argumentos.","headline":"Fundamentos de Relatividad Especial y Propagación de la Luz en el Vacío. Una revisión crítica (4/4).","mainEntityOfPage":{"@type":"WebPage","@id":"https://jhmartel.github.io/fp/2023/02/17/SR_Part4_es.html"},"url":"https://jhmartel.github.io/fp/2023/02/17/SR_Part4_es.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/fp/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://jhmartel.github.io/fp/feed.xml" title="JHM Lab." /><link rel="shortcut icon" type="image/x-icon" href="/fp/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/fp/">JHM Lab.</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/fp/about/">About Me</a><a class="page-link" href="/fp/search/">Search</a><a class="page-link" href="/fp/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Fundamentos de Relatividad Especial y Propagación de la Luz en el Vacío. Una revisión crítica (4/4).</h1><p class="page-description">En la Parte 4/4 de nuestra revisión crítica de la RS, revisamos las proposiciones principales de las tres partes anteriores y consideramos más a fondo algunas objeciones y respuestas a nuestros argumentos.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2023-02-17T00:00:00-06:00" itemprop="datePublished">
+        Feb 17, 2023
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">JHM</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      5 min read
+    
+</span></p>
+
+    
+
+    
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2023-02-17-SR_Part4_es.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a href="https://colab.research.google.com/github/jhmartel/fp/blob/master/_notebooks/2023-02-17-SR_Part4_es.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" /></a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>En las Partes 1, 2 y 3 de esta serie, presentamos nuestra revisión matemática crítica de los fundamentos de la RS.</p>
+<ul>
+<li>Parte 1:</li>
+<li>Dificultades e Incompatibilidades Aparentes en los supuestos (A12) de la RS.</li>
+<li>Einstein propone fórmulas de Lorentz en un intento de resolver estas incompatibilidades, requiriendo dos afirmaciones.</li>
+<li>Encontramos que la ley de propagación de partículas de fotones está <em>subdeterminada</em> por (A12) contrariamente a la intuición de Riemann.</li>
+<li>La ecuación variacional geodésica es trivial en el cono nulo.</li>
+<li><p>Por lo tanto, mientras que la velocidad de la luz es $c$, la velocidad de la luz está completamente libre en el cono nulo.</p>
+</li>
+<li><p>Parte 2:</p>
+</li>
+<li>Examinamos la prueba de Einstein de la compatibilidad de (A12) y su apelación a las ondas de luz esféricas.</li>
+<li>Pretendemos identificar dos errores críticos en el argumento clásico de Einstein: la identificación errónea de la ecuación de una esfera y la suposición errónea de que los sumandos cuadráticos son numéricamente invariantes de Lorentz.</li>
+<li><p>Ilustramos con cálculos triviales en ${\bf{R}}^{1,1}$ y los grandes grados de libertad de un fotón incluso restringido a una línea con respecto a las transformaciones de Lorentz.</p>
+</li>
+<li><p>Parte 3:</p>
+</li>
+<li>Examinamos la ecuación de onda homogénea (EOH) y sus propiedades bajo transformaciones de Lorentz.</li>
+<li>El operador de cuadrado d'Alembert es esencialmente el único operador lineal invariante de segundo orden de Lorentz.</li>
+<li>El radio no es una variable invariante de Lorentz.</li>
+<li>No existe un conjunto invariante de Lorentz de las llamadas "soluciones radiales" para EOH.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Como hemos discutido en Partes anteriores, nuestras objeciones se aplican simultáneamente a los modelos de ondas y partículas de la luz. Estas objeciones se desarrollarán a continuación.</p>
+<h1 id="Objeciones-y-Respuestas"><em>Objeciones y Respuestas</em><a class="anchor-link" href="#Objeciones-y-Respuestas"> </a></h1><p>Dada la naturaleza crítica de esta serie, aquí respondemos a algunas posibles objeciones.</p>
+<h2 id="1.">1.<a class="anchor-link" href="#1."> </a></h2><p>Se podría objetar que todos nuestros argumentos se reducen a la observación de que las esferas en el marco $K$ se transforman en elipsoides en $K'$ como es bien sabido.</p>
+<p>Pero recordamos al lector que se supone que la contracción de Lorentz afecta a los objetos <em>materiales</em>, incluso independientemente de la naturaleza del material. Entonces, las esferas materiales en $K$ se convierten en elipsoides materiales en $K'$, donde la excentricidad del elipsoide $K'$ no es trivial e independiente de la naturaleza material de la esfera. Sin embargo, respondemos que las esferas de luz son <em>inmateriales</em> y no están sujetas a la contracción de Lorentz. Y, de hecho, si las esferas de luz estuvieran sujetas a los mismos efectos de contracción que las esferas materiales, entonces (A2) definitivamente sería falso.</p>
+<h2 id="2.">2.<a class="anchor-link" href="#2."> </a></h2><p>Los críticos pueden objetar que (A12) solo requiere la <em>medición</em> consistente de $c$ en marcos de referencia arbitrarios $K, K'$. Esto reemplazaría la ley (A2) con alguna regla empírica para las mediciones.</p>
+<p>Pero esto lleva inmediatamente a una conocida dificultad experimental en el núcleo de la relatividad especial, a saber, la imposibilidad de medir la velocidad de la luz en un solo sentido. De hecho, las mediciones de espacio y tiempo siempre dependen de objetos materiales y, a menudo, no locales, con fuentes y receptores separados por grandes distancias. La imposibilidad de sincronizar relojes no locales conduce a la imposibilidad de medir la velocidad de la luz en un solo sentido. En [Zhang 1997] y [Perez 2011] se analiza que todas las mediciones de $c$ solo logran medir las velocidades de luz de <em>ida y vuelta</em> o de "ida y vuelta" donde la fuente y el receptor coinciden. Vea también el video de Veritasium "Por qué no se puede medir la velocidad de la luz".</p>
+<p>Además, al estudiar la velocidad bidireccional de la luz, es necesario postular además que la velocidad $c$ es constante (uniforme) a lo largo de su viaje bidireccional, como argumentó Einstein. Pero esta suposición es ciertamente arbitraria e inverificable.</p>
+<h2 id="3.">3.<a class="anchor-link" href="#3."> </a></h2><p>El muy interesante libro de texto de Wolfgang Rindler intenta "<em>a pesar de su importancia histórica y heurística</em>, [...] <em>to de-emphasize the logical role of the law of light propagation [(A2)] como un pilar de la relatividad especial.</em>"</p>
+<p>Rindler afirma que "<em>un segundo axioma [(A2)] solo se necesita [!] para determinar el valor de una constante $c$ de las dimensiones de una velocidad que ocurre naturalmente en la teoría. Pero esto podría provenir de cualquier número de ramas de la física</em> - - <em>sólo necesitamos pensar en la fórmula de la energía</em> $E=mc^2$, <em>o la relación de velocidad de de Broglie</em> $u v =c^2$."</p>
+<p>La objeción de Rindler es interesante, y nuestra respuesta es simplemente que las fórmulas citadas anteriormente son <em>equivalentes</em> a (A2), y no independientes en ningún sentido lógico o físico.</p>
+<h2 id="4.">4.<a class="anchor-link" href="#4."> </a></h2><p>Una cuarta objeción podría criticar nuestro argumento por no dar cuenta adecuadamente de la llamada dualidad de onda-partícula de la luz, p. Complementariedad de Bohr.</p>
+<p>Nuestra presentación ha abordado los modelos corpuscular y ondulatorio, mostrando que (A12) está indeterminado en ambos casos. La incompatibilidad de (A12) con el modelo de ondas y partículas ha sido destacada por A.K.T. Assis [Sección 7.2.4, pp.133] de su "Mecánica relacional":</p>
+<ul>
+<li>"<em>solo podemos concluir que para Einstein la velocidad de la luz es constante no solo cualquiera que sea el estado de movimiento del cuerpo emisor [source], but also whatever the state of motion of the receiving body (detector) y del observador."</em></li>
+</ul>
+<p>Para las ondas en un medio físico, la velocidad de emisión es independiente de la velocidad de la fuente, ya que las ondas son transmitidas por el medio y sus velocidades son una propiedad del medio. Además, tanto para las partículas como para las ondas, se sabe que la velocidad depende de la velocidad del receptor.</p>
+<p>De acuerdo con (A2), se postula que la luz exhibe propiedades diferentes tanto a las ondas como a las partículas. Por lo tanto, argumentamos que (A2) contradice la supuesta complementariedad y la dualidad onda-partícula, es decir, (A2) requiere que la luz se comporte de manera contraria a las interpretaciones tanto de onda como de partícula.</p>
+<h2 id="5.">5.<a class="anchor-link" href="#5."> </a></h2><p>[Insertar discusión sobre GPS] Objeción común. Detalles necesarios.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Experimento-de-Sansbury-Fizeau:-&#191;Es-la-luz-incluso-algo-que-viaja?"><em>Experimento de Sansbury-Fizeau: &#191;Es la luz incluso algo que viaja?</em><a class="anchor-link" href="#Experimento-de-Sansbury-Fizeau:-&#191;Es-la-luz-incluso-algo-que-viaja?"> </a></h1><p>Hemos discutido esto en publicaciones anteriores en JHM Labs. El propósito de esta discusión es demostrar positivamente que existen alternativas más allá de la RS. Por lo tanto, criticamos duramente a SR, pero también proporcionamos un sustituto y un nuevo camino a seguir.</p>
+<p>Desde nuestra perspectiva, hay un experimento extremadamente importante de Fizeau-Sansbury que debe realizarse, y cuyos resultados pueden ser bastante impactantes para la cosmovisión física estándar.</p>
+<p>¡Manténganse al tanto!</p>
+<p>-JHM.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="jhmartel/fp"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/fp/2023/02/17/SR_Part4_es.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/fp/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="https://jhmartel.github.io/fp/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/fp/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Optimal Transport, Topology of Singularities, Physics.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
