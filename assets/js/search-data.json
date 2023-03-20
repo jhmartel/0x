@@ -3,7 +3,7 @@
     
         "post0": {
             "title": "Fastpages is Deprecated. Migrating to Quarto. Stay Tuned. We Will Look Better Than Ever.",
-            "content": ". The new target will be (https://jhmartel.github.io)[https://jhmartel.github.io]. .",
+            "content": ". The new target is [JHM Labs published by quarto](https://jhmartel.github.io]. .",
             "url": "https://jhmartel.github.io/fp/jupyter/2023/02/20/FastpagesIsDeadLongLiveQuatro.html",
             "relUrl": "/jupyter/2023/02/20/FastpagesIsDeadLongLiveQuatro.html",
             "date": " • Feb 20, 2023"
